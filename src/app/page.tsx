@@ -19,7 +19,16 @@ export default async function Home() {
       <div className="section-label">[ merch ]</div>
       <h1 className="mono text-2xl mb-2 text-text">support h4ks</h1>
       <p className="text-text-dim mb-8 mono text-sm">
-        every order pays h4ks bills. printed and shipped by Spreadshirt.
+        every order pays h4ks bills. printed and shipped by{" "}
+        <a
+          href="https://www.spreadshirt.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-accent hover:underline"
+        >
+          Spreadshirt
+        </a>
+        .
       </p>
 
       {error && (
