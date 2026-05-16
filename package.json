@@ -1,0 +1,47 @@
+{
+  "name": "h4kshop",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "register-webhooks": "node --env-file=.env scripts/register-webhooks.mjs",
+    "simulate": "node --env-file=.env scripts/simulate.mjs",
+    "tunnel-url": "node scripts/tunnel-url.mjs"
+  },
+  "dependencies": {
+    "next": "^15.0.0",
+    "nodemailer": "^8.0.7",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "stripe": "^22.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.4",
+    "@next/eslint-plugin-next": "^16.2.6",
+    "@types/node": "^22.0.0",
+    "@types/nodemailer": "^8.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitest/coverage-v8": "^4.1.6",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.39.4",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.6.0",
+    "postcss": "^8.4.49",
+    "prettier": "^3.8.3",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.0",
+    "typescript-eslint": "^8.59.3",
+    "vitest": "^4.1.6"
+  }
+}

@@ -1,0 +1,126 @@
+services:
+  shop:
+    build: .
+    ports:
+      - "${SHOP_PORT:-3000}:3000"
+    env_file:
+      - .env
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    deploy:
+      resources:
+        limits:
+          memory: 256m
+          cpus: "0.5"
+    volumes:
+      - tunnel-data:/tunnel:ro
+    depends_on:
+      tunnel-init:
+        condition: service_completed_successfully
+        required: false
+
+  # Local-dev only — forwards Stripe events to the shop service.
+  # Run with: `docker compose --profile dev up`
+  # First time: read the printed `whsec_...` from this container's logs and
+  # paste it into .env's STRIPE_WEBHOOK_SECRET, then restart the shop service.
+  # The whsec is stable across restarts on the same machine + Stripe account.
+  stripe-cli:
+    image: stripe/stripe-cli:latest
+    profiles: ["dev"]
+    environment:
+      STRIPE_API_KEY: ${STRIPE_SECRET_KEY}
+    command:
+      - listen
+      - --forward-to
+      - http://shop:3000/api/webhooks/stripe
+    depends_on:
+      - shop
+
+  # Free quick-tunnel — gives us a public https://*.trycloudflare.com URL
+  # so external services (Spreadconnect webhooks) can reach the local shop.
+  # `tunnel-init` extracts the URL from cloudflared's log and writes it to a
+  # shared volume; the shop's entrypoint reads it as SHOP_PUBLIC_URL.
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    profiles: ["dev"]
+    command: tunnel --no-autoupdate --protocol http2 --metrics 0.0.0.0:20241 --url http://shop:3000
+    ports:
+      - "127.0.0.1:20241:20241"
+
+  # Polls cloudflared's metrics endpoint for the quick-tunnel hostname and
+  # writes the full URL to /tunnel/url. The shop entrypoint reads that file.
+  tunnel-init:
+    image: alpine:3.21
+    profiles: ["dev"]
+    depends_on:
+      - tunnel
+    volumes:
+      - tunnel-data:/tunnel
+    command: >
+      sh -c '
+      apk add --no-cache curl >/dev/null 2>&1;
+      i=0;
+      while [ $$i -lt 60 ]; do
+        HOST=$$(curl -sf http://tunnel:20241/quicktunnel | sed -nE "s/.*\"hostname\":\"([^\"]+)\".*/\\1/p");
+        if [ -n "$$HOST" ]; then
+          echo "https://$$HOST" > /tunnel/url;
+          echo "tunnel ready at https://$$HOST";
+          exit 0;
+        fi;
+        i=$$((i+1));
+        sleep 1;
+      done;
+      echo "tunnel-init: timed out waiting for quick-tunnel URL" >&2;
+      exit 1
+      '
+
+  # Auto-registers Spreadconnect webhook subscriptions for the current tunnel
+  # URL. Idempotent: skips if already registered; removes stale subs whose URL
+  # no longer matches. Runs once per `up`.
+  webhook-init:
+    image: alpine:3.21
+    profiles: ["dev"]
+    depends_on:
+      tunnel-init:
+        condition: service_completed_successfully
+      shop:
+        condition: service_started
+    volumes:
+      - tunnel-data:/tunnel:ro
+    env_file:
+      - .env
+    command:
+      - sh
+      - -ec
+      - |
+        apk add --no-cache curl jq >/dev/null 2>&1
+        URL=$$(cat /tunnel/url)
+        HOOK="$$URL/api/webhooks/spreadconnect"
+        BASE=$${SPREADCONNECT_BASE_URL:-https://api.spreadconnect.app}
+        echo "[webhook-init] target: $$HOOK"
+        i=0; until curl -sf "http://shop:3000/api/articles?limit=1" >/dev/null 2>&1; do
+          [ $$i -ge 30 ] && { echo "[webhook-init] shop never came up"; exit 1; }
+          echo "[webhook-init] waiting for shop..."; sleep 2; i=$$((i+1));
+        done
+        SUBS=$$(curl -s -H "X-SPOD-ACCESS-TOKEN: $$SPREADCONNECT_TOKEN" "$$BASE/subscriptions")
+        for EV in Shipment.sent Order.cancelled Order.needs-action; do
+          KEEP=$$(echo "$$SUBS" | jq -r --arg ev "$$EV" --arg u "$$HOOK" '.[] | select(.eventType==$$ev and .url==$$u) | .id')
+          if [ -n "$$KEEP" ]; then
+            echo "[webhook-init]   $$EV already registered (id $$KEEP)"
+            continue
+          fi
+          for ID in $$(echo "$$SUBS" | jq -r --arg ev "$$EV" '.[] | select(.eventType==$$ev) | .id'); do
+            curl -s -X DELETE -H "X-SPOD-ACCESS-TOKEN: $$SPREADCONNECT_TOKEN" "$$BASE/subscriptions/$$ID" >/dev/null
+            echo "[webhook-init]   removed stale $$EV sub $$ID"
+          done
+          curl -sf -X POST "$$BASE/subscriptions" \
+            -H "X-SPOD-ACCESS-TOKEN: $$SPREADCONNECT_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d "{\"eventType\":\"$$EV\",\"url\":\"$$HOOK\",\"secret\":\"$$SPREADCONNECT_WEBHOOK_SECRET\"}" >/dev/null
+          echo "[webhook-init] + $$EV"
+        done
+        echo "[webhook-init] done"
+
+volumes:
+  tunnel-data:

@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Mirrors h4kslanding/interface/webapp/templates/base.html so shop.h4ks.com
+   feels like part of h4ks.com. */
+:root {
+  --bg: #11131c;
+  --bg-panel: #191d2a;
+  --border: #2e3550;
+  --text: #f0f4ff;
+  --text-dim: #7b8ab0;
+  --text-mid: #b0bfe0;
+  --accent: #5c9eff;
+  --accent2: #ff8c4b;
+  --tag-bg: #1d2238;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border-radius: 0 !important;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+body {
+  border-top: 2px solid var(--accent);
+  min-height: 100vh;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.mono {
+  font-family: "Courier New", monospace;
+}
+
+.section-label {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  color: var(--text-mid);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-left: 2px solid var(--accent);
+  padding: 0 0 0.25rem 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.tag {
+  display: inline-block;
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  background: var(--tag-bg);
+  color: var(--text-mid);
+  padding: 0.15rem 0.45rem;
+  letter-spacing: 0.05em;
+}
+
+.btn {
+  display: inline-block;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 0.55rem 1rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+.btn:hover {
+  background: var(--accent);
+  color: var(--bg);
+  text-decoration: none;
+}
+.btn-orange {
+  color: var(--accent2);
+  border-color: var(--accent2);
+}
+.btn-orange:hover {
+  background: var(--accent2);
+  color: var(--bg);
+}
