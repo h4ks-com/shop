@@ -1,10 +1,22 @@
 import { NextResponse } from "next/server";
 import { listArticles, customerPriceAmount } from "@/lib/spreadconnect";
 
+// Returns the parsed value, or null if the param was supplied but invalid.
+function intParam(raw: string | null, fallback: number, min: number): number | null {
+  if (raw === null) return fallback;
+  const n = Number(raw);
+  if (!Number.isSafeInteger(n) || n < min) return null;
+  return n;
+}
+
 export async function GET(req: Request) {
   const url = new URL(req.url);
-  const limit = Math.min(Number(url.searchParams.get("limit") || 50), 100);
-  const offset = Math.max(Number(url.searchParams.get("offset") || 0), 0);
+  const limitRaw = intParam(url.searchParams.get("limit"), 50, 1);
+  const offset = intParam(url.searchParams.get("offset"), 0, 0);
+  if (limitRaw === null || offset === null) {
+    return NextResponse.json({ error: "bad limit/offset" }, { status: 400 });
+  }
+  const limit = Math.min(limitRaw, 100);
   try {
     const data = await listArticles(limit, offset);
     const items = data.items.map((a) => ({
@@ -19,9 +31,7 @@ export async function GET(req: Request) {
     }));
     return NextResponse.json({ items, count: data.count });
   } catch (err) {
-    return NextResponse.json(
-      { error: err instanceof Error ? err.message : "unknown" },
-      { status: 502 },
-    );
+    console.error(`articles list upstream failed:`, err);
+    return NextResponse.json({ error: "catalog lookup failed" }, { status: 502 });
   }
 }

@@ -1,18 +1,30 @@
 import Link from "next/link";
 import Image from "next/image";
 import { listArticles, customerPriceAmount } from "@/lib/spreadconnect";
+import { PAGE_SIZE, parsePage, pageWindow } from "@/lib/pagination";
 
 export const dynamic = "force-dynamic";
 
-export default async function Home() {
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<{ p?: string | string[] }>;
+}) {
+  const sp = await searchParams;
+  const requested = parsePage(sp.p);
+
   let articles: Awaited<ReturnType<typeof listArticles>>["items"] = [];
+  let total = 0;
   let error: string | null = null;
   try {
-    const data = await listArticles(50, 0);
+    const data = await listArticles(PAGE_SIZE, (requested - 1) * PAGE_SIZE);
     articles = data.items;
+    total = data.count ?? data.items.length;
   } catch (err) {
     error = err instanceof Error ? err.message : "unknown error";
   }
+
+  const win = pageWindow({ page: requested, total });
 
   return (
     <>
@@ -78,6 +90,31 @@ export default async function Home() {
           );
         })}
       </div>
+
+      {win.totalPages > 1 && (
+        <nav className="mt-8 flex items-center justify-center gap-4 mono text-sm">
+          {win.hasPrev ? (
+            <Link
+              href={win.page - 1 === 1 ? "/" : `/?p=${win.page - 1}`}
+              className="text-accent hover:underline"
+            >
+              ← prev
+            </Link>
+          ) : (
+            <span className="text-text-dim opacity-50">← prev</span>
+          )}
+          <span className="text-text-dim">
+            page {win.page} / {win.totalPages}
+          </span>
+          {win.hasNext ? (
+            <Link href={`/?p=${win.page + 1}`} className="text-accent hover:underline">
+              next →
+            </Link>
+          ) : (
+            <span className="text-text-dim opacity-50">next →</span>
+          )}
+        </nav>
+      )}
     </>
   );
 }
