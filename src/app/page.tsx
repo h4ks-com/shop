@@ -87,9 +87,7 @@ export default async function Home({
               <div className="mono text-sm text-text mb-1">{a.title}</div>
               <div className="mono text-xs text-accent2">
                 {priceFrom !== null ? `from ${formatPrice(priceFrom, SHOP_CURRENCY)}` : ""}
-                {priceFrom !== null && (
-                  <span className="text-accent ml-2">· free shipping</span>
-                )}
+                {priceFrom !== null && <span className="text-accent ml-2">· free shipping</span>}
               </div>
             </Link>
           );
