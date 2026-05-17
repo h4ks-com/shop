@@ -99,19 +99,43 @@ export async function POST(req: Request) {
 
 type FulfillResult = { ok: true; orderId: number } | { ok: false; status: number; error: string };
 
+type MetadataItem = { sku: string; qty: number; unitCents: number };
+
+function parseItemsMetadata(raw: string | undefined | null): MetadataItem[] | null {
+  if (!raw) return null;
+  try {
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return null;
+    const out: MetadataItem[] = [];
+    for (const it of parsed) {
+      if (
+        !it ||
+        typeof it.sku !== "string" ||
+        typeof it.qty !== "number" ||
+        typeof it.unitCents !== "number"
+      )
+        return null;
+      out.push({ sku: it.sku, qty: it.qty, unitCents: it.unitCents });
+    }
+    return out;
+  } catch {
+    return null;
+  }
+}
+
 async function fulfill(
   session: Stripe.Checkout.Session,
   onOrderCreated: () => void,
 ): Promise<FulfillResult> {
-  const sku = session.metadata?.sku;
   const externalOrderReference =
     session.client_reference_id ||
     session.metadata?.external_order_reference ||
     `stripe-${session.id}`;
 
-  if (!sku) {
-    console.error("webhook: session has no sku metadata", session.id);
-    return { ok: false, status: 400, error: "missing sku" };
+  const items = parseItemsMetadata(session.metadata?.items);
+  if (!items || items.length === 0) {
+    console.error("webhook: session has no items metadata", session.id);
+    return { ok: false, status: 400, error: "missing items" };
   }
 
   // From API 2025-09-30 onward shipping moved under collected_information.
@@ -125,25 +149,17 @@ async function fulfill(
   const [firstName, ...lastParts] = (ship.name || cust.name || "Customer").split(" ");
   const lastName = lastParts.join(" ") || "—";
 
-  const lineItem = session.line_items?.data?.[0];
-  const quantity = lineItem?.quantity ?? 1;
-  const unitAmount = lineItem?.amount_subtotal
-    ? lineItem.amount_subtotal / quantity / 100
-    : (lineItem?.price?.unit_amount ?? 0) / 100;
-
   const order = await createOrder({
-    orderItems: [
-      {
-        sku,
-        quantity,
-        customerPrice: {
-          amount: unitAmount,
-          currency: SHOP_CURRENCY,
-          taxRate: 0,
-          taxType: SHOP_TAX_TYPE,
-        },
+    orderItems: items.map((it) => ({
+      sku: it.sku,
+      quantity: it.qty,
+      customerPrice: {
+        amount: it.unitCents / 100,
+        currency: SHOP_CURRENCY,
+        taxRate: 0,
+        taxType: SHOP_TAX_TYPE,
       },
-    ],
+    })),
     shipping: {
       address: {
         firstName,
@@ -166,20 +182,23 @@ async function fulfill(
   onOrderCreated();
   await confirmOrder(order.id);
   console.log(
-    `webhook: confirmed spreadconnect order ${order.id} for stripe session ${session.id}`,
+    `webhook: confirmed spreadconnect order ${order.id} (${items.length} item(s)) for stripe session ${session.id}`,
   );
 
-  const product = lineItem?.price?.product;
-  const productName =
-    lineItem?.description || (typeof product === "string" ? product : product?.id);
+  // Build a summary string for the email body. For multi-item carts we list
+  // each line; for a single item this matches the prior format.
+  const totalQty = items.reduce((s, i) => s + i.qty, 0);
+  const lineDescriptions =
+    session.line_items?.data?.map((li) => li.description).filter(Boolean) ?? [];
+  const productSummary = lineDescriptions.length > 0 ? lineDescriptions.join(", ") : undefined;
 
   // Email is best-effort — a delivery failure must not roll back fulfillment.
   void sendEmail({
     to: cust.email,
     ...orderConfirmedEmail({
       externalRef: externalOrderReference,
-      productName,
-      quantity,
+      productName: productSummary,
+      quantity: totalQty,
       totalAmount: session.amount_total ? session.amount_total / 100 : undefined,
       currency: (session.currency || SHOP_CURRENCY).toUpperCase(),
     }),

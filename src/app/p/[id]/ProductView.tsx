@@ -47,10 +47,12 @@ export default function ProductView({
 
         <BuyForm
           articleId={articleId}
+          productName={title}
           variants={variants}
           color={color}
           onColorChange={setColor}
           currency={currency}
+          primaryImageUrl={images[0]?.url}
         />
       </div>
     </div>

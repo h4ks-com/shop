@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SHOP_CONTACT_EMAIL } from "@/lib/config";
+import { SHOP_CONTACT_EMAIL, SHOP_CURRENCY } from "@/lib/config";
+import CartHeaderLink from "./CartHeaderLink";
+import CartDrawer from "./CartDrawer";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -23,13 +25,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </Link>
               <span className="text-text-dim mono text-xs">support h4ks, get some merch</span>
             </div>
-            <nav className="mono text-xs flex gap-4">
+            <nav className="mono text-xs flex gap-4 items-center">
+              <CartHeaderLink />
               <a href="https://h4ks.com">← h4ks.com</a>
             </nav>
           </div>
         </header>
 
         <main className="flex-1 max-w-container mx-auto w-full px-8 py-8">{children}</main>
+
+        <CartDrawer currency={SHOP_CURRENCY} />
 
         <footer className="max-w-container mx-auto w-full px-8 py-6 mt-8 border-t border-[color:var(--border)]">
           <div className="mono text-xs text-text-dim flex justify-between flex-wrap gap-2">

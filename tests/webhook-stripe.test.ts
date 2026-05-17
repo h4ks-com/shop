@@ -31,7 +31,10 @@ const baseSession = (over: Partial<Stripe.Checkout.Session> = {}): Stripe.Checko
   ({
     id: "cs_test_1",
     object: "checkout.session",
-    metadata: { sku: "SKU-1", external_order_reference: "h4ks-ref-1" },
+    metadata: {
+      items: JSON.stringify([{ sku: "SKU-1", qty: 2, unitCents: 1999 }]),
+      external_order_reference: "h4ks-ref-1",
+    },
     client_reference_id: "h4ks-ref-1",
     payment_status: "paid",
     customer_details: { email: "buyer@example.test", name: "Ada Lovelace", phone: "+1" },
@@ -212,7 +215,40 @@ describe("POST /api/webhooks/stripe", () => {
     expect(h.createOrder).not.toHaveBeenCalled();
   });
 
-  it("400s when sku metadata is missing", async () => {
+  it("creates a spreadconnect order with all cart items from metadata", async () => {
+    const s = baseSession({
+      metadata: {
+        items: JSON.stringify([
+          { sku: "SKU-A", qty: 2, unitCents: 1500 },
+          { sku: "SKU-B", qty: 1, unitCents: 2000 },
+        ]),
+        external_order_reference: "h4ks-cart-1",
+      },
+    });
+    h.constructEvent.mockReturnValue(event(s, "evt_cart"));
+    h.retrieve.mockResolvedValue(s);
+    h.createOrder.mockResolvedValue({ id: 999 });
+    h.confirmOrder.mockResolvedValue();
+    const { POST } = await loadRoute();
+    const res = await POST(makeReq("{}"));
+    expect(res.status).toBe(200);
+    const callArg = h.createOrder.mock.calls[0]?.[0] as {
+      orderItems: { sku: string; quantity: number; customerPrice: { amount: number } }[];
+    };
+    expect(callArg.orderItems).toHaveLength(2);
+    expect(callArg.orderItems[0]).toMatchObject({
+      sku: "SKU-A",
+      quantity: 2,
+      customerPrice: { amount: 15 },
+    });
+    expect(callArg.orderItems[1]).toMatchObject({
+      sku: "SKU-B",
+      quantity: 1,
+      customerPrice: { amount: 20 },
+    });
+  });
+
+  it("400s when items metadata is missing", async () => {
     const s = baseSession({ metadata: {} });
     h.constructEvent.mockReturnValue(event(s, "evt_nosku"));
     h.retrieve.mockResolvedValue(s);

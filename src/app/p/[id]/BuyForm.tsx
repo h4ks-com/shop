@@ -2,6 +2,9 @@
 
 import { useMemo, useState } from "react";
 import { formatPrice } from "@/lib/format";
+import { useCart } from "@/lib/use-cart";
+import { CART_MAX_ITEMS } from "@/lib/cart-config";
+import { openCart } from "@/app/CartDrawer";
 
 type Variant = {
   sku: string;
@@ -14,17 +17,22 @@ type Variant = {
 
 export default function BuyForm({
   articleId,
+  productName,
   variants,
   color,
   onColorChange,
   currency,
+  primaryImageUrl,
 }: {
   articleId: number;
+  productName: string;
   variants: Variant[];
   color: string;
   onColorChange: (name: string) => void;
   currency: string;
+  primaryImageUrl?: string;
 }) {
+  const { add, count } = useCart();
   // Drop colors whose every variant is out of stock.
   const colors = useMemo(() => {
     const seen = new Map<string, { name: string; value: string }>();
@@ -139,9 +147,32 @@ export default function BuyForm({
         </div>
       )}
 
-      <button type="button" className="btn btn-orange" disabled={!selected || busy} onClick={buy}>
-        {busy ? "redirecting to stripe..." : "buy →"}
-      </button>
+      <div className="flex flex-wrap gap-3">
+        <button type="button" className="btn btn-orange" disabled={!selected || busy} onClick={buy}>
+          {busy ? "redirecting to stripe..." : "buy now →"}
+        </button>
+        <button
+          type="button"
+          className="mono text-xs px-3 py-1.5 border border-[color:var(--border)] text-text-dim hover:border-accent hover:text-accent disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:border-[color:var(--border)] disabled:hover:text-text-dim"
+          disabled={!selected || count >= CART_MAX_ITEMS}
+          onClick={() => {
+            if (!selected) return;
+            add({
+              articleId,
+              sku: selected.sku,
+              quantity: 1,
+              productName,
+              appearanceName: selected.appearanceName,
+              sizeName: selected.sizeName,
+              price: selected.price,
+              imageUrl: primaryImageUrl,
+            });
+            openCart();
+          }}
+        >
+          {count >= CART_MAX_ITEMS ? "cart full" : "+ add to cart"}
+        </button>
+      </div>
 
       {err && <div className="mt-4 mono text-xs text-accent2">error: {err}</div>}
 

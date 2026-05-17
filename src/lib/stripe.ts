@@ -22,11 +22,15 @@ export function stripe(): Stripe {
 
 const CURRENCY = SHOP_CURRENCY.toLowerCase();
 
-export type CheckoutInput = {
+export type Line = {
   sku: string;
   productName: string;
   unitAmountCents: number;
   quantity: number;
+};
+
+export type CheckoutInput = {
+  lines: Line[];
   externalOrderReference: string;
   customerEmail?: string;
 };
@@ -39,16 +43,14 @@ export async function createCheckoutSession(args: CheckoutInput): Promise<Stripe
     // settles and require handling checkout.session.async_payment_succeeded
     // separately. Until that flow is wired up, refuse to accept them.
     payment_method_types: ["card", "link"],
-    line_items: [
-      {
-        quantity: args.quantity,
-        price_data: {
-          currency: CURRENCY,
-          unit_amount: args.unitAmountCents,
-          product_data: { name: args.productName },
-        },
+    line_items: args.lines.map((l) => ({
+      quantity: l.quantity,
+      price_data: {
+        currency: CURRENCY,
+        unit_amount: l.unitAmountCents,
+        product_data: { name: l.productName },
       },
-    ],
+    })),
     success_url: `${SHOP_PUBLIC_URL}/ok?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${SHOP_PUBLIC_URL}/cancel`,
     client_reference_id: args.externalOrderReference,
@@ -80,8 +82,14 @@ export async function createCheckoutSession(args: CheckoutInput): Promise<Stripe
         },
       },
     ],
+    // Encode the full line set so the webhook can reconstruct spreadconnect
+    // orderItems with the right SKUs, quantities, and unit prices. Stripe's
+    // line_items expand returns description text only (no SKU), so we
+    // round-trip our own truth via metadata.
     metadata: {
-      sku: args.sku,
+      items: JSON.stringify(
+        args.lines.map((l) => ({ sku: l.sku, qty: l.quantity, unitCents: l.unitAmountCents })),
+      ),
       external_order_reference: args.externalOrderReference,
     },
     customer_email: args.customerEmail,
