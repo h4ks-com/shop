@@ -148,12 +148,23 @@ export default function BuyForm({
       )}
 
       <div className="flex flex-wrap gap-3">
-        <button type="button" className="btn btn-orange" disabled={!selected || busy} onClick={buy}>
-          {busy ? "redirecting to stripe..." : "buy now →"}
-        </button>
+        {count === 0 && (
+          <button
+            type="button"
+            className="btn btn-orange"
+            disabled={!selected || busy}
+            onClick={buy}
+          >
+            {busy ? "redirecting to stripe..." : "buy now →"}
+          </button>
+        )}
         <button
           type="button"
-          className="mono text-xs px-3 py-1.5 border border-[color:var(--border)] text-text-dim hover:border-accent hover:text-accent disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:border-[color:var(--border)] disabled:hover:text-text-dim"
+          className={
+            count === 0
+              ? "mono text-xs px-3 py-1.5 border border-[color:var(--border)] text-text-dim hover:border-accent hover:text-accent disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:border-[color:var(--border)] disabled:hover:text-text-dim"
+              : "btn btn-orange disabled:opacity-40 disabled:cursor-not-allowed"
+          }
           disabled={!selected || count >= CART_MAX_ITEMS}
           onClick={() => {
             if (!selected) return;
