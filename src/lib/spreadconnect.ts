@@ -4,7 +4,7 @@ import type {
   ListArticlesResponse,
   SpreadconnectOrder,
 } from "./types";
-import { SPREADCONNECT_BASE_URL, SPREADCONNECT_TOKEN } from "./config";
+import { SHIPPING_MARKUP_CENTS, SPREADCONNECT_BASE_URL, SPREADCONNECT_TOKEN } from "./config";
 
 async function call<T>(method: string, path: string, body?: unknown): Promise<T> {
   const res = await fetch(SPREADCONNECT_BASE_URL + path, {
@@ -91,7 +91,9 @@ export type Shipment = {
 
 // Pick d2cPrice if set, else mark up b2bPrice 50%. Spreadconnect stores prices
 // as plain numbers (not cents), so result is also a plain number.
+// SHIPPING_MARKUP_CENTS is folded in so we can advertise free shipping without
+// eating real cost — applied here so every display + checkout path picks it up.
 export function customerPriceAmount(v: { d2cPrice: number; b2bPrice: number }): number {
-  if (v.d2cPrice > 0) return v.d2cPrice;
-  return v.b2bPrice * 1.5;
+  const base = v.d2cPrice > 0 ? v.d2cPrice : v.b2bPrice * 1.5;
+  return base + SHIPPING_MARKUP_CENTS / 100;
 }

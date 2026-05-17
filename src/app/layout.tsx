@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen flex flex-col">
         <header className="border-b border-[color:var(--border)]">
           <div className="max-w-container mx-auto px-8 py-4 flex items-center justify-between">
-            <div className="flex items-baseline gap-3">
+            <div className="flex items-baseline gap-3 flex-wrap">
               <Link
                 href="/"
                 className="text-text mono text-base font-bold no-underline hover:no-underline"
@@ -24,6 +24,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 h4ks/shop
               </Link>
               <span className="text-text-dim mono text-xs">support h4ks, get some merch</span>
+              <span className="mono text-xs font-bold text-bg bg-accent2 px-2 py-1 uppercase tracking-wide">
+                ★ free shipping worldwide
+              </span>
             </div>
             <nav className="flex items-center">
               <CartHeaderLink />

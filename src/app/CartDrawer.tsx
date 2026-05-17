@@ -144,7 +144,7 @@ export default function CartDrawer({ currency }: { currency: string }) {
               <span className="text-text-dim">subtotal</span>
               <span className="text-text">{formatPrice(subtotal, currency)}</span>
             </div>
-            <div className="mono text-xs text-text-dim mb-4">shipping added at checkout</div>
+            <div className="mono text-xs text-text-dim mb-4">free shipping worldwide</div>
             <button
               type="button"
               onClick={checkout}

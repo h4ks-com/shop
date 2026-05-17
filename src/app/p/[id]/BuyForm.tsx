@@ -188,7 +188,7 @@ export default function BuyForm({
       {err && <div className="mt-4 mono text-xs text-accent2">error: {err}</div>}
 
       <p className="mt-6 mono text-xs text-text-dim">
-        secure payment via stripe. ships worldwide via spreadshirt. shipping added at checkout.
+        secure payment via stripe. free worldwide shipping via spreadshirt.
       </p>
     </div>
   );

@@ -1,11 +1,5 @@
 import Stripe from "stripe";
-import {
-  SHIPPING_EXPRESS_AMOUNT_CENTS,
-  SHIPPING_STANDARD_AMOUNT_CENTS,
-  SHOP_CURRENCY,
-  SHOP_PUBLIC_URL,
-  STRIPE_SECRET_KEY,
-} from "./config";
+import { SHOP_CURRENCY, SHOP_PUBLIC_URL, STRIPE_SECRET_KEY } from "./config";
 
 // Lazy construct — route handlers are imported at Next.js build time for page
 // data collection; deferring the SDK init avoids spinning it up there.
@@ -58,30 +52,6 @@ export async function createCheckoutSession(args: CheckoutInput): Promise<Stripe
       allowed_countries: ["US", "CA", "GB", "DE", "FR", "ES", "IT", "NL", "BR", "AU"],
     },
     phone_number_collection: { enabled: true },
-    shipping_options: [
-      {
-        shipping_rate_data: {
-          type: "fixed_amount",
-          fixed_amount: { amount: SHIPPING_STANDARD_AMOUNT_CENTS, currency: CURRENCY },
-          display_name: "Standard",
-          delivery_estimate: {
-            minimum: { unit: "business_day", value: 5 },
-            maximum: { unit: "business_day", value: 10 },
-          },
-        },
-      },
-      {
-        shipping_rate_data: {
-          type: "fixed_amount",
-          fixed_amount: { amount: SHIPPING_EXPRESS_AMOUNT_CENTS, currency: CURRENCY },
-          display_name: "Express",
-          delivery_estimate: {
-            minimum: { unit: "business_day", value: 2 },
-            maximum: { unit: "business_day", value: 4 },
-          },
-        },
-      },
-    ],
     // Encode the full line set so the webhook can reconstruct spreadconnect
     // orderItems with the right SKUs, quantities, and unit prices. Stripe's
     // line_items expand returns description text only (no SKU), so we

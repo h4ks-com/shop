@@ -36,9 +36,8 @@ export const SHOP_TAX_TYPE = optional("SHOP_TAX_TYPE", "NOT_TAXABLE") as
   | "NOT_TAXABLE"
   | "SALESTAX"
   | "VAT";
-export const SHIPPING_STANDARD_AMOUNT_CENTS = Number(
-  optional("SHIPPING_STANDARD_AMOUNT_CENTS", "799"),
-);
-export const SHIPPING_EXPRESS_AMOUNT_CENTS = Number(
-  optional("SHIPPING_EXPRESS_AMOUNT_CENTS", "1599"),
-);
+
+// Per-item markup folded into every displayed/charged price to cover shipping.
+// Stripe checkout shows "free shipping" — the cost is hidden in product price.
+// Default 490 = €4.90, calibrated for EU standard shipping.
+export const SHIPPING_MARKUP_CENTS = Number(optional("SHIPPING_MARKUP_CENTS", "490"));
