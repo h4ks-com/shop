@@ -25,9 +25,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </Link>
               <span className="text-text-dim mono text-xs">support h4ks, get some merch</span>
             </div>
-            <nav className="mono text-xs flex gap-4 items-center">
+            <nav className="flex items-center">
               <CartHeaderLink />
-              <a href="https://h4ks.com">← h4ks.com</a>
             </nav>
           </div>
         </header>
@@ -37,14 +36,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CartDrawer currency={SHOP_CURRENCY} />
 
         <footer className="max-w-container mx-auto w-full px-8 py-6 mt-8 border-t border-[color:var(--border)]">
-          <div className="mono text-xs text-text-dim flex justify-between flex-wrap gap-2">
+          <div className="mono text-xs text-text-dim flex justify-between flex-wrap gap-3 items-center">
             <span>
               &gt; http is for losers — try <code className="text-accent2">ssh h4ks.com</code> and
               pick <code className="text-accent2">shop</code>
             </span>
-            <a href={`mailto:${SHOP_CONTACT_EMAIL}`} className="text-text-dim hover:text-text">
-              contact
-            </a>
+            <div className="flex gap-4 items-center">
+              <a href="https://h4ks.com" className="text-text-dim hover:text-accent">
+                ← h4ks.com
+              </a>
+              <a href={`mailto:${SHOP_CONTACT_EMAIL}`} className="text-text-dim hover:text-text">
+                contact
+              </a>
+            </div>
           </div>
         </footer>
       </body>
