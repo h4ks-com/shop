@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { formatPrice } from "@/lib/format";
 
 type Variant = {
   sku: string;
@@ -14,9 +15,15 @@ type Variant = {
 export default function BuyForm({
   articleId,
   variants,
+  color,
+  onColorChange,
+  currency,
 }: {
   articleId: number;
   variants: Variant[];
+  color: string;
+  onColorChange: (name: string) => void;
+  currency: string;
 }) {
   // Drop colors whose every variant is out of stock.
   const colors = useMemo(() => {
@@ -32,7 +39,6 @@ export default function BuyForm({
     return Array.from(seen.values());
   }, [variants]);
 
-  const [color, setColor] = useState(colors[0]?.name ?? "");
   const sizesForColor = variants.filter((v) => v.appearanceName === color);
   const firstInStock = sizesForColor.find((v) => v.stock > 0)?.sizeName ?? "";
   const [size, setSize] = useState(firstInStock);
@@ -83,7 +89,7 @@ export default function BuyForm({
               key={c.name}
               type="button"
               onClick={() => {
-                setColor(c.name);
+                onColorChange(c.name);
                 const next = variants.find((v) => v.appearanceName === c.name && v.stock > 0);
                 if (next) setSize(next.sizeName);
               }}
@@ -128,7 +134,9 @@ export default function BuyForm({
       </div>
 
       {selected && (
-        <div className="mono text-xl text-accent2 mb-5">${selected.price.toFixed(2)}</div>
+        <div className="mono text-xl text-accent2 mb-5">
+          {formatPrice(selected.price, currency)}
+        </div>
       )}
 
       <button type="button" className="btn btn-orange" disabled={!selected || busy} onClick={buy}>

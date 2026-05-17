@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getArticle, customerPriceAmount } from "@/lib/spreadconnect";
-import BuyForm from "./BuyForm";
-import Gallery, { type GalleryImage } from "./Gallery";
+import { SHOP_CURRENCY } from "@/lib/config";
+import ProductView from "./ProductView";
+import type { GalleryImage } from "./Gallery";
 
 export const dynamic = "force-dynamic";
 
@@ -29,13 +30,14 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
   }));
 
   // FRONT view goes first, then everything else in API order, deduped by url.
+  // appearanceName carries through so the gallery can filter by selected color.
   const images: GalleryImage[] = (() => {
     const seen = new Set<string>();
     const out: GalleryImage[] = [];
-    const push = (url: string | undefined, alt?: string) => {
+    const push = (url: string | undefined, appearanceName?: string) => {
       if (!url || seen.has(url)) return;
       seen.add(url);
-      out.push({ url, alt });
+      out.push({ url, alt: appearanceName, appearanceName });
     };
     const front = article.images?.find((i) => i.perspective === "FRONT");
     if (front) push(front.imageUrl, front.appearanceName);
@@ -51,22 +53,14 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
         ← back
       </Link>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
-        <Gallery images={images} title={article.title} />
-
-        <div>
-          <div className="section-label">[ product ]</div>
-          <h1 className="mono text-2xl mb-3">{article.title}</h1>
-          {article.description && (
-            <div
-              className="text-text-mid mb-6 [&_ul]:list-disc [&_ul]:ml-5 [&_ul]:mt-2 [&_li]:mb-1"
-              dangerouslySetInnerHTML={{ __html: article.description }}
-            />
-          )}
-
-          <BuyForm articleId={article.id} variants={variants} />
-        </div>
-      </div>
+      <ProductView
+        articleId={article.id}
+        title={article.title}
+        description={article.description}
+        images={images}
+        variants={variants}
+        currency={SHOP_CURRENCY}
+      />
     </>
   );
 }

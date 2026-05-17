@@ -1,17 +1,35 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { filterImagesByAppearance } from "@/lib/gallery-filter";
 
 export type GalleryImage = {
   url: string;
   alt?: string;
+  appearanceName?: string;
 };
 
 const ZOOM = 2.5;
 
-export default function Gallery({ images, title }: { images: GalleryImage[]; title: string }) {
-  const [idx, setIdx] = useState(0);
+export default function Gallery({
+  images,
+  title,
+  activeAppearance,
+}: {
+  images: GalleryImage[];
+  title: string;
+  activeAppearance?: string;
+}) {
+  const visible = useMemo(
+    () => filterImagesByAppearance(images, activeAppearance),
+    [images, activeAppearance],
+  );
+
+  // Track selection by url instead of index so a color switch (which changes
+  // the visible set) automatically falls back to the first image when the
+  // previously-selected url is no longer in view — no setState-in-effect needed.
+  const [selectedUrl, setSelectedUrl] = useState<string | undefined>(undefined);
   const [hover, setHover] = useState(false);
   const [origin, setOrigin] = useState("50% 50%");
   const [lightbox, setLightbox] = useState(false);
@@ -24,7 +42,7 @@ export default function Gallery({ images, title }: { images: GalleryImage[]; tit
     return () => window.removeEventListener("keydown", onKey);
   }, [lightbox]);
 
-  if (images.length === 0) {
+  if (visible.length === 0) {
     return (
       <div className="bg-[color:var(--bg-panel)] border border-[color:var(--border)] aspect-square flex items-center justify-center">
         <span className="mono text-text-dim">no image</span>
@@ -32,7 +50,11 @@ export default function Gallery({ images, title }: { images: GalleryImage[]; tit
     );
   }
 
-  const active = images[Math.min(idx, images.length - 1)];
+  const idx = Math.max(
+    0,
+    visible.findIndex((v) => v.url === selectedUrl),
+  );
+  const active = visible[idx];
 
   const onMove = (e: React.MouseEvent<HTMLButtonElement>) => {
     const r = heroRef.current?.getBoundingClientRect();
@@ -68,13 +90,13 @@ export default function Gallery({ images, title }: { images: GalleryImage[]; tit
         />
       </button>
 
-      {images.length > 1 && (
+      {visible.length > 1 && (
         <div className="grid grid-cols-5 gap-2 mt-3">
-          {images.map((img, i) => (
+          {visible.map((img, i) => (
             <button
               key={img.url}
               type="button"
-              onClick={() => setIdx(i)}
+              onClick={() => setSelectedUrl(img.url)}
               className={`bg-[color:var(--bg-panel)] border aspect-square flex items-center justify-center overflow-hidden ${
                 i === idx
                   ? "border-accent"

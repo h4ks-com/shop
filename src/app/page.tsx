@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { listArticles, customerPriceAmount } from "@/lib/spreadconnect";
 import { PAGE_SIZE, parsePage, pageWindow } from "@/lib/pagination";
+import { formatPrice } from "@/lib/format";
+import { SHOP_CURRENCY } from "@/lib/config";
 
 export const dynamic = "force-dynamic";
 
@@ -84,7 +86,7 @@ export default async function Home({
               </div>
               <div className="mono text-sm text-text mb-1">{a.title}</div>
               <div className="mono text-xs text-accent2">
-                {priceFrom !== null ? `from $${priceFrom.toFixed(2)}` : ""}
+                {priceFrom !== null ? `from ${formatPrice(priceFrom, SHOP_CURRENCY)}` : ""}
               </div>
             </Link>
           );
