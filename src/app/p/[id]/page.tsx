@@ -2,7 +2,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getArticle, customerPriceAmount } from "@/lib/spreadconnect";
 import { SHOP_CURRENCY } from "@/lib/config";
+import { getCameo } from "@/lib/cameos";
 import ProductView from "./ProductView";
+import CameoMount from "./CameoMount";
 import type { GalleryImage } from "./Gallery";
 
 export const dynamic = "force-dynamic";
@@ -47,6 +49,8 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
     return out;
   })();
 
+  const cameo = getCameo(article.id);
+
   return (
     <>
       <Link href="/" className="mono text-xs text-text-dim hover:text-accent">
@@ -61,6 +65,8 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
         variants={variants}
         currency={SHOP_CURRENCY}
       />
+
+      {cameo && <CameoMount cameo={cameo} />}
     </>
   );
 }
