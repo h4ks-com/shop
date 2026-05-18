@@ -3,7 +3,7 @@
 // R3F extends JSX with three.js elements (ambientLight, primitive, etc.) and
 // uses props (intensity, position, object) the React plugin doesn't recognise.
 /* eslint-disable react/no-unknown-property */
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { Bounds, Center, useAnimations, useGLTF } from "@react-three/drei";
 import { Component, Suspense, useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
@@ -19,6 +19,11 @@ const DEFAULT_H = 420;
 // Padding multiplier around the model's bounding box. Larger = character
 // appears smaller but has more room for animated movement (dancing).
 const FIT_MARGIN = 1.6;
+// How much of a full turn the mouse covers (radians). PI = 180° each side
+// → sweeping the whole window does one full 360° spin.
+const MOUSE_TURN_RANGE = Math.PI;
+// Higher = snappier follow, lower = smoother. 5 ≈ ~80%/s closure.
+const MOUSE_TURN_LERP = 5;
 
 function Figure({
   glbUrl,
@@ -29,10 +34,31 @@ function Figure({
   minDurationMs: number;
   maxDurationMs: number;
 }) {
-  const group = useRef<THREE.Group>(null);
+  // Outer group: mouse-driven Y rotation. Inner ref: animation target.
+  // Wrapping in a parent group lets the dance animation rotate freely inside
+  // a frame we control externally — the two rotations compose naturally.
+  const outerRef = useRef<THREE.Group>(null);
+  const sceneRef = useRef<THREE.Group>(null);
   const gltf = useGLTF(glbUrl);
-  const { actions, names } = useAnimations(gltf.animations, group);
+  const { actions, names } = useAnimations(gltf.animations, sceneRef);
   const [current, setCurrent] = useState<string | null>(null);
+
+  const targetY = useRef(0);
+  useEffect(() => {
+    const onMove = (e: MouseEvent) => {
+      const nx = (e.clientX / window.innerWidth) * 2 - 1; // -1..+1
+      targetY.current = nx * MOUSE_TURN_RANGE;
+    };
+    window.addEventListener("mousemove", onMove, { passive: true });
+    return () => window.removeEventListener("mousemove", onMove);
+  }, []);
+
+  useFrame((_, delta) => {
+    if (!outerRef.current) return;
+    const cur = outerRef.current.rotation.y;
+    const t = Math.min(1, delta * MOUSE_TURN_LERP);
+    outerRef.current.rotation.y = cur + (targetY.current - cur) * t;
+  });
 
   useEffect(() => {
     if (names.length === 0) return;
@@ -62,7 +88,11 @@ function Figure({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [names, actions, glbUrl, minDurationMs, maxDurationMs]);
 
-  return <primitive ref={group} object={gltf.scene} />;
+  return (
+    <group ref={outerRef}>
+      <primitive ref={sceneRef} object={gltf.scene} />
+    </group>
+  );
 }
 
 // Catches WebGL/asset failures so a render hiccup never affects the page.
