@@ -95,6 +95,23 @@ function Figure({
   );
 }
 
+// Wraps the character in a new-tab link when the cameo defines an href. The
+// link re-enables pointer events that the container disables, so only the
+// character area is clickable.
+function Linkable({ href, children }: { href?: string; children: ReactNode }) {
+  if (!href) return <>{children}</>;
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="pointer-events-auto block h-full w-full cursor-pointer"
+    >
+      {children}
+    </a>
+  );
+}
+
 // Catches WebGL/asset failures so a render hiccup never affects the page.
 class SilentBoundary extends Component<{ children: ReactNode }, { dead: boolean }> {
   state = { dead: false };
@@ -128,25 +145,26 @@ export default function CameoStage({ cameo }: { cameo: Cameo }) {
         height: h,
         right: "max(0px, calc((100vw - 1280px) / 2 - " + w + "px))",
       }}
-      aria-hidden="true"
     >
       <SilentBoundary>
-        <Canvas
-          gl={{ alpha: true, antialias: true }}
-          camera={{ position: camera, fov }}
-          dpr={[1, 2]}
-          style={{ background: "transparent" }}
-        >
-          <ambientLight intensity={0.7} />
-          <directionalLight position={[5, 5, 5]} intensity={1} />
-          <Suspense fallback={null}>
-            <Bounds fit clip observe margin={FIT_MARGIN}>
-              <Center>
-                <Figure glbUrl={cameo.glbUrl} minDurationMs={min} maxDurationMs={max} />
-              </Center>
-            </Bounds>
-          </Suspense>
-        </Canvas>
+        <Linkable href={cameo.href}>
+          <Canvas
+            gl={{ alpha: true, antialias: true }}
+            camera={{ position: camera, fov }}
+            dpr={[1, 2]}
+            style={{ background: "transparent" }}
+          >
+            <ambientLight intensity={0.7} />
+            <directionalLight position={[5, 5, 5]} intensity={1} />
+            <Suspense fallback={null}>
+              <Bounds fit clip observe margin={FIT_MARGIN}>
+                <Center>
+                  <Figure glbUrl={cameo.glbUrl} minDurationMs={min} maxDurationMs={max} />
+                </Center>
+              </Bounds>
+            </Suspense>
+          </Canvas>
+        </Linkable>
       </SilentBoundary>
     </div>
   );
