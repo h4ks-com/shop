@@ -1,5 +1,6 @@
 import Stripe from "stripe";
 import { SHOP_CURRENCY, SHOP_PUBLIC_URL, STRIPE_SECRET_KEY } from "./config";
+import { activeAccountsFromEnv, allowedCountries } from "./regions";
 
 // Lazy construct — route handlers are imported at Next.js build time for page
 // data collection; deferring the SDK init avoids spinning it up there.
@@ -49,86 +50,19 @@ export async function createCheckoutSession(args: CheckoutInput): Promise<Stripe
     cancel_url: `${SHOP_PUBLIC_URL}/cancel`,
     client_reference_id: args.externalOrderReference,
     shipping_address_collection: {
-      // Curated to destinations spreadshirt reliably ships to and where the
-      // €4.90 per-item shipping markup covers cost. Sanctioned regions and
-      // active war zones omitted (RU, BY, IR, KP, SY, CU, VE, AF, YE).
-      allowed_countries: [
-        // Europe — EU 27 + EEA + UK + CH + microstates
-        "AD",
-        "AT",
-        "BE",
-        "BG",
-        "CH",
-        "CY",
-        "CZ",
-        "DE",
-        "DK",
-        "EE",
-        "ES",
-        "FI",
-        "FR",
-        "GB",
-        "GR",
-        "HR",
-        "HU",
-        "IE",
-        "IS",
-        "IT",
-        "LI",
-        "LT",
-        "LU",
-        "LV",
-        "MC",
-        "MT",
-        "NL",
-        "NO",
-        "PL",
-        "PT",
-        "RO",
-        "SE",
-        "SI",
-        "SK",
-        "SM",
-        // Americas
-        "AR",
-        "BO",
-        "BR",
-        "CA",
-        "CL",
-        "CO",
-        "CR",
-        "DO",
-        "EC",
-        "GT",
-        "HN",
-        "MX",
-        "NI",
-        "PA",
-        "PE",
-        "PY",
-        "SV",
-        "US",
-        "UY",
-        // Asia + Middle East
-        "AE",
-        "HK",
-        "ID",
-        "IL",
-        "IN",
-        "JP",
-        "KR",
-        "MY",
-        "PH",
-        "SG",
-        "TH",
-        "TR",
-        "TW",
-        "VN",
-        // Oceania + Africa
-        "AU",
-        "NZ",
-        "ZA",
-      ],
+      // Union of every active SC account's deliverable country list — see
+      // src/lib/regions.ts. The webhook routes the order to the matching
+      // account based on the selected country at fulfillment time.
+      // Cast: regions.ts uses plain strings so it can be consumed outside
+      // Stripe's typed namespace too (webhook routing). The list is sourced
+      // from STRIPE_SUPPORTED_ISO which is a subset of Stripe's union.
+      allowed_countries: allowedCountries(
+        activeAccountsFromEnv(),
+      ) as Stripe.Checkout.SessionCreateParams["shipping_address_collection"] extends infer S
+        ? S extends { allowed_countries: infer A }
+          ? A
+          : never
+        : never,
     },
     phone_number_collection: { enabled: true },
     // Encode the full line set so the webhook can reconstruct spreadconnect

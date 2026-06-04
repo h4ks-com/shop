@@ -1,0 +1,1975 @@
+region,country,iso,currency,method,min_cart,price
+EU,Åland Islands,AX,EUR,Standard,0.01,3.99
+EU,Åland Islands,AX,EUR,Standard,5.01,4.65
+EU,Åland Islands,AX,EUR,Standard,12.01,5.99
+EU,Åland Islands,AX,EUR,Standard,40.01,7.25
+EU,Åland Islands,AX,EUR,Standard,75.01,12.25
+EU,Åland Islands,AX,EUR,Standard,125.01,17.99
+EU,Albania,AL,EUR,Standard,0.01,4.99
+EU,Albania,AL,EUR,Standard,5.01,5.99
+EU,Albania,AL,EUR,Standard,12.01,6.55
+EU,Albania,AL,EUR,Standard,40.01,7.25
+EU,Albania,AL,EUR,Standard,75.01,13.25
+EU,Albania,AL,EUR,Standard,125.01,20.75
+EU,Andorra,AD,EUR,Standard,0.01,4.99
+EU,Andorra,AD,EUR,Standard,5.01,5.99
+EU,Andorra,AD,EUR,Standard,12.01,6.55
+EU,Andorra,AD,EUR,Standard,40.01,7.25
+EU,Andorra,AD,EUR,Standard,75.01,13.25
+EU,Andorra,AD,EUR,Standard,125.01,20.75
+EU,Angola,AO,EUR,Standard,0.01,9.99
+EU,Angola,AO,EUR,Standard,24.99,16.99
+EU,Angola,AO,EUR,Standard,59.99,24.99
+EU,Anguilla,AI,EUR,Standard,0.01,9.99
+EU,Anguilla,AI,EUR,Standard,24.99,16.99
+EU,Anguilla,AI,EUR,Standard,59.99,24.99
+EU,Antigua and Barbuda,AG,EUR,Standard,0.01,9.99
+EU,Antigua and Barbuda,AG,EUR,Standard,24.99,16.99
+EU,Antigua and Barbuda,AG,EUR,Standard,59.99,24.99
+EU,Armenia,AM,EUR,Standard,0.01,9.99
+EU,Armenia,AM,EUR,Standard,24.99,16.99
+EU,Armenia,AM,EUR,Standard,59.99,24.99
+EU,Aruba,AW,EUR,Standard,0.01,9.99
+EU,Aruba,AW,EUR,Standard,24.99,16.99
+EU,Aruba,AW,EUR,Standard,59.99,24.99
+EU,Austria,AT,EUR,Standard,0.01,3.25
+EU,Austria,AT,EUR,Standard,5.01,3.55
+EU,Austria,AT,EUR,Standard,12.01,4.99
+EU,Austria,AT,EUR,Standard,40.01,6.99
+EU,Austria,AT,EUR,Standard,75.01,12.25
+EU,Austria,AT,EUR,Standard,125.01,15.99
+EU,Azerbaijan,AZ,EUR,Standard,0.01,9.99
+EU,Azerbaijan,AZ,EUR,Standard,24.99,16.99
+EU,Azerbaijan,AZ,EUR,Standard,59.99,24.99
+EU,Bahamas,BS,EUR,Standard,0.01,9.99
+EU,Bahamas,BS,EUR,Standard,24.99,16.99
+EU,Bahamas,BS,EUR,Standard,59.99,24.99
+EU,Bahrain,BH,EUR,Standard,0.01,9.99
+EU,Bahrain,BH,EUR,Standard,24.99,16.99
+EU,Bahrain,BH,EUR,Standard,59.99,24.99
+EU,Bangladesh,BD,EUR,Standard,0.01,9.99
+EU,Bangladesh,BD,EUR,Standard,24.99,16.99
+EU,Bangladesh,BD,EUR,Standard,59.99,24.99
+EU,Barbados,BB,EUR,Standard,0.01,9.99
+EU,Barbados,BB,EUR,Standard,24.99,16.99
+EU,Barbados,BB,EUR,Standard,59.99,24.99
+EU,Belgium,BE,EUR,Standard,0.01,3.25
+EU,Belgium,BE,EUR,Standard,5.01,3.55
+EU,Belgium,BE,EUR,Standard,12.01,4.99
+EU,Belgium,BE,EUR,Standard,40.01,6.99
+EU,Belgium,BE,EUR,Standard,75.01,12.25
+EU,Belgium,BE,EUR,Standard,125.01,15.99
+EU,Belize,BZ,EUR,Standard,0.01,9.99
+EU,Belize,BZ,EUR,Standard,24.99,16.99
+EU,Belize,BZ,EUR,Standard,59.99,24.99
+EU,Benin,BJ,EUR,Standard,0.01,9.99
+EU,Benin,BJ,EUR,Standard,24.99,16.99
+EU,Benin,BJ,EUR,Standard,59.99,24.99
+EU,Bermuda,BM,EUR,Standard,0.01,9.99
+EU,Bermuda,BM,EUR,Standard,24.99,16.99
+EU,Bermuda,BM,EUR,Standard,59.99,24.99
+EU,Bhutan,BT,EUR,Standard,0.01,9.99
+EU,Bhutan,BT,EUR,Standard,24.99,16.99
+EU,Bhutan,BT,EUR,Standard,59.99,24.99
+EU,Bolivia,BO,EUR,Standard,0.01,9.99
+EU,Bolivia,BO,EUR,Standard,24.99,16.99
+EU,Bolivia,BO,EUR,Standard,59.99,24.99
+EU,Bosnia and Herzegovina,BA,EUR,Standard,0.01,4.99
+EU,Bosnia and Herzegovina,BA,EUR,Standard,5.01,5.99
+EU,Bosnia and Herzegovina,BA,EUR,Standard,12.01,6.55
+EU,Bosnia and Herzegovina,BA,EUR,Standard,40.01,7.25
+EU,Bosnia and Herzegovina,BA,EUR,Standard,75.01,13.25
+EU,Bosnia and Herzegovina,BA,EUR,Standard,125.01,20.75
+EU,Botswana,BW,EUR,Standard,0.01,9.99
+EU,Botswana,BW,EUR,Standard,24.99,16.99
+EU,Botswana,BW,EUR,Standard,59.99,24.99
+EU,British Virgin Islands,VG,EUR,Standard,0.01,9.99
+EU,British Virgin Islands,VG,EUR,Standard,24.99,16.99
+EU,British Virgin Islands,VG,EUR,Standard,59.99,24.99
+EU,Brunei Darussalam,BN,EUR,Standard,0.01,9.99
+EU,Brunei Darussalam,BN,EUR,Standard,24.99,16.99
+EU,Brunei Darussalam,BN,EUR,Standard,59.99,24.99
+EU,Bulgaria,BG,EUR,Standard,0.01,4.99
+EU,Bulgaria,BG,EUR,Standard,5.01,6.99
+EU,Bulgaria,BG,EUR,Standard,59.99,9.99
+EU,Bulgaria,BG,EUR,Standard,99.99,13.99
+EU,Bulgaria,BG,EUR,Standard,175.01,19.99
+EU,Burkina Faso,BF,EUR,Standard,0.01,9.99
+EU,Burkina Faso,BF,EUR,Standard,24.99,16.99
+EU,Burkina Faso,BF,EUR,Standard,59.99,24.99
+EU,Burundi,BI,EUR,Standard,0.01,9.99
+EU,Burundi,BI,EUR,Standard,24.99,16.99
+EU,Burundi,BI,EUR,Standard,59.99,24.99
+EU,Cambodia,KH,EUR,Standard,0.01,9.99
+EU,Cambodia,KH,EUR,Standard,24.99,16.99
+EU,Cambodia,KH,EUR,Standard,59.99,24.99
+EU,Cameroon,CM,EUR,Standard,0.01,9.99
+EU,Cameroon,CM,EUR,Standard,24.99,16.99
+EU,Cameroon,CM,EUR,Standard,59.99,24.99
+EU,Canary Islands,IC,EUR,Standard,0.01,3.25
+EU,Canary Islands,IC,EUR,Standard,5.01,3.55
+EU,Canary Islands,IC,EUR,Standard,12.01,4.99
+EU,Canary Islands,IC,EUR,Standard,40.01,6.99
+EU,Canary Islands,IC,EUR,Standard,75.01,12.25
+EU,Canary Islands,IC,EUR,Standard,125.01,15.99
+EU,Cape Verde,CV,EUR,Standard,0.01,9.99
+EU,Cape Verde,CV,EUR,Standard,24.99,16.99
+EU,Cape Verde,CV,EUR,Standard,59.99,24.99
+EU,Cayman Islands,KY,EUR,Standard,0.01,9.99
+EU,Cayman Islands,KY,EUR,Standard,24.99,16.99
+EU,Cayman Islands,KY,EUR,Standard,59.99,24.99
+EU,Central African Republic,CF,EUR,Standard,0.01,9.99
+EU,Central African Republic,CF,EUR,Standard,24.99,16.99
+EU,Central African Republic,CF,EUR,Standard,59.99,24.99
+EU,Chad,TD,EUR,Standard,0.01,9.99
+EU,Chad,TD,EUR,Standard,24.99,16.99
+EU,Chad,TD,EUR,Standard,59.99,24.99
+EU,Colombia,CO,EUR,Standard,0.01,9.99
+EU,Colombia,CO,EUR,Standard,24.99,16.99
+EU,Colombia,CO,EUR,Standard,59.99,24.99
+EU,Comoros,KM,EUR,Standard,0.01,9.99
+EU,Comoros,KM,EUR,Standard,24.99,16.99
+EU,Comoros,KM,EUR,Standard,59.99,24.99
+EU,Congo,CG,EUR,Standard,0.01,9.99
+EU,Congo,CG,EUR,Standard,24.99,16.99
+EU,Congo,CG,EUR,Standard,59.99,24.99
+EU,Cook Islands,CK,EUR,Standard,0.01,9.99
+EU,Cook Islands,CK,EUR,Standard,24.99,16.99
+EU,Cook Islands,CK,EUR,Standard,59.99,24.99
+EU,Costa Rica,CR,EUR,Standard,0.01,9.99
+EU,Costa Rica,CR,EUR,Standard,24.99,16.99
+EU,Costa Rica,CR,EUR,Standard,59.99,24.99
+EU,Croatia,HR,EUR,Standard,0.01,4.99
+EU,Croatia,HR,EUR,Standard,5.01,6.99
+EU,Croatia,HR,EUR,Standard,59.99,9.99
+EU,Croatia,HR,EUR,Standard,99.99,13.99
+EU,Croatia,HR,EUR,Standard,175.01,19.99
+EU,Cyprus,CY,EUR,Standard,0.01,9.99
+EU,Cyprus,CY,EUR,Standard,24.99,16.99
+EU,Cyprus,CY,EUR,Standard,59.99,24.99
+EU,Czech Republic,CZ,EUR,Standard,0.01,4.99
+EU,Czech Republic,CZ,EUR,Standard,5.01,6.99
+EU,Czech Republic,CZ,EUR,Standard,59.99,9.99
+EU,Czech Republic,CZ,EUR,Standard,99.99,13.99
+EU,Czech Republic,CZ,EUR,Standard,175.01,19.99
+EU,Democratic Republic of the Congo,CD,EUR,Standard,0.01,9.99
+EU,Democratic Republic of the Congo,CD,EUR,Standard,24.99,16.99
+EU,Democratic Republic of the Congo,CD,EUR,Standard,59.99,24.99
+EU,Denmark,DK,EUR,Standard,0.01,3.25
+EU,Denmark,DK,EUR,Standard,5.01,3.55
+EU,Denmark,DK,EUR,Standard,12.01,4.99
+EU,Denmark,DK,EUR,Standard,40.01,6.99
+EU,Denmark,DK,EUR,Standard,75.01,12.25
+EU,Denmark,DK,EUR,Standard,125.01,15.99
+EU,Dominica,DM,EUR,Standard,0.01,9.99
+EU,Dominica,DM,EUR,Standard,24.99,16.99
+EU,Dominica,DM,EUR,Standard,59.99,24.99
+EU,Dominican Republic,DO,EUR,Standard,0.01,9.99
+EU,Dominican Republic,DO,EUR,Standard,24.99,16.99
+EU,Dominican Republic,DO,EUR,Standard,59.99,24.99
+EU,Ecuador,EC,EUR,Standard,0.01,9.99
+EU,Ecuador,EC,EUR,Standard,24.99,16.99
+EU,Ecuador,EC,EUR,Standard,59.99,24.99
+EU,Egypt,EG,EUR,Standard,0.01,9.99
+EU,Egypt,EG,EUR,Standard,24.99,16.99
+EU,Egypt,EG,EUR,Standard,59.99,24.99
+EU,El Salvador,SV,EUR,Standard,0.01,9.99
+EU,El Salvador,SV,EUR,Standard,24.99,16.99
+EU,El Salvador,SV,EUR,Standard,59.99,24.99
+EU,Equatorial Guinea,GQ,EUR,Standard,0.01,9.99
+EU,Equatorial Guinea,GQ,EUR,Standard,24.99,16.99
+EU,Equatorial Guinea,GQ,EUR,Standard,59.99,24.99
+EU,Eritrea,ER,EUR,Standard,0.01,9.99
+EU,Eritrea,ER,EUR,Standard,24.99,16.99
+EU,Eritrea,ER,EUR,Standard,59.99,24.99
+EU,Estonia,EE,EUR,Standard,0.01,4.99
+EU,Estonia,EE,EUR,Standard,5.01,6.99
+EU,Estonia,EE,EUR,Standard,59.99,9.99
+EU,Estonia,EE,EUR,Standard,99.99,13.99
+EU,Estonia,EE,EUR,Standard,175.01,19.99
+EU,Ethiopia,ET,EUR,Standard,0.01,9.99
+EU,Ethiopia,ET,EUR,Standard,24.99,16.99
+EU,Ethiopia,ET,EUR,Standard,59.99,24.99
+EU,Falkland Islands,FK,EUR,Standard,0.01,9.99
+EU,Falkland Islands,FK,EUR,Standard,24.99,16.99
+EU,Falkland Islands,FK,EUR,Standard,59.99,24.99
+EU,Faroe Islands,FO,EUR,Standard,0.01,9.99
+EU,Faroe Islands,FO,EUR,Standard,24.99,16.99
+EU,Faroe Islands,FO,EUR,Standard,59.99,24.99
+EU,Fiji,FJ,EUR,Standard,0.01,9.99
+EU,Fiji,FJ,EUR,Standard,24.99,16.99
+EU,Fiji,FJ,EUR,Standard,59.99,24.99
+EU,Finland,FI,EUR,Standard,0.01,3.99
+EU,Finland,FI,EUR,Standard,5.01,4.65
+EU,Finland,FI,EUR,Standard,12.01,5.99
+EU,Finland,FI,EUR,Standard,40.01,7.25
+EU,Finland,FI,EUR,Standard,75.01,12.25
+EU,Finland,FI,EUR,Standard,125.01,17.99
+EU,France,FR,EUR,Standard,0.01,3.99
+EU,France,FR,EUR,Standard,5.01,4.65
+EU,France,FR,EUR,Standard,12.01,5.99
+EU,France,FR,EUR,Standard,40.01,7.25
+EU,France,FR,EUR,Standard,75.01,12.25
+EU,France,FR,EUR,Standard,125.01,17.99
+EU,Gabon,GA,EUR,Standard,0.01,9.99
+EU,Gabon,GA,EUR,Standard,24.99,16.99
+EU,Gabon,GA,EUR,Standard,59.99,24.99
+EU,Gambia,GM,EUR,Standard,0.01,9.99
+EU,Gambia,GM,EUR,Standard,24.99,16.99
+EU,Gambia,GM,EUR,Standard,59.99,24.99
+EU,Georgia,GE,EUR,Standard,0.01,9.99
+EU,Georgia,GE,EUR,Standard,24.99,16.99
+EU,Georgia,GE,EUR,Standard,59.99,24.99
+EU,Germany,DE,EUR,Standard,0.01,3.25
+EU,Germany,DE,EUR,Standard,5.01,3.99
+EU,Germany,DE,EUR,Standard,12.01,4.6
+EU,Germany,DE,EUR,Standard,40.01,6.5
+EU,Germany,DE,EUR,Standard,75.01,10
+EU,Germany,DE,EUR,Standard,125.02,13.01
+EU,Ghana,GH,EUR,Standard,0.01,9.99
+EU,Ghana,GH,EUR,Standard,24.99,16.99
+EU,Ghana,GH,EUR,Standard,59.99,24.99
+EU,Gibraltar,GI,EUR,Standard,0.01,9.99
+EU,Gibraltar,GI,EUR,Standard,24.99,16.99
+EU,Gibraltar,GI,EUR,Standard,59.99,24.99
+EU,Greece,GR,EUR,Standard,0.01,3.25
+EU,Greece,GR,EUR,Standard,5.01,3.55
+EU,Greece,GR,EUR,Standard,12.01,4.99
+EU,Greece,GR,EUR,Standard,40.01,6.99
+EU,Greece,GR,EUR,Standard,75.01,12.25
+EU,Greece,GR,EUR,Standard,125.01,15.99
+EU,Greenland,GL,EUR,Standard,0.01,9.99
+EU,Greenland,GL,EUR,Standard,24.99,16.99
+EU,Greenland,GL,EUR,Standard,59.99,24.99
+EU,Grenada,GD,EUR,Standard,0.01,9.99
+EU,Grenada,GD,EUR,Standard,24.99,16.99
+EU,Grenada,GD,EUR,Standard,59.99,24.99
+EU,Guam,GU,EUR,Standard,0.01,9.99
+EU,Guam,GU,EUR,Standard,24.99,16.99
+EU,Guam,GU,EUR,Standard,59.99,24.99
+EU,Guatemala,GT,EUR,Standard,0.01,9.99
+EU,Guatemala,GT,EUR,Standard,24.99,16.99
+EU,Guatemala,GT,EUR,Standard,59.99,24.99
+EU,Guernsey,GG,EUR,Standard,0.01,3.99
+EU,Guernsey,GG,EUR,Standard,5.01,4.65
+EU,Guernsey,GG,EUR,Standard,12.01,5.99
+EU,Guernsey,GG,EUR,Standard,40.01,7.25
+EU,Guernsey,GG,EUR,Standard,75.01,12.25
+EU,Guernsey,GG,EUR,Standard,125.01,17.99
+EU,Guinea,GN,EUR,Standard,0.01,9.99
+EU,Guinea,GN,EUR,Standard,24.99,16.99
+EU,Guinea,GN,EUR,Standard,59.99,24.99
+EU,Guinea-Bissau,GW,EUR,Standard,0.01,9.99
+EU,Guinea-Bissau,GW,EUR,Standard,24.99,16.99
+EU,Guinea-Bissau,GW,EUR,Standard,59.99,24.99
+EU,Guyana,GY,EUR,Standard,0.01,9.99
+EU,Guyana,GY,EUR,Standard,24.99,16.99
+EU,Guyana,GY,EUR,Standard,59.99,24.99
+EU,Hong Kong,HK,EUR,Standard,0.01,9.99
+EU,Hong Kong,HK,EUR,Standard,24.99,16.99
+EU,Hong Kong,HK,EUR,Standard,59.99,24.99
+EU,Hungary,HU,EUR,Standard,0.01,4.99
+EU,Hungary,HU,EUR,Standard,5.01,6.99
+EU,Hungary,HU,EUR,Standard,59.99,9.99
+EU,Hungary,HU,EUR,Standard,99.99,13.99
+EU,Hungary,HU,EUR,Standard,175.01,19.99
+EU,Iceland,IS,EUR,Standard,0.01,9.99
+EU,Iceland,IS,EUR,Standard,24.99,16.99
+EU,Iceland,IS,EUR,Standard,59.99,24.99
+EU,India,IN,EUR,Standard,0.01,9.99
+EU,India,IN,EUR,Standard,24.99,16.99
+EU,India,IN,EUR,Standard,59.99,24.99
+EU,Indonesia,ID,EUR,Standard,0.01,9.99
+EU,Indonesia,ID,EUR,Standard,24.99,16.99
+EU,Indonesia,ID,EUR,Standard,59.99,24.99
+EU,Ireland,IE,EUR,Standard,0.01,3.99
+EU,Ireland,IE,EUR,Standard,5.01,4.65
+EU,Ireland,IE,EUR,Standard,12.01,5.99
+EU,Ireland,IE,EUR,Standard,40.01,7.25
+EU,Ireland,IE,EUR,Standard,75.01,12.25
+EU,Ireland,IE,EUR,Standard,125.01,17.99
+EU,Isle of Man,IM,EUR,Standard,0.01,3.25
+EU,Isle of Man,IM,EUR,Standard,5.01,3.99
+EU,Isle of Man,IM,EUR,Standard,12.01,4.6
+EU,Isle of Man,IM,EUR,Standard,40.01,6.5
+EU,Isle of Man,IM,EUR,Standard,75.01,10
+EU,Isle of Man,IM,EUR,Standard,125.02,13.01
+EU,Israel,IL,EUR,Standard,0.01,9.99
+EU,Israel,IL,EUR,Standard,24.99,16.99
+EU,Israel,IL,EUR,Standard,59.99,24.99
+EU,Italy,IT,EUR,Standard,0.01,3.99
+EU,Italy,IT,EUR,Standard,5.01,4.65
+EU,Italy,IT,EUR,Standard,12.01,5.99
+EU,Italy,IT,EUR,Standard,40.01,7.25
+EU,Italy,IT,EUR,Standard,75.01,12.25
+EU,Italy,IT,EUR,Standard,125.01,17.99
+EU,Ivory Coast,CI,EUR,Standard,0.01,9.99
+EU,Ivory Coast,CI,EUR,Standard,24.99,16.99
+EU,Ivory Coast,CI,EUR,Standard,59.99,24.99
+EU,Jamaica,JM,EUR,Standard,0.01,9.99
+EU,Jamaica,JM,EUR,Standard,24.99,16.99
+EU,Jamaica,JM,EUR,Standard,59.99,24.99
+EU,Japan,JP,EUR,Standard,0.01,9.99
+EU,Japan,JP,EUR,Standard,24.99,16.99
+EU,Japan,JP,EUR,Standard,59.99,24.99
+EU,Jersey,JE,EUR,Standard,0.01,3.99
+EU,Jersey,JE,EUR,Standard,5.01,4.65
+EU,Jersey,JE,EUR,Standard,12.01,5.99
+EU,Jersey,JE,EUR,Standard,40.01,7.25
+EU,Jersey,JE,EUR,Standard,75.01,12.25
+EU,Jersey,JE,EUR,Standard,125.01,17.99
+EU,Jordan,JO,EUR,Standard,0.01,9.99
+EU,Jordan,JO,EUR,Standard,24.99,16.99
+EU,Jordan,JO,EUR,Standard,59.99,24.99
+EU,Kazakhstan,KZ,EUR,Standard,0.01,9.99
+EU,Kazakhstan,KZ,EUR,Standard,24.99,16.99
+EU,Kazakhstan,KZ,EUR,Standard,59.99,24.99
+EU,Kenya,KE,EUR,Standard,0.01,9.99
+EU,Kenya,KE,EUR,Standard,24.99,16.99
+EU,Kenya,KE,EUR,Standard,59.99,24.99
+EU,Kiribati,KI,EUR,,,
+EU,Kosovo,XK,EUR,Standard,0.01,9.99
+EU,Kosovo,XK,EUR,Standard,24.99,16.99
+EU,Kosovo,XK,EUR,Standard,59.99,24.99
+EU,Kuwait,KW,EUR,Standard,0.01,9.99
+EU,Kuwait,KW,EUR,Standard,24.99,16.99
+EU,Kuwait,KW,EUR,Standard,59.99,24.99
+EU,Laos,LA,EUR,Standard,0.01,9.99
+EU,Laos,LA,EUR,Standard,24.99,16.99
+EU,Laos,LA,EUR,Standard,59.99,24.99
+EU,Latvia,LV,EUR,Standard,0.01,4.99
+EU,Latvia,LV,EUR,Standard,5.01,6.99
+EU,Latvia,LV,EUR,Standard,59.99,9.99
+EU,Latvia,LV,EUR,Standard,99.99,13.99
+EU,Latvia,LV,EUR,Standard,175.01,19.99
+EU,Lesotho,LS,EUR,Standard,0.01,9.99
+EU,Lesotho,LS,EUR,Standard,24.99,16.99
+EU,Lesotho,LS,EUR,Standard,59.99,24.99
+EU,Lithuania,LT,EUR,Standard,0.01,4.99
+EU,Lithuania,LT,EUR,Standard,5.01,6.99
+EU,Lithuania,LT,EUR,Standard,59.99,9.99
+EU,Lithuania,LT,EUR,Standard,99.99,13.99
+EU,Lithuania,LT,EUR,Standard,175.01,19.99
+EU,Luxembourg,LU,EUR,Standard,0.01,3.25
+EU,Luxembourg,LU,EUR,Standard,5.01,3.55
+EU,Luxembourg,LU,EUR,Standard,12.01,4.99
+EU,Luxembourg,LU,EUR,Standard,40.01,6.99
+EU,Luxembourg,LU,EUR,Standard,75.01,12.25
+EU,Luxembourg,LU,EUR,Standard,125.01,15.99
+EU,Macao,MO,EUR,Standard,0.01,9.99
+EU,Macao,MO,EUR,Standard,24.99,16.99
+EU,Macao,MO,EUR,Standard,59.99,24.99
+EU,Madagascar,MG,EUR,Standard,0.01,9.99
+EU,Madagascar,MG,EUR,Standard,24.99,16.99
+EU,Madagascar,MG,EUR,Standard,59.99,24.99
+EU,Malawi,MW,EUR,Standard,0.01,9.99
+EU,Malawi,MW,EUR,Standard,24.99,16.99
+EU,Malawi,MW,EUR,Standard,59.99,24.99
+EU,Malaysia,MY,EUR,Standard,0.01,9.99
+EU,Malaysia,MY,EUR,Standard,24.99,16.99
+EU,Malaysia,MY,EUR,Standard,59.99,24.99
+EU,Maldives,MV,EUR,Standard,0.01,9.99
+EU,Maldives,MV,EUR,Standard,24.99,16.99
+EU,Maldives,MV,EUR,Standard,59.99,24.99
+EU,Mali,ML,EUR,Standard,0.01,9.99
+EU,Mali,ML,EUR,Standard,24.99,16.99
+EU,Mali,ML,EUR,Standard,59.99,24.99
+EU,Malta,MT,EUR,Standard,0.01,4.99
+EU,Malta,MT,EUR,Standard,5.01,5.99
+EU,Malta,MT,EUR,Standard,12.01,6.55
+EU,Malta,MT,EUR,Standard,40.01,7.25
+EU,Malta,MT,EUR,Standard,75.01,13.25
+EU,Malta,MT,EUR,Standard,125.01,20.75
+EU,Mauritania,MR,EUR,Standard,0.01,9.99
+EU,Mauritania,MR,EUR,Standard,24.99,16.99
+EU,Mauritania,MR,EUR,Standard,59.99,24.99
+EU,Mauritius,MU,EUR,Standard,0.01,9.99
+EU,Mauritius,MU,EUR,Standard,24.99,16.99
+EU,Mauritius,MU,EUR,Standard,59.99,24.99
+EU,Mayotte,YT,EUR,Standard,0.01,9.99
+EU,Mayotte,YT,EUR,Standard,24.99,16.99
+EU,Mayotte,YT,EUR,Standard,59.99,24.99
+EU,Mexico,MX,EUR,Standard,0.01,9.99
+EU,Mexico,MX,EUR,Standard,24.99,16.99
+EU,Mexico,MX,EUR,Standard,59.99,24.99
+EU,Monaco,MC,EUR,Standard,0.01,3.25
+EU,Monaco,MC,EUR,Standard,5.01,3.55
+EU,Monaco,MC,EUR,Standard,12.01,4.99
+EU,Monaco,MC,EUR,Standard,40.01,6.99
+EU,Monaco,MC,EUR,Standard,75.01,12.25
+EU,Monaco,MC,EUR,Standard,125.01,15.99
+EU,Mongolia,MN,EUR,Standard,0.01,9.99
+EU,Mongolia,MN,EUR,Standard,24.99,16.99
+EU,Mongolia,MN,EUR,Standard,59.99,24.99
+EU,Montenegro,ME,EUR,Standard,0.01,9.99
+EU,Montenegro,ME,EUR,Standard,24.99,16.99
+EU,Montenegro,ME,EUR,Standard,59.99,24.99
+EU,Montserrat,MS,EUR,Standard,0.01,9.99
+EU,Montserrat,MS,EUR,Standard,24.99,16.99
+EU,Montserrat,MS,EUR,Standard,59.99,24.99
+EU,Morocco,MA,EUR,Standard,0.01,9.99
+EU,Morocco,MA,EUR,Standard,24.99,16.99
+EU,Morocco,MA,EUR,Standard,59.99,24.99
+EU,Mosambique,MZ,EUR,Standard,0.01,9.99
+EU,Mosambique,MZ,EUR,Standard,24.99,16.99
+EU,Mosambique,MZ,EUR,Standard,59.99,24.99
+EU,Myanmar/Burma,MM,EUR,Standard,0.01,9.99
+EU,Myanmar/Burma,MM,EUR,Standard,24.99,16.99
+EU,Myanmar/Burma,MM,EUR,Standard,59.99,24.99
+EU,Namibia,NA,EUR,Standard,0.01,9.99
+EU,Namibia,NA,EUR,Standard,24.99,16.99
+EU,Namibia,NA,EUR,Standard,59.99,24.99
+EU,Nauru,NR,EUR,Standard,0.01,9.99
+EU,Nauru,NR,EUR,Standard,24.99,16.99
+EU,Nauru,NR,EUR,Standard,59.99,24.99
+EU,Nepal,NP,EUR,Standard,0.01,9.99
+EU,Nepal,NP,EUR,Standard,24.99,16.99
+EU,Nepal,NP,EUR,Standard,59.99,24.99
+EU,Netherlands,NL,EUR,Standard,0.01,3.25
+EU,Netherlands,NL,EUR,Standard,5.01,3.55
+EU,Netherlands,NL,EUR,Standard,12.01,4.99
+EU,Netherlands,NL,EUR,Standard,40.01,6.99
+EU,Netherlands,NL,EUR,Standard,75.01,12.25
+EU,Netherlands,NL,EUR,Standard,125.01,15.99
+EU,Netherlands Antilles,AN,EUR,Standard,0.01,9.99
+EU,Netherlands Antilles,AN,EUR,Standard,24.99,16.99
+EU,Netherlands Antilles,AN,EUR,Standard,59.99,24.99
+EU,Niger,NE,EUR,Standard,0.01,9.99
+EU,Niger,NE,EUR,Standard,24.99,16.99
+EU,Niger,NE,EUR,Standard,59.99,24.99
+EU,Nigeria,NG,EUR,Standard,0.01,9.99
+EU,Nigeria,NG,EUR,Standard,24.99,16.99
+EU,Nigeria,NG,EUR,Standard,59.99,24.99
+EU,North Macedonia,MK,EUR,Standard,0.01,4.99
+EU,North Macedonia,MK,EUR,Standard,5.01,5.99
+EU,North Macedonia,MK,EUR,Standard,12.01,6.55
+EU,North Macedonia,MK,EUR,Standard,40.01,7.25
+EU,North Macedonia,MK,EUR,Standard,75.01,13.25
+EU,North Macedonia,MK,EUR,Standard,125.01,20.75
+EU,Oman,OM,EUR,Standard,0.01,9.99
+EU,Oman,OM,EUR,Standard,24.99,16.99
+EU,Oman,OM,EUR,Standard,59.99,24.99
+EU,Pakistan,PK,EUR,Standard,0.01,9.99
+EU,Pakistan,PK,EUR,Standard,24.99,16.99
+EU,Pakistan,PK,EUR,Standard,59.99,24.99
+EU,Palau,PW,EUR,Standard,0.01,9.99
+EU,Palau,PW,EUR,Standard,24.99,16.99
+EU,Palau,PW,EUR,Standard,59.99,24.99
+EU,Panama,PA,EUR,Standard,0.01,9.99
+EU,Panama,PA,EUR,Standard,24.99,16.99
+EU,Panama,PA,EUR,Standard,59.99,24.99
+EU,Paraguay,PY,EUR,Standard,0.01,9.99
+EU,Paraguay,PY,EUR,Standard,24.99,16.99
+EU,Paraguay,PY,EUR,Standard,59.99,24.99
+EU,Peru,PE,EUR,Standard,0.01,9.99
+EU,Peru,PE,EUR,Standard,24.99,16.99
+EU,Peru,PE,EUR,Standard,59.99,24.99
+EU,Philippines,PH,EUR,Standard,0.01,9.99
+EU,Philippines,PH,EUR,Standard,24.99,16.99
+EU,Philippines,PH,EUR,Standard,59.99,24.99
+EU,Poland,PL,EUR,Standard,0.01,3.99
+EU,Poland,PL,EUR,Standard,5.01,4.65
+EU,Poland,PL,EUR,Standard,12.01,5.99
+EU,Poland,PL,EUR,Standard,40.01,7.25
+EU,Poland,PL,EUR,Standard,75.01,12.25
+EU,Poland,PL,EUR,Standard,125.01,17.99
+EU,Portugal,PT,EUR,Standard,0.01,4.99
+EU,Portugal,PT,EUR,Standard,5.01,6.99
+EU,Portugal,PT,EUR,Standard,59.99,9.99
+EU,Portugal,PT,EUR,Standard,99.99,13.99
+EU,Portugal,PT,EUR,Standard,175.01,19.99
+EU,Qatar,QA,EUR,Standard,0.01,9.99
+EU,Qatar,QA,EUR,Standard,24.99,16.99
+EU,Qatar,QA,EUR,Standard,59.99,24.99
+EU,Romania,RO,EUR,Standard,0.01,4.99
+EU,Romania,RO,EUR,Standard,5.01,6.99
+EU,Romania,RO,EUR,Standard,59.99,9.99
+EU,Romania,RO,EUR,Standard,99.99,13.99
+EU,Romania,RO,EUR,Standard,175.01,19.99
+EU,Rwanda,RW,EUR,Standard,0.01,9.99
+EU,Rwanda,RW,EUR,Standard,24.99,16.99
+EU,Rwanda,RW,EUR,Standard,59.99,24.99
+EU,Saint Kitts and Nevis/St. Christopher,KN,EUR,Standard,0.01,9.99
+EU,Saint Kitts and Nevis/St. Christopher,KN,EUR,Standard,24.99,16.99
+EU,Saint Kitts and Nevis/St. Christopher,KN,EUR,Standard,59.99,24.99
+EU,Saint Lucia,LC,EUR,Standard,0.01,9.99
+EU,Saint Lucia,LC,EUR,Standard,24.99,16.99
+EU,Saint Lucia,LC,EUR,Standard,59.99,24.99
+EU,Saint Martin,MF,EUR,Standard,0.01,3.25
+EU,Saint Martin,MF,EUR,Standard,5.01,3.99
+EU,Saint Martin,MF,EUR,Standard,12.01,4.6
+EU,Saint Martin,MF,EUR,Standard,40.01,6.5
+EU,Saint Martin,MF,EUR,Standard,75.01,10
+EU,Saint Martin,MF,EUR,Standard,125.02,13.01
+EU,Saint Pierre and Miquelon,PM,EUR,Standard,0.01,9.99
+EU,Saint Pierre and Miquelon,PM,EUR,Standard,24.99,16.99
+EU,Saint Pierre and Miquelon,PM,EUR,Standard,59.99,24.99
+EU,Saint Vincent and the Grenadines,VC,EUR,,,
+EU,San Marino,SM,EUR,Standard,0.01,4.99
+EU,San Marino,SM,EUR,Standard,5.01,5.99
+EU,San Marino,SM,EUR,Standard,12.01,6.55
+EU,San Marino,SM,EUR,Standard,40.01,7.25
+EU,San Marino,SM,EUR,Standard,75.01,13.25
+EU,San Marino,SM,EUR,Standard,125.01,20.75
+EU,São Tomé and Príncipe,ST,EUR,Standard,0.01,9.99
+EU,São Tomé and Príncipe,ST,EUR,Standard,24.99,16.99
+EU,São Tomé and Príncipe,ST,EUR,Standard,59.99,24.99
+EU,Saudi Arabia,SA,EUR,Standard,0.01,9.99
+EU,Saudi Arabia,SA,EUR,Standard,24.99,16.99
+EU,Saudi Arabia,SA,EUR,Standard,59.99,24.99
+EU,Senegal,SN,EUR,Standard,0.01,9.99
+EU,Senegal,SN,EUR,Standard,24.99,16.99
+EU,Senegal,SN,EUR,Standard,59.99,24.99
+EU,Serbia,RS,EUR,Standard,0.01,9.99
+EU,Serbia,RS,EUR,Standard,24.99,16.99
+EU,Serbia,RS,EUR,Standard,59.99,24.99
+EU,Seychelles,SC,EUR,Standard,0.01,9.99
+EU,Seychelles,SC,EUR,Standard,24.99,16.99
+EU,Seychelles,SC,EUR,Standard,59.99,24.99
+EU,Sierra Leone,SL,EUR,Standard,0.01,9.99
+EU,Sierra Leone,SL,EUR,Standard,24.99,16.99
+EU,Sierra Leone,SL,EUR,Standard,59.99,24.99
+EU,Slovakia,SK,EUR,Standard,0.01,4.99
+EU,Slovakia,SK,EUR,Standard,5.01,6.99
+EU,Slovakia,SK,EUR,Standard,59.99,9.99
+EU,Slovakia,SK,EUR,Standard,99.99,13.99
+EU,Slovakia,SK,EUR,Standard,175.01,19.99
+EU,Slovenia,SI,EUR,Standard,0.01,4.99
+EU,Slovenia,SI,EUR,Standard,5.01,6.99
+EU,Slovenia,SI,EUR,Standard,59.99,9.99
+EU,Slovenia,SI,EUR,Standard,99.99,13.99
+EU,Slovenia,SI,EUR,Standard,175.01,19.99
+EU,Solomon Islands,SB,EUR,Standard,0.01,9.99
+EU,Solomon Islands,SB,EUR,Standard,24.99,16.99
+EU,Solomon Islands,SB,EUR,Standard,59.99,24.99
+EU,Spain,ES,EUR,Standard,0.01,3.99
+EU,Spain,ES,EUR,Standard,5.01,4.65
+EU,Spain,ES,EUR,Standard,12.01,5.99
+EU,Spain,ES,EUR,Standard,40.01,7.25
+EU,Spain,ES,EUR,Standard,75.01,12.25
+EU,Spain,ES,EUR,Standard,125.01,17.99
+EU,Sri Lanka,LK,EUR,Standard,0.01,9.99
+EU,Sri Lanka,LK,EUR,Standard,24.99,16.99
+EU,Sri Lanka,LK,EUR,Standard,59.99,24.99
+EU,St. Helena,SH,EUR,Standard,0.01,9.99
+EU,St. Helena,SH,EUR,Standard,24.99,16.99
+EU,St. Helena,SH,EUR,Standard,59.99,24.99
+EU,Suriname,SR,EUR,Standard,0.01,9.99
+EU,Suriname,SR,EUR,Standard,24.99,16.99
+EU,Suriname,SR,EUR,Standard,59.99,24.99
+EU,Swaziland,SZ,EUR,Standard,0.01,9.99
+EU,Swaziland,SZ,EUR,Standard,24.99,16.99
+EU,Swaziland,SZ,EUR,Standard,59.99,24.99
+EU,Sweden,SE,EUR,Standard,0.01,3.25
+EU,Sweden,SE,EUR,Standard,5.01,3.55
+EU,Sweden,SE,EUR,Standard,12.01,4.99
+EU,Sweden,SE,EUR,Standard,40.01,6.99
+EU,Sweden,SE,EUR,Standard,75.01,12.25
+EU,Sweden,SE,EUR,Standard,125.01,15.99
+EU,Tajikistan,TJ,EUR,Standard,0.01,9.99
+EU,Tajikistan,TJ,EUR,Standard,24.99,16.99
+EU,Tajikistan,TJ,EUR,Standard,59.99,24.99
+EU,Tanzania,TZ,EUR,Standard,0.01,9.99
+EU,Tanzania,TZ,EUR,Standard,24.99,16.99
+EU,Tanzania,TZ,EUR,Standard,59.99,24.99
+EU,Thailand,TH,EUR,Standard,0.01,9.99
+EU,Thailand,TH,EUR,Standard,24.99,16.99
+EU,Thailand,TH,EUR,Standard,59.99,24.99
+EU,Timor-Leste,TL,EUR,Standard,0.01,9.99
+EU,Timor-Leste,TL,EUR,Standard,24.99,16.99
+EU,Timor-Leste,TL,EUR,Standard,59.99,24.99
+EU,Togo,TG,EUR,Standard,0.01,9.99
+EU,Togo,TG,EUR,Standard,24.99,16.99
+EU,Togo,TG,EUR,Standard,59.99,24.99
+EU,Trinidad and Tobago,TT,EUR,Standard,0.01,9.99
+EU,Trinidad and Tobago,TT,EUR,Standard,24.99,16.99
+EU,Trinidad and Tobago,TT,EUR,Standard,59.99,24.99
+EU,Tunisia,TN,EUR,Standard,0.01,9.99
+EU,Tunisia,TN,EUR,Standard,24.99,16.99
+EU,Tunisia,TN,EUR,Standard,59.99,24.99
+EU,Turkey,TR,EUR,Standard,0.01,9.99
+EU,Turkey,TR,EUR,Standard,24.99,16.99
+EU,Turkey,TR,EUR,Standard,59.99,24.99
+EU,Turkmenistan,TM,EUR,Standard,0.01,9.99
+EU,Turkmenistan,TM,EUR,Standard,24.99,16.99
+EU,Turkmenistan,TM,EUR,Standard,59.99,24.99
+EU,Turks And Caicos Islands,TC,EUR,Standard,0.01,9.99
+EU,Turks And Caicos Islands,TC,EUR,Standard,24.99,16.99
+EU,Turks And Caicos Islands,TC,EUR,Standard,59.99,24.99
+EU,Uganda,UG,EUR,Standard,0.01,9.99
+EU,Uganda,UG,EUR,Standard,24.99,16.99
+EU,Uganda,UG,EUR,Standard,59.99,24.99
+EU,United Arab Emirates,AE,EUR,Standard,0.01,9.99
+EU,United Arab Emirates,AE,EUR,Standard,24.99,16.99
+EU,United Arab Emirates,AE,EUR,Standard,59.99,24.99
+EU,United Kingdom,GB,EUR,Standard,0.01,3.99
+EU,United Kingdom,GB,EUR,Standard,5.01,4.65
+EU,United Kingdom,GB,EUR,Standard,12.01,5.99
+EU,United Kingdom,GB,EUR,Standard,40.01,7.25
+EU,United Kingdom,GB,EUR,Standard,75.01,12.25
+EU,United Kingdom,GB,EUR,Standard,125.01,17.99
+EU,Uruguay,UY,EUR,Standard,0.01,9.99
+EU,Uruguay,UY,EUR,Standard,24.99,16.99
+EU,Uruguay,UY,EUR,Standard,59.99,24.99
+EU,Usbekistan,UZ,EUR,Standard,0.01,9.99
+EU,Usbekistan,UZ,EUR,Standard,24.99,16.99
+EU,Usbekistan,UZ,EUR,Standard,59.99,24.99
+EU,Vatican City,VA,EUR,Standard,0.01,9.99
+EU,Vatican City,VA,EUR,Standard,24.99,16.99
+EU,Vatican City,VA,EUR,Standard,59.99,24.99
+EU,Venezuela,VE,EUR,Standard,0.01,9.99
+EU,Venezuela,VE,EUR,Standard,24.99,16.99
+EU,Venezuela,VE,EUR,Standard,59.99,24.99
+EU,Vietnam,VN,EUR,Standard,0.01,9.99
+EU,Vietnam,VN,EUR,Standard,24.99,16.99
+EU,Vietnam,VN,EUR,Standard,59.99,24.99
+EU,Wallis and Futuna,WF,EUR,Standard,0.01,9.99
+EU,Wallis and Futuna,WF,EUR,Standard,24.99,16.99
+EU,Wallis and Futuna,WF,EUR,Standard,59.99,24.99
+EU,Zambia,ZM,EUR,Standard,0.01,9.99
+EU,Zambia,ZM,EUR,Standard,24.99,16.99
+EU,Zambia,ZM,EUR,Standard,59.99,24.99
+EU,Zimbabwe,ZW,EUR,Standard,0.01,9.99
+EU,Zimbabwe,ZW,EUR,Standard,24.99,16.99
+EU,Zimbabwe,ZW,EUR,Standard,59.99,24.99
+US,Åland,AX,USD,International Standard,0.01,6.99
+US,Åland,AX,USD,International Standard,15.51,9.89
+US,Åland,AX,USD,International Standard,28.01,12.37
+US,Åland,AX,USD,International Standard,40.01,17.23
+US,Åland,AX,USD,International Standard,60.01,22.07
+US,Åland,AX,USD,International Standard,80.01,30.47
+US,Åland,AX,USD,International Standard,100.01,45.61
+US,Åland,AX,USD,International Standard,175.01,54.27
+US,Albania,AL,USD,International Standard,0.01,6.99
+US,Albania,AL,USD,International Standard,15.51,9.89
+US,Albania,AL,USD,International Standard,28.01,12.37
+US,Albania,AL,USD,International Standard,40.01,17.23
+US,Albania,AL,USD,International Standard,60.01,22.07
+US,Albania,AL,USD,International Standard,80.01,30.47
+US,Albania,AL,USD,International Standard,100.01,45.61
+US,Albania,AL,USD,International Standard,175.01,54.27
+US,Algeria,DZ,USD,International Standard,0.01,6.99
+US,Algeria,DZ,USD,International Standard,15.51,9.89
+US,Algeria,DZ,USD,International Standard,28.01,12.37
+US,Algeria,DZ,USD,International Standard,40.01,17.23
+US,Algeria,DZ,USD,International Standard,60.01,22.07
+US,Algeria,DZ,USD,International Standard,80.01,30.47
+US,Algeria,DZ,USD,International Standard,100.01,45.61
+US,Algeria,DZ,USD,International Standard,175.01,54.27
+US,Andorra,AD,USD,International Express,0.01,22
+US,Andorra,AD,USD,International Express,13.51,24.45
+US,Andorra,AD,USD,International Express,24.51,34
+US,Andorra,AD,USD,International Express,50.01,43
+US,Andorra,AD,USD,International Express,75.01,58.5
+US,Andorra,AD,USD,International Express,100.01,75
+US,Andorra,AD,USD,International Express,175,85
+US,Angola,AO,USD,International Standard,0.01,6.99
+US,Angola,AO,USD,International Standard,15.51,9.89
+US,Angola,AO,USD,International Standard,28.01,12.37
+US,Angola,AO,USD,International Standard,40.01,17.23
+US,Angola,AO,USD,International Standard,60.01,22.07
+US,Angola,AO,USD,International Standard,80.01,30.47
+US,Angola,AO,USD,International Standard,100.01,45.61
+US,Angola,AO,USD,International Standard,175.01,54.27
+US,Anguilla,AI,USD,International Standard,0.01,6.99
+US,Anguilla,AI,USD,International Standard,15.51,9.89
+US,Anguilla,AI,USD,International Standard,28.01,12.37
+US,Anguilla,AI,USD,International Standard,40.01,17.23
+US,Anguilla,AI,USD,International Standard,60.01,22.07
+US,Anguilla,AI,USD,International Standard,80.01,30.47
+US,Anguilla,AI,USD,International Standard,100.01,45.61
+US,Anguilla,AI,USD,International Standard,175.01,54.27
+US,Antigua and Barbuda,AG,USD,International Standard,0.01,6.99
+US,Antigua and Barbuda,AG,USD,International Standard,15.51,9.89
+US,Antigua and Barbuda,AG,USD,International Standard,28.01,12.37
+US,Antigua and Barbuda,AG,USD,International Standard,40.01,17.23
+US,Antigua and Barbuda,AG,USD,International Standard,60.01,22.07
+US,Antigua and Barbuda,AG,USD,International Standard,80.01,30.47
+US,Antigua and Barbuda,AG,USD,International Standard,100.01,45.61
+US,Antigua and Barbuda,AG,USD,International Standard,175.01,54.27
+US,Armenia,AM,USD,International Standard,0.01,6.99
+US,Armenia,AM,USD,International Standard,15.51,9.89
+US,Armenia,AM,USD,International Standard,28.01,12.37
+US,Armenia,AM,USD,International Standard,40.01,17.23
+US,Armenia,AM,USD,International Standard,60.01,22.07
+US,Armenia,AM,USD,International Standard,80.01,30.47
+US,Armenia,AM,USD,International Standard,100.01,45.61
+US,Armenia,AM,USD,International Standard,175.01,54.27
+US,Aruba,AW,USD,International Standard,0.01,6.99
+US,Aruba,AW,USD,International Standard,15.51,9.89
+US,Aruba,AW,USD,International Standard,28.01,12.37
+US,Aruba,AW,USD,International Standard,40.01,17.23
+US,Aruba,AW,USD,International Standard,60.01,22.07
+US,Aruba,AW,USD,International Standard,80.01,30.47
+US,Aruba,AW,USD,International Standard,100.01,45.61
+US,Aruba,AW,USD,International Standard,175.01,54.27
+US,Australia,AU,USD,International Standard,0.01,6.99
+US,Australia,AU,USD,International Standard,15.51,9.89
+US,Australia,AU,USD,International Standard,28.01,12.37
+US,Australia,AU,USD,International Standard,40.01,17.23
+US,Australia,AU,USD,International Standard,60.01,22.07
+US,Australia,AU,USD,International Standard,80.01,30.47
+US,Australia,AU,USD,International Standard,100.01,45.61
+US,Australia,AU,USD,International Standard,175.01,54.27
+US,Austria,AT,USD,International Standard,0.01,6.99
+US,Austria,AT,USD,International Standard,15.51,9.89
+US,Austria,AT,USD,International Standard,28.01,12.37
+US,Austria,AT,USD,International Standard,40.01,17.23
+US,Austria,AT,USD,International Standard,60.01,22.07
+US,Austria,AT,USD,International Standard,80.01,30.47
+US,Austria,AT,USD,International Standard,100.01,45.61
+US,Austria,AT,USD,International Standard,175.01,54.27
+US,Azerbaijan,AZ,USD,International Express,0.01,22
+US,Azerbaijan,AZ,USD,International Express,13.51,24.45
+US,Azerbaijan,AZ,USD,International Express,24.51,34
+US,Azerbaijan,AZ,USD,International Express,50.01,43
+US,Azerbaijan,AZ,USD,International Express,75.01,58.5
+US,Azerbaijan,AZ,USD,International Express,100.01,75
+US,Azerbaijan,AZ,USD,International Express,175,85
+US,Bahamas,BS,USD,International Standard,0.01,6.99
+US,Bahamas,BS,USD,International Standard,15.51,9.89
+US,Bahamas,BS,USD,International Standard,28.01,12.37
+US,Bahamas,BS,USD,International Standard,40.01,17.23
+US,Bahamas,BS,USD,International Standard,60.01,22.07
+US,Bahamas,BS,USD,International Standard,80.01,30.47
+US,Bahamas,BS,USD,International Standard,100.01,45.61
+US,Bahamas,BS,USD,International Standard,175.01,54.27
+US,Bahrain,BH,USD,International Standard,0.01,6.99
+US,Bahrain,BH,USD,International Standard,15.51,9.89
+US,Bahrain,BH,USD,International Standard,28.01,12.37
+US,Bahrain,BH,USD,International Standard,40.01,17.23
+US,Bahrain,BH,USD,International Standard,60.01,22.07
+US,Bahrain,BH,USD,International Standard,80.01,30.47
+US,Bahrain,BH,USD,International Standard,100.01,45.61
+US,Bahrain,BH,USD,International Standard,175.01,54.27
+US,Bangladesh,BD,USD,International Standard,0.01,6.99
+US,Bangladesh,BD,USD,International Standard,15.51,9.89
+US,Bangladesh,BD,USD,International Standard,28.01,12.37
+US,Bangladesh,BD,USD,International Standard,40.01,17.23
+US,Bangladesh,BD,USD,International Standard,60.01,22.07
+US,Bangladesh,BD,USD,International Standard,80.01,30.47
+US,Bangladesh,BD,USD,International Standard,100.01,45.61
+US,Bangladesh,BD,USD,International Standard,175.01,54.27
+US,Barbados,BB,USD,International Standard,0.01,6.99
+US,Barbados,BB,USD,International Standard,15.51,9.89
+US,Barbados,BB,USD,International Standard,28.01,12.37
+US,Barbados,BB,USD,International Standard,40.01,17.23
+US,Barbados,BB,USD,International Standard,60.01,22.07
+US,Barbados,BB,USD,International Standard,80.01,30.47
+US,Barbados,BB,USD,International Standard,100.01,45.61
+US,Barbados,BB,USD,International Standard,175.01,54.27
+US,Belgium,BE,USD,International Standard,0.01,6.99
+US,Belgium,BE,USD,International Standard,15.51,9.89
+US,Belgium,BE,USD,International Standard,28.01,12.37
+US,Belgium,BE,USD,International Standard,40.01,17.23
+US,Belgium,BE,USD,International Standard,60.01,22.07
+US,Belgium,BE,USD,International Standard,80.01,30.47
+US,Belgium,BE,USD,International Standard,100.01,45.61
+US,Belgium,BE,USD,International Standard,175.01,54.27
+US,Benin,BJ,USD,International Standard,0.01,6.99
+US,Benin,BJ,USD,International Standard,15.51,9.89
+US,Benin,BJ,USD,International Standard,28.01,12.37
+US,Benin,BJ,USD,International Standard,40.01,17.23
+US,Benin,BJ,USD,International Standard,60.01,22.07
+US,Benin,BJ,USD,International Standard,80.01,30.47
+US,Benin,BJ,USD,International Standard,100.01,45.61
+US,Benin,BJ,USD,International Standard,175.01,54.27
+US,Bermuda,BM,USD,International Standard,0.01,6.99
+US,Bermuda,BM,USD,International Standard,15.51,9.89
+US,Bermuda,BM,USD,International Standard,28.01,12.37
+US,Bermuda,BM,USD,International Standard,40.01,17.23
+US,Bermuda,BM,USD,International Standard,60.01,22.07
+US,Bermuda,BM,USD,International Standard,80.01,30.47
+US,Bermuda,BM,USD,International Standard,100.01,45.61
+US,Bermuda,BM,USD,International Standard,175.01,54.27
+US,Bolivia,BO,USD,International Express,0.01,22
+US,Bolivia,BO,USD,International Express,13.51,24.45
+US,Bolivia,BO,USD,International Express,24.51,34
+US,Bolivia,BO,USD,International Express,50.01,43
+US,Bolivia,BO,USD,International Express,75.01,58.5
+US,Bolivia,BO,USD,International Express,100.01,75
+US,Bolivia,BO,USD,International Express,175,85
+US,Bosnia and Herzegovina,BA,USD,International Standard,0.01,6.99
+US,Bosnia and Herzegovina,BA,USD,International Standard,15.51,9.89
+US,Bosnia and Herzegovina,BA,USD,International Standard,28.01,12.37
+US,Bosnia and Herzegovina,BA,USD,International Standard,40.01,17.23
+US,Bosnia and Herzegovina,BA,USD,International Standard,60.01,22.07
+US,Bosnia and Herzegovina,BA,USD,International Standard,80.01,30.47
+US,Bosnia and Herzegovina,BA,USD,International Standard,100.01,45.61
+US,Bosnia and Herzegovina,BA,USD,International Standard,175.01,54.27
+US,Botswana,BW,USD,International Standard,0.01,6.99
+US,Botswana,BW,USD,International Standard,15.51,9.89
+US,Botswana,BW,USD,International Standard,28.01,12.37
+US,Botswana,BW,USD,International Standard,40.01,17.23
+US,Botswana,BW,USD,International Standard,60.01,22.07
+US,Botswana,BW,USD,International Standard,80.01,30.47
+US,Botswana,BW,USD,International Standard,100.01,45.61
+US,Botswana,BW,USD,International Standard,175.01,54.27
+US,Brasil,BR,USD,International Standard,0.01,6.99
+US,Brasil,BR,USD,International Standard,15.51,9.89
+US,Brasil,BR,USD,International Standard,28.01,12.37
+US,Brasil,BR,USD,International Standard,40.01,17.23
+US,Brasil,BR,USD,International Standard,60.01,22.07
+US,Brasil,BR,USD,International Standard,80.01,30.47
+US,Brasil,BR,USD,International Standard,100.01,45.61
+US,Brasil,BR,USD,International Standard,175.01,54.27
+US,British Virgin Islands,VG,USD,International Standard,0.01,6.99
+US,British Virgin Islands,VG,USD,International Standard,15.51,9.89
+US,British Virgin Islands,VG,USD,International Standard,28.01,12.37
+US,British Virgin Islands,VG,USD,International Standard,40.01,17.23
+US,British Virgin Islands,VG,USD,International Standard,60.01,22.07
+US,British Virgin Islands,VG,USD,International Standard,80.01,30.47
+US,British Virgin Islands,VG,USD,International Standard,100.01,45.61
+US,British Virgin Islands,VG,USD,International Standard,175.01,54.27
+US,Bulgaria,BG,USD,International Standard,0.01,6.99
+US,Bulgaria,BG,USD,International Standard,15.51,9.89
+US,Bulgaria,BG,USD,International Standard,28.01,12.37
+US,Bulgaria,BG,USD,International Standard,40.01,17.23
+US,Bulgaria,BG,USD,International Standard,60.01,22.07
+US,Bulgaria,BG,USD,International Standard,80.01,30.47
+US,Bulgaria,BG,USD,International Standard,100.01,45.61
+US,Bulgaria,BG,USD,International Standard,175.01,54.27
+US,Burkina Faso,BF,USD,International Standard,0.01,6.99
+US,Burkina Faso,BF,USD,International Standard,15.51,9.89
+US,Burkina Faso,BF,USD,International Standard,28.01,12.37
+US,Burkina Faso,BF,USD,International Standard,40.01,17.23
+US,Burkina Faso,BF,USD,International Standard,60.01,22.07
+US,Burkina Faso,BF,USD,International Standard,80.01,30.47
+US,Burkina Faso,BF,USD,International Standard,100.01,45.61
+US,Burkina Faso,BF,USD,International Standard,175.01,54.27
+US,Burundi,BI,USD,International Standard,0.01,6.99
+US,Burundi,BI,USD,International Standard,15.51,9.89
+US,Burundi,BI,USD,International Standard,28.01,12.37
+US,Burundi,BI,USD,International Standard,40.01,17.23
+US,Burundi,BI,USD,International Standard,60.01,22.07
+US,Burundi,BI,USD,International Standard,80.01,30.47
+US,Burundi,BI,USD,International Standard,100.01,45.61
+US,Burundi,BI,USD,International Standard,175.01,54.27
+US,Cameroon,CM,USD,International Express,0.01,22
+US,Cameroon,CM,USD,International Express,13.51,24.45
+US,Cameroon,CM,USD,International Express,24.51,34
+US,Cameroon,CM,USD,International Express,50.01,43
+US,Cameroon,CM,USD,International Express,75.01,58.5
+US,Cameroon,CM,USD,International Express,100.01,75
+US,Cameroon,CM,USD,International Express,175,85
+US,Canada,CA,USD,International Standard,0.01,6.99
+US,Canada,CA,USD,International Standard,15.51,9.89
+US,Canada,CA,USD,International Standard,28.01,12.37
+US,Canada,CA,USD,International Standard,40.01,17.23
+US,Canada,CA,USD,International Standard,60.01,22.07
+US,Canada,CA,USD,International Standard,80.01,30.47
+US,Canada,CA,USD,International Standard,100.01,45.61
+US,Canada,CA,USD,International Standard,175.01,54.27
+US,Canary Islands,IC,USD,International Standard,0.01,6.99
+US,Canary Islands,IC,USD,International Standard,15.51,9.89
+US,Canary Islands,IC,USD,International Standard,28.01,12.37
+US,Canary Islands,IC,USD,International Standard,40.01,17.23
+US,Canary Islands,IC,USD,International Standard,60.01,22.07
+US,Canary Islands,IC,USD,International Standard,80.01,30.47
+US,Canary Islands,IC,USD,International Standard,100.01,45.61
+US,Canary Islands,IC,USD,International Standard,175.01,54.27
+US,Cape Verde,CV,USD,International Standard,0.01,6.99
+US,Cape Verde,CV,USD,International Standard,15.51,9.89
+US,Cape Verde,CV,USD,International Standard,28.01,12.37
+US,Cape Verde,CV,USD,International Standard,40.01,17.23
+US,Cape Verde,CV,USD,International Standard,60.01,22.07
+US,Cape Verde,CV,USD,International Standard,80.01,30.47
+US,Cape Verde,CV,USD,International Standard,100.01,45.61
+US,Cape Verde,CV,USD,International Standard,175.01,54.27
+US,Cayman Islands,KY,USD,International Standard,0.01,6.99
+US,Cayman Islands,KY,USD,International Standard,15.51,9.89
+US,Cayman Islands,KY,USD,International Standard,28.01,12.37
+US,Cayman Islands,KY,USD,International Standard,40.01,17.23
+US,Cayman Islands,KY,USD,International Standard,60.01,22.07
+US,Cayman Islands,KY,USD,International Standard,80.01,30.47
+US,Cayman Islands,KY,USD,International Standard,100.01,45.61
+US,Cayman Islands,KY,USD,International Standard,175.01,54.27
+US,Central African Republic,CF,USD,International Standard,0.01,4.89
+US,Central African Republic,CF,USD,International Standard,13.51,6.75
+US,Central African Republic,CF,USD,International Standard,24.51,10.3
+US,Central African Republic,CF,USD,International Standard,50.01,19.37
+US,Central African Republic,CF,USD,International Standard,75.01,30.47
+US,Central African Republic,CF,USD,International Standard,100.01,49.78
+US,Central African Republic,CF,USD,International Standard,175,61.25
+US,Chile,CL,USD,International Standard,0.01,6.99
+US,Chile,CL,USD,International Standard,15.51,9.89
+US,Chile,CL,USD,International Standard,28.01,12.37
+US,Chile,CL,USD,International Standard,40.01,17.23
+US,Chile,CL,USD,International Standard,60.01,22.07
+US,Chile,CL,USD,International Standard,80.01,30.47
+US,Chile,CL,USD,International Standard,100.01,45.61
+US,Chile,CL,USD,International Standard,175.01,54.27
+US,Colombia,CO,USD,International Standard,0.01,6.99
+US,Colombia,CO,USD,International Standard,15.51,9.89
+US,Colombia,CO,USD,International Standard,28.01,12.37
+US,Colombia,CO,USD,International Standard,40.01,17.23
+US,Colombia,CO,USD,International Standard,60.01,22.07
+US,Colombia,CO,USD,International Standard,80.01,30.47
+US,Colombia,CO,USD,International Standard,100.01,45.61
+US,Colombia,CO,USD,International Standard,175.01,54.27
+US,Comoros,KM,USD,International Standard,0.01,4.89
+US,Comoros,KM,USD,International Standard,13.51,6.75
+US,Comoros,KM,USD,International Standard,24.51,10.3
+US,Comoros,KM,USD,International Standard,50.01,19.37
+US,Comoros,KM,USD,International Standard,75.01,30.47
+US,Comoros,KM,USD,International Standard,100.01,49.78
+US,Comoros,KM,USD,International Standard,175,61.25
+US,Congo,CG,USD,International Standard,0.01,6.99
+US,Congo,CG,USD,International Standard,15.51,9.89
+US,Congo,CG,USD,International Standard,28.01,12.37
+US,Congo,CG,USD,International Standard,40.01,17.23
+US,Congo,CG,USD,International Standard,60.01,22.07
+US,Congo,CG,USD,International Standard,80.01,30.47
+US,Congo,CG,USD,International Standard,100.01,45.61
+US,Congo,CG,USD,International Standard,175.01,54.27
+US,Cook Islands,CK,USD,International Standard,0.01,6.99
+US,Cook Islands,CK,USD,International Standard,15.51,9.89
+US,Cook Islands,CK,USD,International Standard,28.01,12.37
+US,Cook Islands,CK,USD,International Standard,40.01,17.23
+US,Cook Islands,CK,USD,International Standard,60.01,22.07
+US,Cook Islands,CK,USD,International Standard,80.01,30.47
+US,Cook Islands,CK,USD,International Standard,100.01,45.61
+US,Cook Islands,CK,USD,International Standard,175.01,54.27
+US,Costa Rica,CR,USD,International Standard,0.01,6.99
+US,Costa Rica,CR,USD,International Standard,15.51,9.89
+US,Costa Rica,CR,USD,International Standard,28.01,12.37
+US,Costa Rica,CR,USD,International Standard,40.01,17.23
+US,Costa Rica,CR,USD,International Standard,60.01,22.07
+US,Costa Rica,CR,USD,International Standard,80.01,30.47
+US,Costa Rica,CR,USD,International Standard,100.01,45.61
+US,Costa Rica,CR,USD,International Standard,175.01,54.27
+US,Croatia,HR,USD,International Standard,0.01,6.99
+US,Croatia,HR,USD,International Standard,15.51,9.89
+US,Croatia,HR,USD,International Standard,28.01,12.37
+US,Croatia,HR,USD,International Standard,40.01,17.23
+US,Croatia,HR,USD,International Standard,60.01,22.07
+US,Croatia,HR,USD,International Standard,80.01,30.47
+US,Croatia,HR,USD,International Standard,100.01,45.61
+US,Croatia,HR,USD,International Standard,175.01,54.27
+US,Cyprus,CY,USD,International Standard,0.01,6.99
+US,Cyprus,CY,USD,International Standard,15.51,9.89
+US,Cyprus,CY,USD,International Standard,28.01,12.37
+US,Cyprus,CY,USD,International Standard,40.01,17.23
+US,Cyprus,CY,USD,International Standard,60.01,22.07
+US,Cyprus,CY,USD,International Standard,80.01,30.47
+US,Cyprus,CY,USD,International Standard,100.01,45.61
+US,Cyprus,CY,USD,International Standard,175.01,54.27
+US,Czech Republic,CZ,USD,International Standard,0.01,6.99
+US,Czech Republic,CZ,USD,International Standard,15.51,9.89
+US,Czech Republic,CZ,USD,International Standard,28.01,12.37
+US,Czech Republic,CZ,USD,International Standard,40.01,17.23
+US,Czech Republic,CZ,USD,International Standard,60.01,22.07
+US,Czech Republic,CZ,USD,International Standard,80.01,30.47
+US,Czech Republic,CZ,USD,International Standard,100.01,45.61
+US,Czech Republic,CZ,USD,International Standard,175.01,54.27
+US,Democratic Republic of the Congo,CD,USD,International Standard,0.01,6.99
+US,Democratic Republic of the Congo,CD,USD,International Standard,15.51,9.89
+US,Democratic Republic of the Congo,CD,USD,International Standard,28.01,12.37
+US,Democratic Republic of the Congo,CD,USD,International Standard,40.01,17.23
+US,Democratic Republic of the Congo,CD,USD,International Standard,60.01,22.07
+US,Democratic Republic of the Congo,CD,USD,International Standard,80.01,30.47
+US,Democratic Republic of the Congo,CD,USD,International Standard,100.01,45.61
+US,Democratic Republic of the Congo,CD,USD,International Standard,175.01,54.27
+US,Denmark,DK,USD,International Standard,0.01,6.99
+US,Denmark,DK,USD,International Standard,15.51,9.89
+US,Denmark,DK,USD,International Standard,28.01,12.37
+US,Denmark,DK,USD,International Standard,40.01,17.23
+US,Denmark,DK,USD,International Standard,60.01,22.07
+US,Denmark,DK,USD,International Standard,80.01,30.47
+US,Denmark,DK,USD,International Standard,100.01,45.61
+US,Denmark,DK,USD,International Standard,175.01,54.27
+US,Dominica,DM,USD,International Standard,0.01,6.99
+US,Dominica,DM,USD,International Standard,15.51,9.89
+US,Dominica,DM,USD,International Standard,28.01,12.37
+US,Dominica,DM,USD,International Standard,40.01,17.23
+US,Dominica,DM,USD,International Standard,60.01,22.07
+US,Dominica,DM,USD,International Standard,80.01,30.47
+US,Dominica,DM,USD,International Standard,100.01,45.61
+US,Dominica,DM,USD,International Standard,175.01,54.27
+US,Ecuador,EC,USD,International Standard,0.01,6.99
+US,Ecuador,EC,USD,International Standard,15.51,9.89
+US,Ecuador,EC,USD,International Standard,28.01,12.37
+US,Ecuador,EC,USD,International Standard,40.01,17.23
+US,Ecuador,EC,USD,International Standard,60.01,22.07
+US,Ecuador,EC,USD,International Standard,80.01,30.47
+US,Ecuador,EC,USD,International Standard,100.01,45.61
+US,Ecuador,EC,USD,International Standard,175.01,54.27
+US,Egypt,EG,USD,International Standard,0.01,6.99
+US,Egypt,EG,USD,International Standard,15.51,9.89
+US,Egypt,EG,USD,International Standard,28.01,12.37
+US,Egypt,EG,USD,International Standard,40.01,17.23
+US,Egypt,EG,USD,International Standard,60.01,22.07
+US,Egypt,EG,USD,International Standard,80.01,30.47
+US,Egypt,EG,USD,International Standard,100.01,45.61
+US,Egypt,EG,USD,International Standard,175.01,54.27
+US,Equatorial Guinea,GQ,USD,International Standard,0.01,4.89
+US,Equatorial Guinea,GQ,USD,International Standard,13.51,6.75
+US,Equatorial Guinea,GQ,USD,International Standard,24.51,10.3
+US,Equatorial Guinea,GQ,USD,International Standard,50.01,19.37
+US,Equatorial Guinea,GQ,USD,International Standard,75.01,30.47
+US,Equatorial Guinea,GQ,USD,International Standard,100.01,49.78
+US,Equatorial Guinea,GQ,USD,International Standard,175,61.25
+US,Estonia,EE,USD,International Standard,0.01,6.99
+US,Estonia,EE,USD,International Standard,15.51,9.89
+US,Estonia,EE,USD,International Standard,28.01,12.37
+US,Estonia,EE,USD,International Standard,40.01,17.23
+US,Estonia,EE,USD,International Standard,60.01,22.07
+US,Estonia,EE,USD,International Standard,80.01,30.47
+US,Estonia,EE,USD,International Standard,100.01,45.61
+US,Estonia,EE,USD,International Standard,175.01,54.27
+US,Eswatini,SZ,USD,International Standard,0.01,6.99
+US,Eswatini,SZ,USD,International Standard,15.51,9.89
+US,Eswatini,SZ,USD,International Standard,28.01,12.37
+US,Eswatini,SZ,USD,International Standard,40.01,17.23
+US,Eswatini,SZ,USD,International Standard,60.01,22.07
+US,Eswatini,SZ,USD,International Standard,80.01,30.47
+US,Eswatini,SZ,USD,International Standard,100.01,45.61
+US,Eswatini,SZ,USD,International Standard,175.01,54.27
+US,Ethiopia,ET,USD,International Standard,0.01,6.99
+US,Ethiopia,ET,USD,International Standard,15.51,9.89
+US,Ethiopia,ET,USD,International Standard,28.01,12.37
+US,Ethiopia,ET,USD,International Standard,40.01,17.23
+US,Ethiopia,ET,USD,International Standard,60.01,22.07
+US,Ethiopia,ET,USD,International Standard,80.01,30.47
+US,Ethiopia,ET,USD,International Standard,100.01,45.61
+US,Ethiopia,ET,USD,International Standard,175.01,54.27
+US,Falkland Islands,FK,USD,International Standard,0.01,6.99
+US,Falkland Islands,FK,USD,International Standard,15.51,9.89
+US,Falkland Islands,FK,USD,International Standard,28.01,12.37
+US,Falkland Islands,FK,USD,International Standard,40.01,17.23
+US,Falkland Islands,FK,USD,International Standard,60.01,22.07
+US,Falkland Islands,FK,USD,International Standard,80.01,30.47
+US,Falkland Islands,FK,USD,International Standard,100.01,45.61
+US,Falkland Islands,FK,USD,International Standard,175.01,54.27
+US,Faroe Islands,FO,USD,International Express,0.01,22
+US,Faroe Islands,FO,USD,International Express,13.51,24.45
+US,Faroe Islands,FO,USD,International Express,24.51,34
+US,Faroe Islands,FO,USD,International Express,50.01,43
+US,Faroe Islands,FO,USD,International Express,75.01,58.5
+US,Faroe Islands,FO,USD,International Express,100.01,75
+US,Faroe Islands,FO,USD,International Express,175,85
+US,Fiji,FJ,USD,International Standard,0.01,6.99
+US,Fiji,FJ,USD,International Standard,15.51,9.89
+US,Fiji,FJ,USD,International Standard,28.01,12.37
+US,Fiji,FJ,USD,International Standard,40.01,17.23
+US,Fiji,FJ,USD,International Standard,60.01,22.07
+US,Fiji,FJ,USD,International Standard,80.01,30.47
+US,Fiji,FJ,USD,International Standard,100.01,45.61
+US,Fiji,FJ,USD,International Standard,175.01,54.27
+US,Finland,FI,USD,International Standard,0.01,6.99
+US,Finland,FI,USD,International Standard,15.51,9.89
+US,Finland,FI,USD,International Standard,28.01,12.37
+US,Finland,FI,USD,International Standard,40.01,17.23
+US,Finland,FI,USD,International Standard,60.01,22.07
+US,Finland,FI,USD,International Standard,80.01,30.47
+US,Finland,FI,USD,International Standard,100.01,45.61
+US,Finland,FI,USD,International Standard,175.01,54.27
+US,France,FR,USD,International Standard,0.01,6.99
+US,France,FR,USD,International Standard,15.51,9.89
+US,France,FR,USD,International Standard,28.01,12.37
+US,France,FR,USD,International Standard,40.01,17.23
+US,France,FR,USD,International Standard,60.01,22.07
+US,France,FR,USD,International Standard,80.01,30.47
+US,France,FR,USD,International Standard,100.01,45.61
+US,France,FR,USD,International Standard,175.01,54.27
+US,French Guiana,GF,USD,International Standard,0.01,6.99
+US,French Guiana,GF,USD,International Standard,15.51,9.89
+US,French Guiana,GF,USD,International Standard,28.01,12.37
+US,French Guiana,GF,USD,International Standard,40.01,17.23
+US,French Guiana,GF,USD,International Standard,60.01,22.07
+US,French Guiana,GF,USD,International Standard,80.01,30.47
+US,French Guiana,GF,USD,International Standard,100.01,45.61
+US,French Guiana,GF,USD,International Standard,175.01,54.27
+US,French Polynesia,PF,USD,International Standard,0.01,6.99
+US,French Polynesia,PF,USD,International Standard,15.51,9.89
+US,French Polynesia,PF,USD,International Standard,28.01,12.37
+US,French Polynesia,PF,USD,International Standard,40.01,17.23
+US,French Polynesia,PF,USD,International Standard,60.01,22.07
+US,French Polynesia,PF,USD,International Standard,80.01,30.47
+US,French Polynesia,PF,USD,International Standard,100.01,45.61
+US,French Polynesia,PF,USD,International Standard,175.01,54.27
+US,Gabon,GA,USD,International Standard,0.01,6.99
+US,Gabon,GA,USD,International Standard,15.51,9.89
+US,Gabon,GA,USD,International Standard,28.01,12.37
+US,Gabon,GA,USD,International Standard,40.01,17.23
+US,Gabon,GA,USD,International Standard,60.01,22.07
+US,Gabon,GA,USD,International Standard,80.01,30.47
+US,Gabon,GA,USD,International Standard,100.01,45.61
+US,Gabon,GA,USD,International Standard,175.01,54.27
+US,Gambia,GM,USD,International Standard,0.01,6.99
+US,Gambia,GM,USD,International Standard,15.51,9.89
+US,Gambia,GM,USD,International Standard,28.01,12.37
+US,Gambia,GM,USD,International Standard,40.01,17.23
+US,Gambia,GM,USD,International Standard,60.01,22.07
+US,Gambia,GM,USD,International Standard,80.01,30.47
+US,Gambia,GM,USD,International Standard,100.01,45.61
+US,Gambia,GM,USD,International Standard,175.01,54.27
+US,Georgia,GE,USD,International Express,0.01,22
+US,Georgia,GE,USD,International Express,13.51,24.45
+US,Georgia,GE,USD,International Express,24.51,34
+US,Georgia,GE,USD,International Express,50.01,43
+US,Georgia,GE,USD,International Express,75.01,58.5
+US,Georgia,GE,USD,International Express,100.01,75
+US,Georgia,GE,USD,International Express,175,85
+US,Germany,DE,USD,International Standard,0.01,6.99
+US,Germany,DE,USD,International Standard,15.51,9.89
+US,Germany,DE,USD,International Standard,28.01,12.37
+US,Germany,DE,USD,International Standard,40.01,17.23
+US,Germany,DE,USD,International Standard,60.01,22.07
+US,Germany,DE,USD,International Standard,80.01,30.47
+US,Germany,DE,USD,International Standard,100.01,45.61
+US,Germany,DE,USD,International Standard,175.01,54.27
+US,Ghana,GH,USD,International Standard,0.01,6.99
+US,Ghana,GH,USD,International Standard,15.51,9.89
+US,Ghana,GH,USD,International Standard,28.01,12.37
+US,Ghana,GH,USD,International Standard,40.01,17.23
+US,Ghana,GH,USD,International Standard,60.01,22.07
+US,Ghana,GH,USD,International Standard,80.01,30.47
+US,Ghana,GH,USD,International Standard,100.01,45.61
+US,Ghana,GH,USD,International Standard,175.01,54.27
+US,Gibraltar,GI,USD,International Standard,0.01,6.99
+US,Gibraltar,GI,USD,International Standard,15.51,9.89
+US,Gibraltar,GI,USD,International Standard,28.01,12.37
+US,Gibraltar,GI,USD,International Standard,40.01,17.23
+US,Gibraltar,GI,USD,International Standard,60.01,22.07
+US,Gibraltar,GI,USD,International Standard,80.01,30.47
+US,Gibraltar,GI,USD,International Standard,100.01,45.61
+US,Gibraltar,GI,USD,International Standard,175.01,54.27
+US,Greece,GR,USD,International Standard,0.01,6.99
+US,Greece,GR,USD,International Standard,15.51,9.89
+US,Greece,GR,USD,International Standard,28.01,12.37
+US,Greece,GR,USD,International Standard,40.01,17.23
+US,Greece,GR,USD,International Standard,60.01,22.07
+US,Greece,GR,USD,International Standard,80.01,30.47
+US,Greece,GR,USD,International Standard,100.01,45.61
+US,Greece,GR,USD,International Standard,175.01,54.27
+US,Greenland,GL,USD,International Standard,0.01,6.99
+US,Greenland,GL,USD,International Standard,15.51,9.89
+US,Greenland,GL,USD,International Standard,28.01,12.37
+US,Greenland,GL,USD,International Standard,40.01,17.23
+US,Greenland,GL,USD,International Standard,60.01,22.07
+US,Greenland,GL,USD,International Standard,80.01,30.47
+US,Greenland,GL,USD,International Standard,100.01,45.61
+US,Greenland,GL,USD,International Standard,175.01,54.27
+US,Grenada,GD,USD,International Express,0.01,22
+US,Grenada,GD,USD,International Express,13.51,24.45
+US,Grenada,GD,USD,International Express,24.51,34
+US,Grenada,GD,USD,International Express,50.01,43
+US,Grenada,GD,USD,International Express,75.01,58.5
+US,Grenada,GD,USD,International Express,100.01,75
+US,Grenada,GD,USD,International Express,175,85
+US,Guadeloupe,GP,USD,International Standard,0.01,6.99
+US,Guadeloupe,GP,USD,International Standard,15.51,9.89
+US,Guadeloupe,GP,USD,International Standard,28.01,12.37
+US,Guadeloupe,GP,USD,International Standard,40.01,17.23
+US,Guadeloupe,GP,USD,International Standard,60.01,22.07
+US,Guadeloupe,GP,USD,International Standard,80.01,30.47
+US,Guadeloupe,GP,USD,International Standard,100.01,45.61
+US,Guadeloupe,GP,USD,International Standard,175.01,54.27
+US,Guinea,GN,USD,International Express,0.01,22
+US,Guinea,GN,USD,International Express,13.51,24.45
+US,Guinea,GN,USD,International Express,24.51,34
+US,Guinea,GN,USD,International Express,50.01,43
+US,Guinea,GN,USD,International Express,75.01,58.5
+US,Guinea,GN,USD,International Express,100.01,75
+US,Guinea,GN,USD,International Express,175,85
+US,Guinea-Bissau,GW,USD,International Standard,0.01,6.99
+US,Guinea-Bissau,GW,USD,International Standard,15.51,9.89
+US,Guinea-Bissau,GW,USD,International Standard,28.01,12.37
+US,Guinea-Bissau,GW,USD,International Standard,40.01,17.23
+US,Guinea-Bissau,GW,USD,International Standard,60.01,22.07
+US,Guinea-Bissau,GW,USD,International Standard,80.01,30.47
+US,Guinea-Bissau,GW,USD,International Standard,100.01,45.61
+US,Guinea-Bissau,GW,USD,International Standard,175.01,54.27
+US,Guyana,GY,USD,International Standard,0.01,6.99
+US,Guyana,GY,USD,International Standard,15.51,9.89
+US,Guyana,GY,USD,International Standard,28.01,12.37
+US,Guyana,GY,USD,International Standard,40.01,17.23
+US,Guyana,GY,USD,International Standard,60.01,22.07
+US,Guyana,GY,USD,International Standard,80.01,30.47
+US,Guyana,GY,USD,International Standard,100.01,45.61
+US,Guyana,GY,USD,International Standard,175.01,54.27
+US,Haiti,HT,USD,International Standard,0.01,6.99
+US,Haiti,HT,USD,International Standard,15.51,9.89
+US,Haiti,HT,USD,International Standard,28.01,12.37
+US,Haiti,HT,USD,International Standard,40.01,17.23
+US,Haiti,HT,USD,International Standard,60.01,22.07
+US,Haiti,HT,USD,International Standard,80.01,30.47
+US,Haiti,HT,USD,International Standard,100.01,45.61
+US,Haiti,HT,USD,International Standard,175.01,54.27
+US,Honduras,HN,USD,International Standard,0.01,6.99
+US,Honduras,HN,USD,International Standard,15.51,9.89
+US,Honduras,HN,USD,International Standard,28.01,12.37
+US,Honduras,HN,USD,International Standard,40.01,17.23
+US,Honduras,HN,USD,International Standard,60.01,22.07
+US,Honduras,HN,USD,International Standard,80.01,30.47
+US,Honduras,HN,USD,International Standard,100.01,45.61
+US,Honduras,HN,USD,International Standard,175.01,54.27
+US,Hong kong,HK,USD,International Standard,0.01,6.99
+US,Hong kong,HK,USD,International Standard,15.51,9.89
+US,Hong kong,HK,USD,International Standard,28.01,12.37
+US,Hong kong,HK,USD,International Standard,40.01,17.23
+US,Hong kong,HK,USD,International Standard,60.01,22.07
+US,Hong kong,HK,USD,International Standard,80.01,30.47
+US,Hong kong,HK,USD,International Standard,100.01,45.61
+US,Hong kong,HK,USD,International Standard,175.01,54.27
+US,Hungary,HU,USD,International Express,0.01,22
+US,Hungary,HU,USD,International Express,13.51,24.45
+US,Hungary,HU,USD,International Express,24.51,34
+US,Hungary,HU,USD,International Express,50.01,43
+US,Hungary,HU,USD,International Express,75.01,58.5
+US,Hungary,HU,USD,International Express,100.01,75
+US,Hungary,HU,USD,International Express,175,85
+US,Iceland,IS,USD,International Standard,0.01,6.99
+US,Iceland,IS,USD,International Standard,15.51,9.89
+US,Iceland,IS,USD,International Standard,28.01,12.37
+US,Iceland,IS,USD,International Standard,40.01,17.23
+US,Iceland,IS,USD,International Standard,60.01,22.07
+US,Iceland,IS,USD,International Standard,80.01,30.47
+US,Iceland,IS,USD,International Standard,100.01,45.61
+US,Iceland,IS,USD,International Standard,175.01,54.27
+US,India,IN,USD,International Express,0.01,22
+US,India,IN,USD,International Express,13.51,24.45
+US,India,IN,USD,International Express,24.51,34
+US,India,IN,USD,International Express,50.01,43
+US,India,IN,USD,International Express,75.01,58.5
+US,India,IN,USD,International Express,100.01,75
+US,India,IN,USD,International Express,175,85
+US,Indonesia,ID,USD,International Standard,0.01,6.99
+US,Indonesia,ID,USD,International Standard,15.51,9.89
+US,Indonesia,ID,USD,International Standard,28.01,12.37
+US,Indonesia,ID,USD,International Standard,40.01,17.23
+US,Indonesia,ID,USD,International Standard,60.01,22.07
+US,Indonesia,ID,USD,International Standard,80.01,30.47
+US,Indonesia,ID,USD,International Standard,100.01,45.61
+US,Indonesia,ID,USD,International Standard,175.01,54.27
+US,Ireland,IE,USD,International Standard,0.01,6.99
+US,Ireland,IE,USD,International Standard,15.51,9.89
+US,Ireland,IE,USD,International Standard,28.01,12.37
+US,Ireland,IE,USD,International Standard,40.01,17.23
+US,Ireland,IE,USD,International Standard,60.01,22.07
+US,Ireland,IE,USD,International Standard,80.01,30.47
+US,Ireland,IE,USD,International Standard,100.01,45.61
+US,Ireland,IE,USD,International Standard,175.01,54.27
+US,Israel,IL,USD,International Standard,0.01,6.99
+US,Israel,IL,USD,International Standard,15.51,9.89
+US,Israel,IL,USD,International Standard,28.01,12.37
+US,Israel,IL,USD,International Standard,40.01,17.23
+US,Israel,IL,USD,International Standard,60.01,22.07
+US,Israel,IL,USD,International Standard,80.01,30.47
+US,Israel,IL,USD,International Standard,100.01,45.61
+US,Israel,IL,USD,International Standard,175.01,54.27
+US,Italy,IT,USD,International Standard,0.01,6.99
+US,Italy,IT,USD,International Standard,15.51,9.89
+US,Italy,IT,USD,International Standard,28.01,12.37
+US,Italy,IT,USD,International Standard,40.01,17.23
+US,Italy,IT,USD,International Standard,60.01,22.07
+US,Italy,IT,USD,International Standard,80.01,30.47
+US,Italy,IT,USD,International Standard,100.01,45.61
+US,Italy,IT,USD,International Standard,175.01,54.27
+US,Ivory Coast,CI,USD,International Standard,0.01,6.99
+US,Ivory Coast,CI,USD,International Standard,15.51,9.89
+US,Ivory Coast,CI,USD,International Standard,28.01,12.37
+US,Ivory Coast,CI,USD,International Standard,40.01,17.23
+US,Ivory Coast,CI,USD,International Standard,60.01,22.07
+US,Ivory Coast,CI,USD,International Standard,80.01,30.47
+US,Ivory Coast,CI,USD,International Standard,100.01,45.61
+US,Ivory Coast,CI,USD,International Standard,175.01,54.27
+US,Jamaica,JM,USD,International Express,0.01,22
+US,Jamaica,JM,USD,International Express,13.51,24.45
+US,Jamaica,JM,USD,International Express,24.51,34
+US,Jamaica,JM,USD,International Express,50.01,43
+US,Jamaica,JM,USD,International Express,75.01,58.5
+US,Jamaica,JM,USD,International Express,100.01,75
+US,Jamaica,JM,USD,International Express,175,85
+US,Japan,JP,USD,International Standard,0.01,6.99
+US,Japan,JP,USD,International Standard,15.51,9.89
+US,Japan,JP,USD,International Standard,28.01,12.37
+US,Japan,JP,USD,International Standard,40.01,17.23
+US,Japan,JP,USD,International Standard,60.01,22.07
+US,Japan,JP,USD,International Standard,80.01,30.47
+US,Japan,JP,USD,International Standard,100.01,45.61
+US,Japan,JP,USD,International Standard,175.01,54.27
+US,Kazakhstan,KZ,USD,International Express,0.01,22
+US,Kazakhstan,KZ,USD,International Express,13.51,24.45
+US,Kazakhstan,KZ,USD,International Express,24.51,34
+US,Kazakhstan,KZ,USD,International Express,50.01,43
+US,Kazakhstan,KZ,USD,International Express,75.01,58.5
+US,Kazakhstan,KZ,USD,International Express,100.01,75
+US,Kazakhstan,KZ,USD,International Express,175,85
+US,Kenya,KE,USD,International Standard,0.01,6.99
+US,Kenya,KE,USD,International Standard,15.51,9.89
+US,Kenya,KE,USD,International Standard,28.01,12.37
+US,Kenya,KE,USD,International Standard,40.01,17.23
+US,Kenya,KE,USD,International Standard,60.01,22.07
+US,Kenya,KE,USD,International Standard,80.01,30.47
+US,Kenya,KE,USD,International Standard,100.01,45.61
+US,Kenya,KE,USD,International Standard,175.01,54.27
+US,Kuwait,KW,USD,International Standard,0.01,6.99
+US,Kuwait,KW,USD,International Standard,15.51,9.89
+US,Kuwait,KW,USD,International Standard,28.01,12.37
+US,Kuwait,KW,USD,International Standard,40.01,17.23
+US,Kuwait,KW,USD,International Standard,60.01,22.07
+US,Kuwait,KW,USD,International Standard,80.01,30.47
+US,Kuwait,KW,USD,International Standard,100.01,45.61
+US,Kuwait,KW,USD,International Standard,175.01,54.27
+US,Latvia,LV,USD,International Standard,0.01,6.99
+US,Latvia,LV,USD,International Standard,15.51,9.89
+US,Latvia,LV,USD,International Standard,28.01,12.37
+US,Latvia,LV,USD,International Standard,40.01,17.23
+US,Latvia,LV,USD,International Standard,60.01,22.07
+US,Latvia,LV,USD,International Standard,80.01,30.47
+US,Latvia,LV,USD,International Standard,100.01,45.61
+US,Latvia,LV,USD,International Standard,175.01,54.27
+US,Liechtenstein,LI,USD,International Standard,0.01,6.99
+US,Liechtenstein,LI,USD,International Standard,15.51,9.89
+US,Liechtenstein,LI,USD,International Standard,28.01,12.37
+US,Liechtenstein,LI,USD,International Standard,40.01,17.23
+US,Liechtenstein,LI,USD,International Standard,60.01,22.07
+US,Liechtenstein,LI,USD,International Standard,80.01,30.47
+US,Liechtenstein,LI,USD,International Standard,100.01,45.61
+US,Liechtenstein,LI,USD,International Standard,175.01,54.27
+US,Lithuania,LT,USD,International Standard,0.01,6.99
+US,Lithuania,LT,USD,International Standard,15.51,9.89
+US,Lithuania,LT,USD,International Standard,28.01,12.37
+US,Lithuania,LT,USD,International Standard,40.01,17.23
+US,Lithuania,LT,USD,International Standard,60.01,22.07
+US,Lithuania,LT,USD,International Standard,80.01,30.47
+US,Lithuania,LT,USD,International Standard,100.01,45.61
+US,Lithuania,LT,USD,International Standard,175.01,54.27
+US,Luxembourg,LU,USD,International Express,0.01,22
+US,Luxembourg,LU,USD,International Express,13.51,24.45
+US,Luxembourg,LU,USD,International Express,24.51,34
+US,Luxembourg,LU,USD,International Express,50.01,43
+US,Luxembourg,LU,USD,International Express,75.01,58.5
+US,Luxembourg,LU,USD,International Express,100.01,75
+US,Luxembourg,LU,USD,International Express,175,85
+US,Macao,MO,USD,International Standard,0.01,6.99
+US,Macao,MO,USD,International Standard,15.51,9.89
+US,Macao,MO,USD,International Standard,28.01,12.37
+US,Macao,MO,USD,International Standard,40.01,17.23
+US,Macao,MO,USD,International Standard,60.01,22.07
+US,Macao,MO,USD,International Standard,80.01,30.47
+US,Macao,MO,USD,International Standard,100.01,45.61
+US,Macao,MO,USD,International Standard,175.01,54.27
+US,"Macedonia, republic",MK,USD,International Express,0.01,22
+US,"Macedonia, republic",MK,USD,International Express,13.51,24.45
+US,"Macedonia, republic",MK,USD,International Express,24.51,34
+US,"Macedonia, republic",MK,USD,International Express,50.01,43
+US,"Macedonia, republic",MK,USD,International Express,75.01,58.5
+US,"Macedonia, republic",MK,USD,International Express,100.01,75
+US,"Macedonia, republic",MK,USD,International Express,175,85
+US,Madagascar,MG,USD,International Standard,0.01,6.99
+US,Madagascar,MG,USD,International Standard,15.51,9.89
+US,Madagascar,MG,USD,International Standard,28.01,12.37
+US,Madagascar,MG,USD,International Standard,40.01,17.23
+US,Madagascar,MG,USD,International Standard,60.01,22.07
+US,Madagascar,MG,USD,International Standard,80.01,30.47
+US,Madagascar,MG,USD,International Standard,100.01,45.61
+US,Madagascar,MG,USD,International Standard,175.01,54.27
+US,Malawi,MW,USD,International Standard,0.01,6.99
+US,Malawi,MW,USD,International Standard,15.51,9.89
+US,Malawi,MW,USD,International Standard,28.01,12.37
+US,Malawi,MW,USD,International Standard,40.01,17.23
+US,Malawi,MW,USD,International Standard,60.01,22.07
+US,Malawi,MW,USD,International Standard,80.01,30.47
+US,Malawi,MW,USD,International Standard,100.01,45.61
+US,Malawi,MW,USD,International Standard,175.01,54.27
+US,Malaysia,MY,USD,International Standard,0.01,6.99
+US,Malaysia,MY,USD,International Standard,15.51,9.89
+US,Malaysia,MY,USD,International Standard,28.01,12.37
+US,Malaysia,MY,USD,International Standard,40.01,17.23
+US,Malaysia,MY,USD,International Standard,60.01,22.07
+US,Malaysia,MY,USD,International Standard,80.01,30.47
+US,Malaysia,MY,USD,International Standard,100.01,45.61
+US,Malaysia,MY,USD,International Standard,175.01,54.27
+US,Maldives,MV,USD,International Standard,0.01,6.99
+US,Maldives,MV,USD,International Standard,15.51,9.89
+US,Maldives,MV,USD,International Standard,28.01,12.37
+US,Maldives,MV,USD,International Standard,40.01,17.23
+US,Maldives,MV,USD,International Standard,60.01,22.07
+US,Maldives,MV,USD,International Standard,80.01,30.47
+US,Maldives,MV,USD,International Standard,100.01,45.61
+US,Maldives,MV,USD,International Standard,175.01,54.27
+US,Mali,ML,USD,International Standard,0.01,6.99
+US,Mali,ML,USD,International Standard,15.51,9.89
+US,Mali,ML,USD,International Standard,28.01,12.37
+US,Mali,ML,USD,International Standard,40.01,17.23
+US,Mali,ML,USD,International Standard,60.01,22.07
+US,Mali,ML,USD,International Standard,80.01,30.47
+US,Mali,ML,USD,International Standard,100.01,45.61
+US,Mali,ML,USD,International Standard,175.01,54.27
+US,Malta,MT,USD,International Express,0.01,22
+US,Malta,MT,USD,International Express,13.51,24.45
+US,Malta,MT,USD,International Express,24.51,34
+US,Malta,MT,USD,International Express,50.01,43
+US,Malta,MT,USD,International Express,75.01,58.5
+US,Malta,MT,USD,International Express,100.01,75
+US,Malta,MT,USD,International Express,175,85
+US,Martinique,MQ,USD,International Standard,0.01,6.99
+US,Martinique,MQ,USD,International Standard,15.51,9.89
+US,Martinique,MQ,USD,International Standard,28.01,12.37
+US,Martinique,MQ,USD,International Standard,40.01,17.23
+US,Martinique,MQ,USD,International Standard,60.01,22.07
+US,Martinique,MQ,USD,International Standard,80.01,30.47
+US,Martinique,MQ,USD,International Standard,100.01,45.61
+US,Martinique,MQ,USD,International Standard,175.01,54.27
+US,Mauritania,MR,USD,International Express,0.01,22
+US,Mauritania,MR,USD,International Express,13.51,24.45
+US,Mauritania,MR,USD,International Express,24.51,34
+US,Mauritania,MR,USD,International Express,50.01,43
+US,Mauritania,MR,USD,International Express,75.01,58.5
+US,Mauritania,MR,USD,International Express,100.01,75
+US,Mauritania,MR,USD,International Express,175,85
+US,Mauritius,MU,USD,International Standard,0.01,6.99
+US,Mauritius,MU,USD,International Standard,15.51,9.89
+US,Mauritius,MU,USD,International Standard,28.01,12.37
+US,Mauritius,MU,USD,International Standard,40.01,17.23
+US,Mauritius,MU,USD,International Standard,60.01,22.07
+US,Mauritius,MU,USD,International Standard,80.01,30.47
+US,Mauritius,MU,USD,International Standard,100.01,45.61
+US,Mauritius,MU,USD,International Standard,175.01,54.27
+US,Mayotte,YT,USD,International Standard,0.01,4.89
+US,Mayotte,YT,USD,International Standard,13.51,6.75
+US,Mayotte,YT,USD,International Standard,24.51,10.3
+US,Mayotte,YT,USD,International Standard,50.01,19.37
+US,Mayotte,YT,USD,International Standard,75.01,30.47
+US,Mayotte,YT,USD,International Standard,100.01,49.78
+US,Mayotte,YT,USD,International Standard,175,61.25
+US,Mexico,MX,USD,International Standard,0.01,6.99
+US,Mexico,MX,USD,International Standard,15.51,9.89
+US,Mexico,MX,USD,International Standard,28.01,12.37
+US,Mexico,MX,USD,International Standard,40.01,17.23
+US,Mexico,MX,USD,International Standard,60.01,22.07
+US,Mexico,MX,USD,International Standard,80.01,30.47
+US,Mexico,MX,USD,International Standard,100.01,45.61
+US,Mexico,MX,USD,International Standard,175.01,54.27
+US,Moldova,MD,USD,International Standard,0.01,6.99
+US,Moldova,MD,USD,International Standard,15.51,9.89
+US,Moldova,MD,USD,International Standard,28.01,12.37
+US,Moldova,MD,USD,International Standard,40.01,17.23
+US,Moldova,MD,USD,International Standard,60.01,22.07
+US,Moldova,MD,USD,International Standard,80.01,30.47
+US,Moldova,MD,USD,International Standard,100.01,45.61
+US,Moldova,MD,USD,International Standard,175.01,54.27
+US,Monaco,MC,USD,International Standard,0.01,6.99
+US,Monaco,MC,USD,International Standard,15.51,9.89
+US,Monaco,MC,USD,International Standard,28.01,12.37
+US,Monaco,MC,USD,International Standard,40.01,17.23
+US,Monaco,MC,USD,International Standard,60.01,22.07
+US,Monaco,MC,USD,International Standard,80.01,30.47
+US,Monaco,MC,USD,International Standard,100.01,45.61
+US,Monaco,MC,USD,International Standard,175.01,54.27
+US,Montenegro,ME,USD,International Express,0.01,22
+US,Montenegro,ME,USD,International Express,13.51,24.45
+US,Montenegro,ME,USD,International Express,24.51,34
+US,Montenegro,ME,USD,International Express,50.01,43
+US,Montenegro,ME,USD,International Express,75.01,58.5
+US,Montenegro,ME,USD,International Express,100.01,75
+US,Montenegro,ME,USD,International Express,175,85
+US,Montserrat,MS,USD,International Express,0.01,22
+US,Montserrat,MS,USD,International Express,13.51,24.45
+US,Montserrat,MS,USD,International Express,24.51,34
+US,Montserrat,MS,USD,International Express,50.01,43
+US,Montserrat,MS,USD,International Express,75.01,58.5
+US,Montserrat,MS,USD,International Express,100.01,75
+US,Montserrat,MS,USD,International Express,175,85
+US,Morocco,MA,USD,International Express,0.01,22
+US,Morocco,MA,USD,International Express,13.51,24.45
+US,Morocco,MA,USD,International Express,24.51,34
+US,Morocco,MA,USD,International Express,50.01,43
+US,Morocco,MA,USD,International Express,75.01,58.5
+US,Morocco,MA,USD,International Express,100.01,75
+US,Morocco,MA,USD,International Express,175,85
+US,Mosambique,MZ,USD,International Standard,0.01,6.99
+US,Mosambique,MZ,USD,International Standard,15.51,9.89
+US,Mosambique,MZ,USD,International Standard,28.01,12.37
+US,Mosambique,MZ,USD,International Standard,40.01,17.23
+US,Mosambique,MZ,USD,International Standard,60.01,22.07
+US,Mosambique,MZ,USD,International Standard,80.01,30.47
+US,Mosambique,MZ,USD,International Standard,100.01,45.61
+US,Mosambique,MZ,USD,International Standard,175.01,54.27
+US,Myanmar/Burma,MM,USD,International Standard,0.01,4.89
+US,Myanmar/Burma,MM,USD,International Standard,13.51,6.75
+US,Myanmar/Burma,MM,USD,International Standard,24.51,10.3
+US,Myanmar/Burma,MM,USD,International Standard,50.01,19.37
+US,Myanmar/Burma,MM,USD,International Standard,75.01,30.47
+US,Myanmar/Burma,MM,USD,International Standard,100.01,49.78
+US,Myanmar/Burma,MM,USD,International Standard,175,61.25
+US,Namibia,NA,USD,International Standard,0.01,6.99
+US,Namibia,NA,USD,International Standard,15.51,9.89
+US,Namibia,NA,USD,International Standard,28.01,12.37
+US,Namibia,NA,USD,International Standard,40.01,17.23
+US,Namibia,NA,USD,International Standard,60.01,22.07
+US,Namibia,NA,USD,International Standard,80.01,30.47
+US,Namibia,NA,USD,International Standard,100.01,45.61
+US,Namibia,NA,USD,International Standard,175.01,54.27
+US,Nauru,NR,USD,International Standard,0.01,4.89
+US,Nauru,NR,USD,International Standard,13.51,6.75
+US,Nauru,NR,USD,International Standard,24.51,10.3
+US,Nauru,NR,USD,International Standard,50.01,19.37
+US,Nauru,NR,USD,International Standard,75.01,30.47
+US,Nauru,NR,USD,International Standard,100.01,49.78
+US,Nauru,NR,USD,International Standard,175,61.25
+US,Nepal,NP,USD,International Standard,0.01,6.99
+US,Nepal,NP,USD,International Standard,15.51,9.89
+US,Nepal,NP,USD,International Standard,28.01,12.37
+US,Nepal,NP,USD,International Standard,40.01,17.23
+US,Nepal,NP,USD,International Standard,60.01,22.07
+US,Nepal,NP,USD,International Standard,80.01,30.47
+US,Nepal,NP,USD,International Standard,100.01,45.61
+US,Nepal,NP,USD,International Standard,175.01,54.27
+US,Netherlands,NL,USD,International Express,0.01,22
+US,Netherlands,NL,USD,International Express,13.51,24.45
+US,Netherlands,NL,USD,International Express,24.51,34
+US,Netherlands,NL,USD,International Express,50.01,43
+US,Netherlands,NL,USD,International Express,75.01,58.5
+US,Netherlands,NL,USD,International Express,100.01,75
+US,Netherlands,NL,USD,International Express,175,85
+US,Netherlands Antilles,AN,USD,International Express,0.01,22
+US,Netherlands Antilles,AN,USD,International Express,13.51,24.45
+US,Netherlands Antilles,AN,USD,International Express,24.51,34
+US,Netherlands Antilles,AN,USD,International Express,50.01,43
+US,Netherlands Antilles,AN,USD,International Express,75.01,58.5
+US,Netherlands Antilles,AN,USD,International Express,100.01,75
+US,Netherlands Antilles,AN,USD,International Express,175,85
+US,New Caledonia,NC,USD,International Express,0.01,22
+US,New Caledonia,NC,USD,International Express,13.51,24.45
+US,New Caledonia,NC,USD,International Express,24.51,34
+US,New Caledonia,NC,USD,International Express,50.01,43
+US,New Caledonia,NC,USD,International Express,75.01,58.5
+US,New Caledonia,NC,USD,International Express,100.01,75
+US,New Caledonia,NC,USD,International Express,175,85
+US,Nicaragua,NI,USD,International Standard,0.01,6.99
+US,Nicaragua,NI,USD,International Standard,15.51,9.89
+US,Nicaragua,NI,USD,International Standard,28.01,12.37
+US,Nicaragua,NI,USD,International Standard,40.01,17.23
+US,Nicaragua,NI,USD,International Standard,60.01,22.07
+US,Nicaragua,NI,USD,International Standard,80.01,30.47
+US,Nicaragua,NI,USD,International Standard,100.01,45.61
+US,Nicaragua,NI,USD,International Standard,175.01,54.27
+US,Niger,NE,USD,International Standard,0.01,6.99
+US,Niger,NE,USD,International Standard,15.51,9.89
+US,Niger,NE,USD,International Standard,28.01,12.37
+US,Niger,NE,USD,International Standard,40.01,17.23
+US,Niger,NE,USD,International Standard,60.01,22.07
+US,Niger,NE,USD,International Standard,80.01,30.47
+US,Niger,NE,USD,International Standard,100.01,45.61
+US,Niger,NE,USD,International Standard,175.01,54.27
+US,Nigeria,NG,USD,International Standard,0.01,6.99
+US,Nigeria,NG,USD,International Standard,15.51,9.89
+US,Nigeria,NG,USD,International Standard,28.01,12.37
+US,Nigeria,NG,USD,International Standard,40.01,17.23
+US,Nigeria,NG,USD,International Standard,60.01,22.07
+US,Nigeria,NG,USD,International Standard,80.01,30.47
+US,Nigeria,NG,USD,International Standard,100.01,45.61
+US,Nigeria,NG,USD,International Standard,175.01,54.27
+US,Norway,NO,USD,International Standard,0.01,6.99
+US,Norway,NO,USD,International Standard,15.51,9.89
+US,Norway,NO,USD,International Standard,28.01,12.37
+US,Norway,NO,USD,International Standard,40.01,17.23
+US,Norway,NO,USD,International Standard,60.01,22.07
+US,Norway,NO,USD,International Standard,80.01,30.47
+US,Norway,NO,USD,International Standard,100.01,45.61
+US,Norway,NO,USD,International Standard,175.01,54.27
+US,Oman,OM,USD,International Standard,0.01,6.99
+US,Oman,OM,USD,International Standard,15.51,9.89
+US,Oman,OM,USD,International Standard,28.01,12.37
+US,Oman,OM,USD,International Standard,40.01,17.23
+US,Oman,OM,USD,International Standard,60.01,22.07
+US,Oman,OM,USD,International Standard,80.01,30.47
+US,Oman,OM,USD,International Standard,100.01,45.61
+US,Oman,OM,USD,International Standard,175.01,54.27
+US,Pakistan,PK,USD,International Express,0.01,22
+US,Pakistan,PK,USD,International Express,13.51,24.45
+US,Pakistan,PK,USD,International Express,24.51,34
+US,Pakistan,PK,USD,International Express,50.01,43
+US,Pakistan,PK,USD,International Express,75.01,58.5
+US,Pakistan,PK,USD,International Express,100.01,75
+US,Pakistan,PK,USD,International Express,175,85
+US,Panama,PA,USD,International Express,0.01,22
+US,Panama,PA,USD,International Express,13.51,24.45
+US,Panama,PA,USD,International Express,24.51,34
+US,Panama,PA,USD,International Express,50.01,43
+US,Panama,PA,USD,International Express,75.01,58.5
+US,Panama,PA,USD,International Express,100.01,75
+US,Panama,PA,USD,International Express,175,85
+US,Paraguay,PY,USD,International Express,0.01,22
+US,Paraguay,PY,USD,International Express,13.51,24.45
+US,Paraguay,PY,USD,International Express,24.51,34
+US,Paraguay,PY,USD,International Express,50.01,43
+US,Paraguay,PY,USD,International Express,75.01,58.5
+US,Paraguay,PY,USD,International Express,100.01,75
+US,Paraguay,PY,USD,International Express,175,85
+US,Peru,PE,USD,International Standard,0.01,6.99
+US,Peru,PE,USD,International Standard,15.51,9.89
+US,Peru,PE,USD,International Standard,28.01,12.37
+US,Peru,PE,USD,International Standard,40.01,17.23
+US,Peru,PE,USD,International Standard,60.01,22.07
+US,Peru,PE,USD,International Standard,80.01,30.47
+US,Peru,PE,USD,International Standard,100.01,45.61
+US,Peru,PE,USD,International Standard,175.01,54.27
+US,Philippines,PH,USD,International Standard,0.01,6.99
+US,Philippines,PH,USD,International Standard,15.51,9.89
+US,Philippines,PH,USD,International Standard,28.01,12.37
+US,Philippines,PH,USD,International Standard,40.01,17.23
+US,Philippines,PH,USD,International Standard,60.01,22.07
+US,Philippines,PH,USD,International Standard,80.01,30.47
+US,Philippines,PH,USD,International Standard,100.01,45.61
+US,Philippines,PH,USD,International Standard,175.01,54.27
+US,Poland,PL,USD,International Standard,0.01,6.99
+US,Poland,PL,USD,International Standard,15.51,9.89
+US,Poland,PL,USD,International Standard,28.01,12.37
+US,Poland,PL,USD,International Standard,40.01,17.23
+US,Poland,PL,USD,International Standard,60.01,22.07
+US,Poland,PL,USD,International Standard,80.01,30.47
+US,Poland,PL,USD,International Standard,100.01,45.61
+US,Poland,PL,USD,International Standard,175.01,54.27
+US,Portugal,PT,USD,International Standard,0.01,6.99
+US,Portugal,PT,USD,International Standard,15.51,9.89
+US,Portugal,PT,USD,International Standard,28.01,12.37
+US,Portugal,PT,USD,International Standard,40.01,17.23
+US,Portugal,PT,USD,International Standard,60.01,22.07
+US,Portugal,PT,USD,International Standard,80.01,30.47
+US,Portugal,PT,USD,International Standard,100.01,45.61
+US,Portugal,PT,USD,International Standard,175.01,54.27
+US,Qatar,QA,USD,International Standard,0.01,6.99
+US,Qatar,QA,USD,International Standard,15.51,9.89
+US,Qatar,QA,USD,International Standard,28.01,12.37
+US,Qatar,QA,USD,International Standard,40.01,17.23
+US,Qatar,QA,USD,International Standard,60.01,22.07
+US,Qatar,QA,USD,International Standard,80.01,30.47
+US,Qatar,QA,USD,International Standard,100.01,45.61
+US,Qatar,QA,USD,International Standard,175.01,54.27
+US,Réunion,RE,USD,International Express,0.01,22
+US,Réunion,RE,USD,International Express,13.51,24.45
+US,Réunion,RE,USD,International Express,24.51,34
+US,Réunion,RE,USD,International Express,50.01,43
+US,Réunion,RE,USD,International Express,75.01,58.5
+US,Réunion,RE,USD,International Express,100.01,75
+US,Réunion,RE,USD,International Express,175,85
+US,Romania,RO,USD,International Express,0.01,22
+US,Romania,RO,USD,International Express,13.51,24.45
+US,Romania,RO,USD,International Express,24.51,34
+US,Romania,RO,USD,International Express,50.01,43
+US,Romania,RO,USD,International Express,75.01,58.5
+US,Romania,RO,USD,International Express,100.01,75
+US,Romania,RO,USD,International Express,175,85
+US,Rwanda,RW,USD,International Express,0.01,22
+US,Rwanda,RW,USD,International Express,13.51,24.45
+US,Rwanda,RW,USD,International Express,24.51,34
+US,Rwanda,RW,USD,International Express,50.01,43
+US,Rwanda,RW,USD,International Express,75.01,58.5
+US,Rwanda,RW,USD,International Express,100.01,75
+US,Rwanda,RW,USD,International Express,175,85
+US,"Saint Helena, Ascension and Tristan da Cunha",SH,USD,International Standard,0.01,4.89
+US,"Saint Helena, Ascension and Tristan da Cunha",SH,USD,International Standard,13.51,6.75
+US,"Saint Helena, Ascension and Tristan da Cunha",SH,USD,International Standard,24.51,10.3
+US,"Saint Helena, Ascension and Tristan da Cunha",SH,USD,International Standard,50.01,19.37
+US,"Saint Helena, Ascension and Tristan da Cunha",SH,USD,International Standard,75.01,30.47
+US,"Saint Helena, Ascension and Tristan da Cunha",SH,USD,International Standard,100.01,49.78
+US,"Saint Helena, Ascension and Tristan da Cunha",SH,USD,International Standard,175,61.25
+US,Saint Kitts and Nevis/St. Christopher,KN,USD,International Standard,0.01,6.99
+US,Saint Kitts and Nevis/St. Christopher,KN,USD,International Standard,15.51,9.89
+US,Saint Kitts and Nevis/St. Christopher,KN,USD,International Standard,28.01,12.37
+US,Saint Kitts and Nevis/St. Christopher,KN,USD,International Standard,40.01,17.23
+US,Saint Kitts and Nevis/St. Christopher,KN,USD,International Standard,60.01,22.07
+US,Saint Kitts and Nevis/St. Christopher,KN,USD,International Standard,80.01,30.47
+US,Saint Kitts and Nevis/St. Christopher,KN,USD,International Standard,100.01,45.61
+US,Saint Kitts and Nevis/St. Christopher,KN,USD,International Standard,175.01,54.27
+US,Saint Lucia,LC,USD,International Standard,0.01,6.99
+US,Saint Lucia,LC,USD,International Standard,15.51,9.89
+US,Saint Lucia,LC,USD,International Standard,28.01,12.37
+US,Saint Lucia,LC,USD,International Standard,40.01,17.23
+US,Saint Lucia,LC,USD,International Standard,60.01,22.07
+US,Saint Lucia,LC,USD,International Standard,80.01,30.47
+US,Saint Lucia,LC,USD,International Standard,100.01,45.61
+US,Saint Lucia,LC,USD,International Standard,175.01,54.27
+US,Saint Martin,MF,USD,International Standard,0.01,6.99
+US,Saint Martin,MF,USD,International Standard,15.51,9.89
+US,Saint Martin,MF,USD,International Standard,28.01,12.37
+US,Saint Martin,MF,USD,International Standard,40.01,17.23
+US,Saint Martin,MF,USD,International Standard,60.01,22.07
+US,Saint Martin,MF,USD,International Standard,80.01,30.47
+US,Saint Martin,MF,USD,International Standard,100.01,45.61
+US,Saint Martin,MF,USD,International Standard,175.01,54.27
+US,Saint Pierre and Miquelon,PM,USD,International Standard,0.01,4.89
+US,Saint Pierre and Miquelon,PM,USD,International Standard,13.51,6.75
+US,Saint Pierre and Miquelon,PM,USD,International Standard,24.51,10.3
+US,Saint Pierre and Miquelon,PM,USD,International Standard,50.01,19.37
+US,Saint Pierre and Miquelon,PM,USD,International Standard,75.01,30.47
+US,Saint Pierre and Miquelon,PM,USD,International Standard,100.01,49.78
+US,Saint Pierre and Miquelon,PM,USD,International Standard,175,61.25
+US,Saint Vincent and the Grenadines,VC,USD,,,
+US,San Marino,SM,USD,International Express,0.01,22
+US,San Marino,SM,USD,International Express,13.51,24.45
+US,San Marino,SM,USD,International Express,24.51,34
+US,San Marino,SM,USD,International Express,50.01,43
+US,San Marino,SM,USD,International Express,75.01,58.5
+US,San Marino,SM,USD,International Express,100.01,75
+US,San Marino,SM,USD,International Express,175,85
+US,São Tomé and Príncipe,ST,USD,International Standard,0.01,4.89
+US,São Tomé and Príncipe,ST,USD,International Standard,13.51,6.75
+US,São Tomé and Príncipe,ST,USD,International Standard,24.51,10.3
+US,São Tomé and Príncipe,ST,USD,International Standard,50.01,19.37
+US,São Tomé and Príncipe,ST,USD,International Standard,75.01,30.47
+US,São Tomé and Príncipe,ST,USD,International Standard,100.01,49.78
+US,São Tomé and Príncipe,ST,USD,International Standard,175,61.25
+US,Saudi Arabia,SA,USD,International Standard,0.01,6.99
+US,Saudi Arabia,SA,USD,International Standard,15.51,9.89
+US,Saudi Arabia,SA,USD,International Standard,28.01,12.37
+US,Saudi Arabia,SA,USD,International Standard,40.01,17.23
+US,Saudi Arabia,SA,USD,International Standard,60.01,22.07
+US,Saudi Arabia,SA,USD,International Standard,80.01,30.47
+US,Saudi Arabia,SA,USD,International Standard,100.01,45.61
+US,Saudi Arabia,SA,USD,International Standard,175.01,54.27
+US,Senegal,SN,USD,International Standard,0.01,6.99
+US,Senegal,SN,USD,International Standard,15.51,9.89
+US,Senegal,SN,USD,International Standard,28.01,12.37
+US,Senegal,SN,USD,International Standard,40.01,17.23
+US,Senegal,SN,USD,International Standard,60.01,22.07
+US,Senegal,SN,USD,International Standard,80.01,30.47
+US,Senegal,SN,USD,International Standard,100.01,45.61
+US,Senegal,SN,USD,International Standard,175.01,54.27
+US,Serbia,RS,USD,International Standard,0.01,6.99
+US,Serbia,RS,USD,International Standard,15.51,9.89
+US,Serbia,RS,USD,International Standard,28.01,12.37
+US,Serbia,RS,USD,International Standard,40.01,17.23
+US,Serbia,RS,USD,International Standard,60.01,22.07
+US,Serbia,RS,USD,International Standard,80.01,30.47
+US,Serbia,RS,USD,International Standard,100.01,45.61
+US,Serbia,RS,USD,International Standard,175.01,54.27
+US,Seychelles,SC,USD,International Standard,0.01,6.99
+US,Seychelles,SC,USD,International Standard,15.51,9.89
+US,Seychelles,SC,USD,International Standard,28.01,12.37
+US,Seychelles,SC,USD,International Standard,40.01,17.23
+US,Seychelles,SC,USD,International Standard,60.01,22.07
+US,Seychelles,SC,USD,International Standard,80.01,30.47
+US,Seychelles,SC,USD,International Standard,100.01,45.61
+US,Seychelles,SC,USD,International Standard,175.01,54.27
+US,Sierra Leone,SL,USD,International Standard,0.01,4.89
+US,Sierra Leone,SL,USD,International Standard,13.51,6.75
+US,Sierra Leone,SL,USD,International Standard,24.51,10.3
+US,Sierra Leone,SL,USD,International Standard,50.01,19.37
+US,Sierra Leone,SL,USD,International Standard,75.01,30.47
+US,Sierra Leone,SL,USD,International Standard,100.01,49.78
+US,Sierra Leone,SL,USD,International Standard,175,61.25
+US,Singapore,SG,USD,International Express,0.01,22
+US,Singapore,SG,USD,International Express,13.51,24.45
+US,Singapore,SG,USD,International Express,24.51,34
+US,Singapore,SG,USD,International Express,50.01,43
+US,Singapore,SG,USD,International Express,75.01,58.5
+US,Singapore,SG,USD,International Express,100.01,75
+US,Singapore,SG,USD,International Express,175,85
+US,Slovakia,SK,USD,International Express,0.01,22
+US,Slovakia,SK,USD,International Express,13.51,24.45
+US,Slovakia,SK,USD,International Express,24.51,34
+US,Slovakia,SK,USD,International Express,50.01,43
+US,Slovakia,SK,USD,International Express,75.01,58.5
+US,Slovakia,SK,USD,International Express,100.01,75
+US,Slovakia,SK,USD,International Express,175,85
+US,Slovenia,SI,USD,International Standard,0.01,6.99
+US,Slovenia,SI,USD,International Standard,15.51,9.89
+US,Slovenia,SI,USD,International Standard,28.01,12.37
+US,Slovenia,SI,USD,International Standard,40.01,17.23
+US,Slovenia,SI,USD,International Standard,60.01,22.07
+US,Slovenia,SI,USD,International Standard,80.01,30.47
+US,Slovenia,SI,USD,International Standard,100.01,45.61
+US,Slovenia,SI,USD,International Standard,175.01,54.27
+US,South Africa,ZA,USD,International Standard,0.01,6.99
+US,South Africa,ZA,USD,International Standard,15.51,9.89
+US,South Africa,ZA,USD,International Standard,28.01,12.37
+US,South Africa,ZA,USD,International Standard,40.01,17.23
+US,South Africa,ZA,USD,International Standard,60.01,22.07
+US,South Africa,ZA,USD,International Standard,80.01,30.47
+US,South Africa,ZA,USD,International Standard,100.01,45.61
+US,South Africa,ZA,USD,International Standard,175.01,54.27
+US,Spain,ES,USD,International Standard,0.01,6.99
+US,Spain,ES,USD,International Standard,15.51,9.89
+US,Spain,ES,USD,International Standard,28.01,12.37
+US,Spain,ES,USD,International Standard,40.01,17.23
+US,Spain,ES,USD,International Standard,60.01,22.07
+US,Spain,ES,USD,International Standard,80.01,30.47
+US,Spain,ES,USD,International Standard,100.01,45.61
+US,Spain,ES,USD,International Standard,175.01,54.27
+US,Sri Lanka,LK,USD,International Standard,0.01,6.99
+US,Sri Lanka,LK,USD,International Standard,15.51,9.89
+US,Sri Lanka,LK,USD,International Standard,28.01,12.37
+US,Sri Lanka,LK,USD,International Standard,40.01,17.23
+US,Sri Lanka,LK,USD,International Standard,60.01,22.07
+US,Sri Lanka,LK,USD,International Standard,80.01,30.47
+US,Sri Lanka,LK,USD,International Standard,100.01,45.61
+US,Sri Lanka,LK,USD,International Standard,175.01,54.27
+US,Suriname,SR,USD,International Standard,0.01,6.99
+US,Suriname,SR,USD,International Standard,15.51,9.89
+US,Suriname,SR,USD,International Standard,28.01,12.37
+US,Suriname,SR,USD,International Standard,40.01,17.23
+US,Suriname,SR,USD,International Standard,60.01,22.07
+US,Suriname,SR,USD,International Standard,80.01,30.47
+US,Suriname,SR,USD,International Standard,100.01,45.61
+US,Suriname,SR,USD,International Standard,175.01,54.27
+US,Sweden,SE,USD,International Standard,0.01,6.99
+US,Sweden,SE,USD,International Standard,15.51,9.89
+US,Sweden,SE,USD,International Standard,28.01,12.37
+US,Sweden,SE,USD,International Standard,40.01,17.23
+US,Sweden,SE,USD,International Standard,60.01,22.07
+US,Sweden,SE,USD,International Standard,80.01,30.47
+US,Sweden,SE,USD,International Standard,100.01,45.61
+US,Sweden,SE,USD,International Standard,175.01,54.27
+US,Switzerland,CH,USD,International Express,0.01,22
+US,Switzerland,CH,USD,International Express,13.51,24.45
+US,Switzerland,CH,USD,International Express,24.51,34
+US,Switzerland,CH,USD,International Express,50.01,43
+US,Switzerland,CH,USD,International Express,75.01,58.5
+US,Switzerland,CH,USD,International Express,100.01,75
+US,Switzerland,CH,USD,International Express,175,85
+US,Taiwan,TW,USD,International Express,0.01,22
+US,Taiwan,TW,USD,International Express,13.51,24.45
+US,Taiwan,TW,USD,International Express,24.51,34
+US,Taiwan,TW,USD,International Express,50.01,43
+US,Taiwan,TW,USD,International Express,75.01,58.5
+US,Taiwan,TW,USD,International Express,100.01,75
+US,Taiwan,TW,USD,International Express,175,85
+US,Tajikistan,TJ,USD,International Standard,0.01,6.99
+US,Tajikistan,TJ,USD,International Standard,15.51,9.89
+US,Tajikistan,TJ,USD,International Standard,28.01,12.37
+US,Tajikistan,TJ,USD,International Standard,40.01,17.23
+US,Tajikistan,TJ,USD,International Standard,60.01,22.07
+US,Tajikistan,TJ,USD,International Standard,80.01,30.47
+US,Tajikistan,TJ,USD,International Standard,100.01,45.61
+US,Tajikistan,TJ,USD,International Standard,175.01,54.27
+US,Tanzania,TZ,USD,International Standard,0.01,6.99
+US,Tanzania,TZ,USD,International Standard,15.51,9.89
+US,Tanzania,TZ,USD,International Standard,28.01,12.37
+US,Tanzania,TZ,USD,International Standard,40.01,17.23
+US,Tanzania,TZ,USD,International Standard,60.01,22.07
+US,Tanzania,TZ,USD,International Standard,80.01,30.47
+US,Tanzania,TZ,USD,International Standard,100.01,45.61
+US,Tanzania,TZ,USD,International Standard,175.01,54.27
+US,Thailand,TH,USD,International Standard,0.01,6.99
+US,Thailand,TH,USD,International Standard,15.51,9.89
+US,Thailand,TH,USD,International Standard,28.01,12.37
+US,Thailand,TH,USD,International Standard,40.01,17.23
+US,Thailand,TH,USD,International Standard,60.01,22.07
+US,Thailand,TH,USD,International Standard,80.01,30.47
+US,Thailand,TH,USD,International Standard,100.01,45.61
+US,Thailand,TH,USD,International Standard,175.01,54.27
+US,Togo,TG,USD,International Standard,0.01,6.99
+US,Togo,TG,USD,International Standard,15.51,9.89
+US,Togo,TG,USD,International Standard,28.01,12.37
+US,Togo,TG,USD,International Standard,40.01,17.23
+US,Togo,TG,USD,International Standard,60.01,22.07
+US,Togo,TG,USD,International Standard,80.01,30.47
+US,Togo,TG,USD,International Standard,100.01,45.61
+US,Togo,TG,USD,International Standard,175.01,54.27
+US,Tonga,TO,USD,,,
+US,Trinidad and Tobago,TT,USD,International Standard,0.01,6.99
+US,Trinidad and Tobago,TT,USD,International Standard,15.51,9.89
+US,Trinidad and Tobago,TT,USD,International Standard,28.01,12.37
+US,Trinidad and Tobago,TT,USD,International Standard,40.01,17.23
+US,Trinidad and Tobago,TT,USD,International Standard,60.01,22.07
+US,Trinidad and Tobago,TT,USD,International Standard,80.01,30.47
+US,Trinidad and Tobago,TT,USD,International Standard,100.01,45.61
+US,Trinidad and Tobago,TT,USD,International Standard,175.01,54.27
+US,Tunisia,TN,USD,International Express,0.01,22
+US,Tunisia,TN,USD,International Express,13.51,24.45
+US,Tunisia,TN,USD,International Express,24.51,34
+US,Tunisia,TN,USD,International Express,50.01,43
+US,Tunisia,TN,USD,International Express,75.01,58.5
+US,Tunisia,TN,USD,International Express,100.01,75
+US,Tunisia,TN,USD,International Express,175,85
+US,Turkey,TR,USD,International Express,0.01,22
+US,Turkey,TR,USD,International Express,13.51,24.45
+US,Turkey,TR,USD,International Express,24.51,34
+US,Turkey,TR,USD,International Express,50.01,43
+US,Turkey,TR,USD,International Express,75.01,58.5
+US,Turkey,TR,USD,International Express,100.01,75
+US,Turkey,TR,USD,International Express,175,85
+US,Turks and Caicos Islands,TC,USD,International Standard,0.01,6.99
+US,Turks and Caicos Islands,TC,USD,International Standard,15.51,9.89
+US,Turks and Caicos Islands,TC,USD,International Standard,28.01,12.37
+US,Turks and Caicos Islands,TC,USD,International Standard,40.01,17.23
+US,Turks and Caicos Islands,TC,USD,International Standard,60.01,22.07
+US,Turks and Caicos Islands,TC,USD,International Standard,80.01,30.47
+US,Turks and Caicos Islands,TC,USD,International Standard,100.01,45.61
+US,Turks and Caicos Islands,TC,USD,International Standard,175.01,54.27
+US,Uganda,UG,USD,International Standard,0.01,6.99
+US,Uganda,UG,USD,International Standard,15.51,9.89
+US,Uganda,UG,USD,International Standard,28.01,12.37
+US,Uganda,UG,USD,International Standard,40.01,17.23
+US,Uganda,UG,USD,International Standard,60.01,22.07
+US,Uganda,UG,USD,International Standard,80.01,30.47
+US,Uganda,UG,USD,International Standard,100.01,45.61
+US,Uganda,UG,USD,International Standard,175.01,54.27
+US,United Arab Emirates,AE,USD,International Standard,0.01,6.99
+US,United Arab Emirates,AE,USD,International Standard,15.51,9.89
+US,United Arab Emirates,AE,USD,International Standard,28.01,12.37
+US,United Arab Emirates,AE,USD,International Standard,40.01,17.23
+US,United Arab Emirates,AE,USD,International Standard,60.01,22.07
+US,United Arab Emirates,AE,USD,International Standard,80.01,30.47
+US,United Arab Emirates,AE,USD,International Standard,100.01,45.61
+US,United Arab Emirates,AE,USD,International Standard,175.01,54.27
+US,United Kingdom,GB,USD,International Standard,0.01,6.99
+US,United Kingdom,GB,USD,International Standard,15.51,9.89
+US,United Kingdom,GB,USD,International Standard,28.01,12.37
+US,United Kingdom,GB,USD,International Standard,40.01,17.23
+US,United Kingdom,GB,USD,International Standard,60.01,22.07
+US,United Kingdom,GB,USD,International Standard,80.01,30.47
+US,United Kingdom,GB,USD,International Standard,100.01,45.61
+US,United Kingdom,GB,USD,International Standard,175.01,54.27
+US,United States,US,USD,Standard,0.01,3.65
+US,United States,US,USD,Standard,5.01,4.77
+US,United States,US,USD,Standard,16.51,5.99
+US,United States,US,USD,Standard,28.01,9.87
+US,United States,US,USD,Standard,40.01,13.25
+US,United States,US,USD,Standard,60.01,15.45
+US,United States,US,USD,Standard,85.01,21.35
+US,United States,US,USD,Standard,100.01,29.1
+US,United States,US,USD,Standard,150.01,33.37
+US,United States,US,USD,Standard,200.01,38.85
+US,Usbekistan,UZ,USD,International Standard,0.01,6.99
+US,Usbekistan,UZ,USD,International Standard,15.51,9.89
+US,Usbekistan,UZ,USD,International Standard,28.01,12.37
+US,Usbekistan,UZ,USD,International Standard,40.01,17.23
+US,Usbekistan,UZ,USD,International Standard,60.01,22.07
+US,Usbekistan,UZ,USD,International Standard,80.01,30.47
+US,Usbekistan,UZ,USD,International Standard,100.01,45.61
+US,Usbekistan,UZ,USD,International Standard,175.01,54.27
+US,Vanuatu,VU,USD,International Express,0.01,22
+US,Vanuatu,VU,USD,International Express,13.51,24.45
+US,Vanuatu,VU,USD,International Express,24.51,34
+US,Vanuatu,VU,USD,International Express,50.01,43
+US,Vanuatu,VU,USD,International Express,75.01,58.5
+US,Vanuatu,VU,USD,International Express,100.01,75
+US,Vanuatu,VU,USD,International Express,175,85
+US,Vatican City,VA,USD,International Express,0.01,22
+US,Vatican City,VA,USD,International Express,13.51,24.45
+US,Vatican City,VA,USD,International Express,24.51,34
+US,Vatican City,VA,USD,International Express,50.01,43
+US,Vatican City,VA,USD,International Express,75.01,58.5
+US,Vatican City,VA,USD,International Express,100.01,75
+US,Vatican City,VA,USD,International Express,175,85
+US,Wallis and Futuna,WF,USD,International Standard,0.01,6.99
+US,Wallis and Futuna,WF,USD,International Standard,15.51,9.89
+US,Wallis and Futuna,WF,USD,International Standard,28.01,12.37
+US,Wallis and Futuna,WF,USD,International Standard,40.01,17.23
+US,Wallis and Futuna,WF,USD,International Standard,60.01,22.07
+US,Wallis and Futuna,WF,USD,International Standard,80.01,30.47
+US,Wallis and Futuna,WF,USD,International Standard,100.01,45.61
+US,Wallis and Futuna,WF,USD,International Standard,175.01,54.27
+US,Zambia,ZM,USD,International Standard,0.01,6.99
+US,Zambia,ZM,USD,International Standard,15.51,9.89
+US,Zambia,ZM,USD,International Standard,28.01,12.37
+US,Zambia,ZM,USD,International Standard,40.01,17.23
+US,Zambia,ZM,USD,International Standard,60.01,22.07
+US,Zambia,ZM,USD,International Standard,80.01,30.47
+US,Zambia,ZM,USD,International Standard,100.01,45.61
+US,Zambia,ZM,USD,International Standard,175.01,54.27
+US,Zimbabwe,ZW,USD,International Standard,0.01,6.99
+US,Zimbabwe,ZW,USD,International Standard,15.51,9.89
+US,Zimbabwe,ZW,USD,International Standard,28.01,12.37
+US,Zimbabwe,ZW,USD,International Standard,40.01,17.23
+US,Zimbabwe,ZW,USD,International Standard,60.01,22.07
+US,Zimbabwe,ZW,USD,International Standard,80.01,30.47
+US,Zimbabwe,ZW,USD,International Standard,100.01,45.61
+US,Zimbabwe,ZW,USD,International Standard,175.01,54.27
