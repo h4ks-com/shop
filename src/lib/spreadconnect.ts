@@ -6,7 +6,18 @@ import type {
 } from "./types";
 import { SHIPPING_MARKUP_CENTS, SPREADCONNECT_BASE_URL, SPREADCONNECT_TOKEN } from "./config";
 
-async function call<T>(method: string, path: string, body?: unknown): Promise<T> {
+// Catalog reads are revalidated rather than fetched live on every request: the
+// Spreadconnect /articles endpoint is slow (~1.5s) and the catalog rarely
+// changes, so without this every page render blocks on the upstream call.
+// Stock counts can be up to this stale, which is acceptable for a merch shop.
+const CATALOG_REVALIDATE_SECONDS = 300;
+
+async function call<T>(
+  method: string,
+  path: string,
+  body?: unknown,
+  revalidate?: number,
+): Promise<T> {
   const res = await fetch(SPREADCONNECT_BASE_URL + path, {
     method,
     headers: {
@@ -15,7 +26,7 @@ async function call<T>(method: string, path: string, body?: unknown): Promise<T>
       ...(body ? { "Content-Type": "application/json" } : {}),
     },
     body: body ? JSON.stringify(body) : undefined,
-    cache: "no-store",
+    ...(revalidate != null ? { next: { revalidate } } : { cache: "no-store" }),
   });
   const text = await res.text();
   if (!res.ok) {
@@ -26,11 +37,18 @@ async function call<T>(method: string, path: string, body?: unknown): Promise<T>
 
 export async function listArticles(limit = 50, offset = 0): Promise<ListArticlesResponse> {
   const q = new URLSearchParams({ limit: String(limit), offset: String(offset) });
-  return call("GET", `/articles?${q.toString()}`);
+  return call("GET", `/articles?${q.toString()}`, undefined, CATALOG_REVALIDATE_SECONDS);
 }
 
 export async function getArticle(id: number): Promise<Article> {
-  return call("GET", `/articles/${id}`);
+  return call("GET", `/articles/${id}`, undefined, CATALOG_REVALIDATE_SECONDS);
+}
+
+// Spreadshirt's image server encodes the render size in the URL path. Product
+// image URLs come back at 1000×1000; downscale for grid thumbnails to cut
+// transfer size (~6× fewer bytes at 400px).
+export function resizeSpreadshirtImage(url: string, px: number): string {
+  return url.replace(/width=\d+,height=\d+/, `width=${px},height=${px}`);
 }
 
 export async function createOrder(req: CreateOrderRequest): Promise<SpreadconnectOrder> {

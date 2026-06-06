@@ -1,11 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { listArticles, customerPriceAmount } from "@/lib/spreadconnect";
+import { listArticles, customerPriceAmount, resizeSpreadshirtImage } from "@/lib/spreadconnect";
 import { PAGE_SIZE, parsePage, pageWindow } from "@/lib/pagination";
 import { formatPrice } from "@/lib/format";
 import { SHOP_CURRENCY } from "@/lib/config";
-
-export const dynamic = "force-dynamic";
 
 export default async function Home({
   searchParams,
@@ -73,7 +71,7 @@ export default async function Home({
               <div className="aspect-square bg-bg flex items-center justify-center overflow-hidden mb-3">
                 {img ? (
                   <Image
-                    src={img}
+                    src={resizeSpreadshirtImage(img, 400)}
                     alt={a.title}
                     width={400}
                     height={400}
