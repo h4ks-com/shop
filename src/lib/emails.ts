@@ -3,9 +3,9 @@ import { SHOP_CONTACT_EMAIL, SHOP_NAME, SHOP_PUBLIC_URL } from "./config";
 const SHOP_URL = SHOP_PUBLIC_URL;
 const CONTACT_EMAIL = SHOP_CONTACT_EMAIL;
 
-// All interpolated values flow through here. Catalog names from spreadconnect
-// and error reasons from webhook payloads are not under our control; raw
-// interpolation would break the HTML at best and inject content at worst.
+// All interpolated values flow through here. Product names and tracking values
+// from webhook payloads are not fully under our control; raw interpolation would
+// break the HTML at best and inject content at worst.
 function esc(s: string): string {
   return s
     .replace(/&/g, "&amp;")

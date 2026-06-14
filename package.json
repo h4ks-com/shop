@@ -12,15 +12,9 @@
     "test:watch": "vitest",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "register-webhooks": "node --env-file=.env scripts/register-webhooks.mjs",
-    "simulate": "node --env-file=.env scripts/simulate.mjs",
     "tunnel-url": "node scripts/tunnel-url.mjs",
-    "scrape:shipping": "node scripts/scrape-shipping.mjs",
-    "sync:sc": "node --env-file=.env scripts/sync-to-us.mjs",
-    "backup:sc": "node --env-file=.env scripts/backup-sc.mjs",
-    "sc:login": "node scripts/sc-login.mjs",
-    "discover:eu": "node --env-file=.env scripts/discover-eu-catalog.mjs",
-    "dump:product-types": "node --env-file=.env scripts/dump-product-types.mjs"
+    "gelato:resolve": "node --env-file=.env scripts/gelato-resolve.mjs",
+    "gelato:build-catalog": "node --env-file=.env scripts/gelato-build-catalog.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

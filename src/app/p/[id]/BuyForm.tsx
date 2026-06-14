@@ -89,30 +89,34 @@ export default function BuyForm({
 
   return (
     <div>
-      <div className="mb-5">
-        <div className="section-label">[ color ]</div>
-        <div className="flex flex-wrap gap-2">
-          {colors.map((c) => (
-            <button
-              key={c.name}
-              type="button"
-              onClick={() => {
-                onColorChange(c.name);
-                const next = variants.find((v) => v.appearanceName === c.name && v.stock > 0);
-                if (next) setSize(next.sizeName);
-              }}
-              className={`mono text-xs px-3 py-1.5 border ${
-                color === c.name
-                  ? "border-accent text-accent"
-                  : "border-[color:var(--border)] text-text-dim"
-              }`}
-              style={c.value ? { borderLeft: `4px solid #${c.value.replace("#", "")}` } : undefined}
-            >
-              {c.name}
-            </button>
-          ))}
+      {colors.length > 1 && (
+        <div className="mb-5">
+          <div className="section-label">[ color ]</div>
+          <div className="flex flex-wrap gap-2">
+            {colors.map((c) => (
+              <button
+                key={c.name}
+                type="button"
+                onClick={() => {
+                  onColorChange(c.name);
+                  const next = variants.find((v) => v.appearanceName === c.name && v.stock > 0);
+                  if (next) setSize(next.sizeName);
+                }}
+                className={`mono text-xs px-3 py-1.5 border ${
+                  color === c.name
+                    ? "border-accent text-accent"
+                    : "border-[color:var(--border)] text-text-dim"
+                }`}
+                style={
+                  c.value ? { borderLeft: `4px solid #${c.value.replace("#", "")}` } : undefined
+                }
+              >
+                {c.name}
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="mb-6">
         <div className="section-label">[ size ]</div>
@@ -188,7 +192,7 @@ export default function BuyForm({
       {err && <div className="mt-4 mono text-xs text-accent2">error: {err}</div>}
 
       <p className="mt-6 mono text-xs text-text-dim">
-        secure payment via stripe. free worldwide shipping via spreadshirt.
+        secure payment via stripe. free worldwide shipping, printed on demand.
       </p>
     </div>
   );

@@ -1,16 +1,15 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
+import type { CatalogProduct, CatalogVariant } from "@/lib/catalog";
 
 const h = vi.hoisted(() => ({
-  getArticle: vi.fn<(id: number) => Promise<unknown>>(),
-  customerPriceAmount: vi.fn<(v: { d2cPrice: number; b2bPrice: number }) => number>(
-    (v) => v.d2cPrice || v.b2bPrice * 1.5,
-  ),
+  getProduct: vi.fn<(id: number) => CatalogProduct | undefined>(),
+  findVariant: vi.fn<(p: CatalogProduct, sku: string) => CatalogVariant | undefined>(),
   createCheckoutSession: vi.fn<(args: unknown) => Promise<{ id: string; url: string }>>(),
 }));
 
-vi.mock("@/lib/spreadconnect", () => ({
-  getArticle: h.getArticle,
-  customerPriceAmount: h.customerPriceAmount,
+vi.mock("@/lib/catalog", () => ({
+  getProduct: h.getProduct,
+  findVariant: h.findVariant,
 }));
 
 vi.mock("@/lib/stripe", () => ({
@@ -29,8 +28,19 @@ async function loadRoute() {
   return await import("@/app/api/checkout/route");
 }
 
+const product = (id: number): CatalogProduct => ({
+  id,
+  title: `art-${id}`,
+  description: "",
+  color: "",
+  designFile: "x.png",
+  needsArtwork: false,
+  variants: [{ sku: "SKU-1", sizeName: "M", productUid: "uid", priceCents: 1999 }],
+});
+
 beforeEach(() => {
-  h.getArticle.mockReset();
+  h.getProduct.mockReset();
+  h.findVariant.mockReset();
   h.createCheckoutSession.mockReset();
   h.createCheckoutSession.mockResolvedValue({ id: "cs_test_x", url: "https://stripe.test/x" });
 });
@@ -43,39 +53,36 @@ describe("POST /api/checkout — articleId validation", () => {
     ["NaN-ish from huge number cast", Number.POSITIVE_INFINITY],
     ["object", { $gt: 0 }],
     ["array", [12404]],
-  ])("rejects %s articleId without calling upstream", async (_label, articleId) => {
+  ])("rejects %s articleId without a catalog lookup", async (_label, articleId) => {
     const { POST } = await loadRoute();
     const res = await POST(post({ articleId, sku: "SKU-1" }));
     expect(res.status).toBe(400);
-    expect(h.getArticle).not.toHaveBeenCalled();
+    expect(h.getProduct).not.toHaveBeenCalled();
   });
 
   it("accepts a stringified positive integer (common from form encoders)", async () => {
-    h.getArticle.mockResolvedValue({
-      title: "T",
-      variants: [{ sku: "SKU-1", stock: 10, d2cPrice: 9.99, b2bPrice: 0 }],
-    });
+    const p = product(12404);
+    h.getProduct.mockReturnValue(p);
+    h.findVariant.mockReturnValue(p.variants[0]);
     const { POST } = await loadRoute();
     const res = await POST(post({ articleId: "12404", sku: "SKU-1" }));
     expect(res.status).toBe(200);
-    expect(h.getArticle).toHaveBeenCalledWith(12404);
+    expect(h.getProduct).toHaveBeenCalledWith(12404);
   });
-});
 
-describe("POST /api/checkout — upstream error masking", () => {
-  it("does NOT leak spreadconnect error bodies, paths, or reference UUIDs", async () => {
-    h.getArticle.mockRejectedValue(
-      new Error(
-        'spreadconnect GET /articles/12404: 500 {"status":500,"path":"/fulfillment/rest/api/articles/12404","reference":"e40175e0-2b10-4ca3-94ca-643fa1dcadb5"}',
-      ),
-    );
+  it("400s for an unknown product", async () => {
+    h.getProduct.mockReturnValue(undefined);
     const { POST } = await loadRoute();
-    const res = await POST(post({ articleId: 12404, sku: "SKU-1" }));
-    expect(res.status).toBe(502);
-    const body = await res.text();
-    expect(body).not.toContain("spreadconnect");
-    expect(body).not.toContain("/fulfillment/");
-    expect(body).not.toContain("e40175e0");
-    expect(body).not.toContain("500");
+    const res = await POST(post({ articleId: 999, sku: "SKU-1" }));
+    expect(res.status).toBe(400);
+    expect(h.createCheckoutSession).not.toHaveBeenCalled();
+  });
+
+  it("400s when the sku is not in the product", async () => {
+    h.getProduct.mockReturnValue(product(1));
+    h.findVariant.mockReturnValue(undefined);
+    const { POST } = await loadRoute();
+    const res = await POST(post({ articleId: 1, sku: "NOPE" }));
+    expect(res.status).toBe(400);
   });
 });

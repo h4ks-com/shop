@@ -1,6 +1,6 @@
 import Stripe from "stripe";
 import { SHOP_CURRENCY, SHOP_PUBLIC_URL, STRIPE_SECRET_KEY } from "./config";
-import { activeAccountsFromEnv, allowedCountries } from "./regions";
+import { allowedCountries } from "./regions";
 
 // Lazy construct — route handlers are imported at Next.js build time for page
 // data collection; deferring the SDK init avoids spinning it up there.
@@ -50,23 +50,20 @@ export async function createCheckoutSession(args: CheckoutInput): Promise<Stripe
     cancel_url: `${SHOP_PUBLIC_URL}/cancel`,
     client_reference_id: args.externalOrderReference,
     shipping_address_collection: {
-      // Union of every active SC account's deliverable country list — see
-      // src/lib/regions.ts. The webhook routes the order to the matching
-      // account based on the selected country at fulfillment time.
-      // Cast: regions.ts uses plain strings so it can be consumed outside
-      // Stripe's typed namespace too (webhook routing). The list is sourced
-      // from STRIPE_SUPPORTED_ISO which is a subset of Stripe's union.
-      allowed_countries: allowedCountries(
-        activeAccountsFromEnv(),
-      ) as Stripe.Checkout.SessionCreateParams["shipping_address_collection"] extends infer S
-        ? S extends { allowed_countries: infer A }
-          ? A
-          : never
-        : never,
+      // Everything Stripe supports minus sanctioned destinations — Gelato ships
+      // worldwide from one account (see src/lib/regions.ts).
+      // Cast: regions.ts uses plain strings so the list can be reused outside
+      // Stripe's typed namespace; it is sourced from STRIPE_SUPPORTED_ISO.
+      allowed_countries:
+        allowedCountries() as Stripe.Checkout.SessionCreateParams["shipping_address_collection"] extends infer S
+          ? S extends { allowed_countries: infer A }
+            ? A
+            : never
+          : never,
     },
     phone_number_collection: { enabled: true },
-    // Encode the full line set so the webhook can reconstruct spreadconnect
-    // orderItems with the right SKUs, quantities, and unit prices. Stripe's
+    // Encode the full line set so the webhook can reconstruct the Gelato order
+    // items with the right SKUs, quantities, and unit prices. Stripe's
     // line_items expand returns description text only (no SKU), so we
     // round-trip our own truth via metadata.
     metadata: {

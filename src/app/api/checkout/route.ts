@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { randomUUID } from "node:crypto";
-import { getArticle, customerPriceAmount } from "@/lib/spreadconnect";
+import { getProduct, findVariant } from "@/lib/catalog";
 import { createCheckoutSession, type Line } from "@/lib/stripe";
 import { CART_MAX_ITEMS } from "@/lib/cart-config";
 
@@ -62,36 +62,24 @@ export async function POST(req: Request) {
     );
   }
 
+  // Validate each line against the local catalog and price it. Gelato is
+  // make-to-order, so there is no stock to check.
   const lines: Line[] = [];
-  try {
-    // Fetch each unique articleId once even if multiple SKUs share it.
-    const articleCache = new Map<number, Awaited<ReturnType<typeof getArticle>>>();
-    for (const it of items) {
-      let article = articleCache.get(it.articleId);
-      if (!article) {
-        article = await getArticle(it.articleId);
-        articleCache.set(it.articleId, article);
-      }
-      const variant = article.variants.find((v) => v.sku === it.sku);
-      if (!variant) {
-        return NextResponse.json({ error: "sku not in article" }, { status: 400 });
-      }
-      if ((variant.stock ?? 0) < it.quantity) {
-        return NextResponse.json(
-          { error: "out of stock", sku: it.sku, stock: variant.stock ?? 0 },
-          { status: 409 },
-        );
-      }
-      lines.push({
-        sku: it.sku,
-        productName: article.title,
-        unitAmountCents: Math.round(customerPriceAmount(variant) * 100),
-        quantity: it.quantity,
-      });
+  for (const it of items) {
+    const product = getProduct(it.articleId);
+    if (!product || product.needsArtwork) {
+      return NextResponse.json({ error: "unknown product" }, { status: 400 });
     }
-  } catch (err) {
-    console.error(`checkout upstream failed:`, err);
-    return NextResponse.json({ error: "catalog lookup failed" }, { status: 502 });
+    const variant = findVariant(product, it.sku);
+    if (!variant) {
+      return NextResponse.json({ error: "sku not in product" }, { status: 400 });
+    }
+    lines.push({
+      sku: it.sku,
+      productName: product.title,
+      unitAmountCents: variant.priceCents,
+      quantity: it.quantity,
+    });
   }
 
   const externalOrderReference = "h4ks-" + randomUUID();

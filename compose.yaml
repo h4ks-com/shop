@@ -37,10 +37,10 @@ services:
     depends_on:
       - shop
 
-  # Free quick-tunnel — gives us a public https://*.trycloudflare.com URL
-  # so external services (Spreadconnect webhooks) can reach the local shop.
-  # `tunnel-init` extracts the URL from cloudflared's log and writes it to a
-  # shared volume; the shop's entrypoint reads it as SHOP_PUBLIC_URL.
+  # Free quick-tunnel — gives us a public https://*.trycloudflare.com URL so
+  # Stripe (and, if you point it there, a Gelato dashboard webhook) can reach the
+  # local shop. `tunnel-init` extracts the URL from cloudflared's log and writes
+  # it to a shared volume; the shop's entrypoint reads it as SHOP_PUBLIC_URL.
   tunnel:
     image: cloudflare/cloudflared:latest
     profiles: ["dev"]
@@ -75,52 +75,10 @@ services:
       exit 1
       '
 
-  # Auto-registers Spreadconnect webhook subscriptions for the current tunnel
-  # URL. Idempotent: skips if already registered; removes stale subs whose URL
-  # no longer matches. Runs once per `up`.
-  webhook-init:
-    image: alpine:3.21
-    profiles: ["dev"]
-    depends_on:
-      tunnel-init:
-        condition: service_completed_successfully
-      shop:
-        condition: service_started
-    volumes:
-      - tunnel-data:/tunnel:ro
-    env_file:
-      - .env
-    command:
-      - sh
-      - -ec
-      - |
-        apk add --no-cache curl jq >/dev/null 2>&1
-        URL=$$(cat /tunnel/url)
-        HOOK="$$URL/api/webhooks/spreadconnect"
-        BASE=$${SPREADCONNECT_BASE_URL:-https://api.spreadconnect.app}
-        echo "[webhook-init] target: $$HOOK"
-        i=0; until curl -sf "http://shop:3000/api/articles?limit=1" >/dev/null 2>&1; do
-          [ $$i -ge 30 ] && { echo "[webhook-init] shop never came up"; exit 1; }
-          echo "[webhook-init] waiting for shop..."; sleep 2; i=$$((i+1));
-        done
-        SUBS=$$(curl -s -H "X-SPOD-ACCESS-TOKEN: $$SPREADCONNECT_TOKEN" "$$BASE/subscriptions")
-        for EV in Shipment.sent Order.cancelled Order.needs-action; do
-          KEEP=$$(echo "$$SUBS" | jq -r --arg ev "$$EV" --arg u "$$HOOK" '.[] | select(.eventType==$$ev and .url==$$u) | .id')
-          if [ -n "$$KEEP" ]; then
-            echo "[webhook-init]   $$EV already registered (id $$KEEP)"
-            continue
-          fi
-          for ID in $$(echo "$$SUBS" | jq -r --arg ev "$$EV" '.[] | select(.eventType==$$ev) | .id'); do
-            curl -s -X DELETE -H "X-SPOD-ACCESS-TOKEN: $$SPREADCONNECT_TOKEN" "$$BASE/subscriptions/$$ID" >/dev/null
-            echo "[webhook-init]   removed stale $$EV sub $$ID"
-          done
-          curl -sf -X POST "$$BASE/subscriptions" \
-            -H "X-SPOD-ACCESS-TOKEN: $$SPREADCONNECT_TOKEN" \
-            -H "Content-Type: application/json" \
-            -d "{\"eventType\":\"$$EV\",\"url\":\"$$HOOK\",\"secret\":\"$$SPREADCONNECT_WEBHOOK_SECRET\"}" >/dev/null
-          echo "[webhook-init] + $$EV"
-        done
-        echo "[webhook-init] done"
+  # Gelato webhooks are configured in the Gelato dashboard (no registration API),
+  # so there is no auto-init service. For local testing, point a dashboard
+  # webhook at <tunnel-url>/api/webhooks/gelato or use the dashboard's "send test
+  # notification" button.
 
 volumes:
   tunnel-data:

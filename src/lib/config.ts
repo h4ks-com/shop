@@ -12,12 +12,21 @@ function optional(name: string, fallback: string): string {
 export const STRIPE_SECRET_KEY = required("STRIPE_SECRET_KEY");
 export const STRIPE_WEBHOOK_SECRET = required("STRIPE_WEBHOOK_SECRET");
 
-export const SPREADCONNECT_TOKEN = required("SPREADCONNECT_TOKEN");
-export const SPREADCONNECT_WEBHOOK_SECRET = required("SPREADCONNECT_WEBHOOK_SECRET");
-export const SPREADCONNECT_BASE_URL = optional(
-  "SPREADCONNECT_BASE_URL",
-  "https://api.spreadconnect.app",
+// Gelato fulfilment — single global account that auto-routes to the nearest
+// facility and ships worldwide.
+export const GELATO_TOKEN = required("GELATO_TOKEN");
+export const GELATO_PRODUCT_BASE_URL = optional(
+  "GELATO_PRODUCT_BASE_URL",
+  "https://product.gelatoapis.com",
 );
+export const GELATO_ORDER_BASE_URL = optional(
+  "GELATO_ORDER_BASE_URL",
+  "https://order.gelatoapis.com",
+);
+// Optional shared secret. Gelato webhooks aren't HMAC-signed, so we secure the
+// endpoint by embedding this as a ?token= query param in the URL registered in
+// the Gelato dashboard. When unset, the webhook accepts any caller (dev).
+export const GELATO_WEBHOOK_SECRET = optional("GELATO_WEBHOOK_SECRET", "");
 
 export const SHOP_PUBLIC_URL = required("SHOP_PUBLIC_URL");
 export const SHOP_CONTACT_EMAIL = required("SHOP_CONTACT_EMAIL");
@@ -32,10 +41,6 @@ export const SMTP_SECURE = optional("SMTP_SECURE", "false") === "true";
 // --- optional knobs ---
 export const SHOP_NAME = optional("SHOP_NAME", "h4ks shop");
 export const SHOP_CURRENCY = optional("SHOP_CURRENCY", "USD");
-export const SHOP_TAX_TYPE = optional("SHOP_TAX_TYPE", "NOT_TAXABLE") as
-  | "NOT_TAXABLE"
-  | "SALESTAX"
-  | "VAT";
 
 // Per-item markup folded into every displayed/charged price to cover shipping.
 // Stripe checkout shows "free shipping" — the cost is hidden in product price.

@@ -1,11 +1,12 @@
 import { NextResponse } from "next/server";
 import type Stripe from "stripe";
 import { stripe } from "@/lib/stripe";
-import { createOrder, confirmOrder } from "@/lib/spreadconnect";
+import { createOrder, type GelatoOrderItem } from "@/lib/gelato";
+import { findBySku, designUrlFor } from "@/lib/catalog";
 import { sendEmail } from "@/lib/mailer";
 import { orderConfirmedEmail } from "@/lib/emails";
 import { makeDedup } from "@/lib/dedup";
-import { SHOP_CURRENCY, SHOP_TAX_TYPE, STRIPE_WEBHOOK_SECRET } from "@/lib/config";
+import { SHOP_CURRENCY, STRIPE_WEBHOOK_SECRET } from "@/lib/config";
 
 export const runtime = "nodejs";
 
@@ -15,8 +16,9 @@ const DAY_MS = 24 * 60 * 60 * 1000;
 const seenStripeEvent = makeDedup(DAY_MS);
 const seenStripeSession = makeDedup(DAY_MS);
 
-// We create the spreadconnect order only after Stripe collects the address;
-// shipping is flat-tier in Stripe so no upfront quote is needed.
+// We place the Gelato order only after Stripe collects the address; shipping is
+// folded into the product price (free shipping at checkout) so no upfront quote
+// is needed.
 export async function POST(req: Request) {
   const sig = req.headers.get("stripe-signature");
   if (!sig) {
@@ -44,9 +46,8 @@ export async function POST(req: Request) {
   }
 
   const sessionRef = event.data.object as Stripe.Checkout.Session;
-  // Track whether spreadconnect.createOrder has actually run. If it has, we
-  // must NOT let a Stripe retry trigger a second createOrder (spreadconnect
-  // has no idempotency on externalOrderReference) — that would double-print.
+  // Track whether the Gelato order has actually been placed. If it has, we must
+  // NOT let a Stripe retry place a second order — that would double-print.
   let orderCreated = false;
   try {
     // Belt-and-suspenders: also gate on session.id so two events for the same
@@ -86,7 +87,7 @@ export async function POST(req: Request) {
       seenStripeSession.forget(sessionRef.id);
     } else {
       console.error(
-        `webhook: ORDER STUCK — spreadconnect createOrder succeeded but a later step failed for stripe session ${sessionRef.id}; confirm manually in the spreadconnect dashboard`,
+        `webhook: ORDER STUCK — Gelato order was placed but a later step failed for stripe session ${sessionRef.id}; check the Gelato dashboard`,
       );
     }
     console.error("webhook: fulfillment failed:", err);
@@ -97,7 +98,7 @@ export async function POST(req: Request) {
   }
 }
 
-type FulfillResult = { ok: true; orderId: number } | { ok: false; status: number; error: string };
+type FulfillResult = { ok: true; orderId: string } | { ok: false; status: number; error: string };
 
 type MetadataItem = { sku: string; qty: number; unitCents: number };
 
@@ -149,40 +150,46 @@ async function fulfill(
   const [firstName, ...lastParts] = (ship.name || cust.name || "Customer").split(" ");
   const lastName = lastParts.join(" ") || "—";
 
-  const order = await createOrder({
-    orderItems: items.map((it) => ({
-      sku: it.sku,
+  // Map each purchased SKU back to its Gelato productUid + print file via the
+  // local catalog. A missing mapping is a data bug, not a transient failure —
+  // fail loudly rather than place a malformed order.
+  const orderItems: GelatoOrderItem[] = [];
+  for (const it of items) {
+    const found = findBySku(it.sku);
+    if (!found) {
+      console.error(`webhook: sku ${it.sku} not in catalog`, session.id);
+      return { ok: false, status: 400, error: "unknown sku" };
+    }
+    orderItems.push({
+      itemReferenceId: it.sku,
+      productUid: found.variant.productUid,
+      fileUrl: designUrlFor(found.product),
       quantity: it.qty,
-      customerPrice: {
-        amount: it.unitCents / 100,
-        currency: SHOP_CURRENCY,
-        taxRate: 0,
-        taxType: SHOP_TAX_TYPE,
-      },
-    })),
-    shipping: {
-      address: {
-        firstName,
-        lastName,
-        street: ship.address.line1 || "",
-        streetAnnex: ship.address.line2 || undefined,
-        city: ship.address.city || "",
-        state: ship.address.state || undefined,
-        zipCode: ship.address.postal_code || "",
-        country: ship.address.country || "",
-      },
+    });
+  }
+
+  const order = await createOrder({
+    orderType: "order",
+    orderReferenceId: externalOrderReference,
+    customerReferenceId: cust.email,
+    currency: SHOP_CURRENCY,
+    items: orderItems,
+    shippingAddress: {
+      firstName,
+      lastName,
+      addressLine1: ship.address.line1 || "",
+      addressLine2: ship.address.line2 || undefined,
+      state: ship.address.state || undefined,
+      city: ship.address.city || "",
+      postCode: ship.address.postal_code || "",
+      country: ship.address.country || "",
+      email: cust.email,
+      phone: cust.phone || undefined,
     },
-    phone: cust.phone || "",
-    email: cust.email,
-    externalOrderReference,
-    state: "NEW",
-    customerTaxType: SHOP_TAX_TYPE,
-    origin: "h4kshop-web",
   });
   onOrderCreated();
-  await confirmOrder(order.id);
   console.log(
-    `webhook: confirmed spreadconnect order ${order.id} (${items.length} item(s)) for stripe session ${session.id}`,
+    `webhook: placed Gelato order ${order.id} (${items.length} item(s)) for stripe session ${session.id}`,
   );
 
   // Build a summary string for the email body. For multi-item carts we list

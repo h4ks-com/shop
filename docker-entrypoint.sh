@@ -11,7 +11,7 @@ fi
 # first request, which is too late to catch a misconfigured deploy.
 missing=""
 for v in STRIPE_SECRET_KEY STRIPE_WEBHOOK_SECRET \
-         SPREADCONNECT_TOKEN SPREADCONNECT_WEBHOOK_SECRET \
+         GELATO_TOKEN \
          SHOP_PUBLIC_URL SHOP_CONTACT_EMAIL \
          SMTP_HOST SMTP_USER SMTP_PASS SMTP_FROM; do
   eval "val=\$$v"

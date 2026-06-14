@@ -5,8 +5,7 @@ export async function register(): Promise<void> {
   const required = [
     "STRIPE_SECRET_KEY",
     "STRIPE_WEBHOOK_SECRET",
-    "SPREADCONNECT_TOKEN",
-    "SPREADCONNECT_WEBHOOK_SECRET",
+    "GELATO_TOKEN",
     "SHOP_PUBLIC_URL",
     "SHOP_CONTACT_EMAIL",
     "SMTP_HOST",

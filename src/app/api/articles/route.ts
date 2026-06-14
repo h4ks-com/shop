@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { listArticles, customerPriceAmount } from "@/lib/spreadconnect";
+import { listProducts, lowestPriceCents, productImagePath } from "@/lib/catalog";
 
 // Returns the parsed value, or null if the param was supplied but invalid.
 function intParam(raw: string | null, fallback: number, min: number): number | null {
@@ -17,21 +17,16 @@ export async function GET(req: Request) {
     return NextResponse.json({ error: "bad limit/offset" }, { status: 400 });
   }
   const limit = Math.min(limitRaw, 100);
-  try {
-    const data = await listArticles(limit, offset);
-    const items = data.items.map((a) => ({
-      id: a.id,
-      title: a.title,
-      description: a.description,
-      previewImage:
-        a.images?.find((i) => i.perspective === "FRONT")?.imageUrl ||
-        a.images?.[0]?.imageUrl ||
-        null,
-      priceFrom: a.variants.length ? Math.min(...a.variants.map(customerPriceAmount)) : null,
-    }));
-    return NextResponse.json({ items, count: data.count });
-  } catch (err) {
-    console.error(`articles list upstream failed:`, err);
-    return NextResponse.json({ error: "catalog lookup failed" }, { status: 502 });
-  }
+  const all = listProducts();
+  const items = all.slice(offset, offset + limit).map((p) => ({
+    id: p.id,
+    title: p.title,
+    description: p.description,
+    previewImage: productImagePath(p),
+    priceFrom: (() => {
+      const cents = lowestPriceCents(p);
+      return cents === null ? null : cents / 100;
+    })(),
+  }));
+  return NextResponse.json({ items, count: all.length });
 }

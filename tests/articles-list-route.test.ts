@@ -1,13 +1,15 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
+import type { CatalogProduct } from "@/lib/catalog";
 
 const h = vi.hoisted(() => ({
-  listArticles: vi.fn<(limit: number, offset: number) => Promise<unknown>>(),
-  customerPriceAmount: vi.fn(() => 9.99),
+  listProducts: vi.fn<() => CatalogProduct[]>(),
 }));
 
-vi.mock("@/lib/spreadconnect", () => ({
-  listArticles: h.listArticles,
-  customerPriceAmount: h.customerPriceAmount,
+vi.mock("@/lib/catalog", () => ({
+  listProducts: h.listProducts,
+  lowestPriceCents: (p: CatalogProduct) =>
+    p.variants.length ? Math.min(...p.variants.map((v) => v.priceCents)) : null,
+  productImagePath: (p: CatalogProduct) => (p.designFile ? `/designs/${p.designFile}` : null),
 }));
 
 async function loadRoute() {
@@ -17,9 +19,19 @@ async function loadRoute() {
 
 const get = (qs = "") => new Request(`http://x/api/articles${qs}`);
 
+const product = (id: number): CatalogProduct => ({
+  id,
+  title: `p${id}`,
+  description: "",
+  color: "",
+  designFile: "x.png",
+  needsArtwork: false,
+  variants: [{ sku: `g-${id}-os`, sizeName: "One Size", productUid: "uid", priceCents: 2690 }],
+});
+
 beforeEach(() => {
-  h.listArticles.mockReset();
-  h.listArticles.mockResolvedValue({ items: [], count: 0 });
+  h.listProducts.mockReset();
+  h.listProducts.mockReturnValue([]);
 });
 
 describe("GET /api/articles — query validation", () => {
@@ -31,48 +43,38 @@ describe("GET /api/articles — query validation", () => {
     ["?offset=-1", 400],
     ["?offset=NaN", 400],
     ["?offset=1.5", 400],
-  ])("rejects %s without calling upstream", async (qs, status) => {
+  ])("rejects %s", async (qs, status) => {
     const { GET } = await loadRoute();
     const res = await GET(get(qs));
     expect(res.status).toBe(status);
-    expect(h.listArticles).not.toHaveBeenCalled();
   });
 
-  it("clamps limit > 100 to 100 (silently)", async () => {
+  it("accepts valid limit + offset and returns count", async () => {
+    h.listProducts.mockReturnValue([product(1), product(2), product(3)]);
     const { GET } = await loadRoute();
-    const res = await GET(get("?limit=99999"));
+    const res = await GET(get("?limit=2&offset=0"));
     expect(res.status).toBe(200);
-    expect(h.listArticles).toHaveBeenCalledWith(100, 0);
+    const body = (await res.json()) as { items: unknown[]; count: number };
+    expect(body.count).toBe(3);
+    expect(body.items).toHaveLength(2);
   });
 
-  it("accepts valid limit + offset", async () => {
+  it("slices by offset", async () => {
+    h.listProducts.mockReturnValue([product(1), product(2), product(3)]);
     const { GET } = await loadRoute();
-    const res = await GET(get("?limit=15&offset=30"));
-    expect(res.status).toBe(200);
-    expect(h.listArticles).toHaveBeenCalledWith(15, 30);
+    const res = await GET(get("?limit=10&offset=2"));
+    const body = (await res.json()) as { items: { id: number }[] };
+    expect(body.items).toHaveLength(1);
+    expect(body.items[0]?.id).toBe(3);
   });
 
-  it("defaults to limit=50 offset=0 when missing", async () => {
-    const { GET } = await loadRoute();
-    const res = await GET(get(""));
-    expect(res.status).toBe(200);
-    expect(h.listArticles).toHaveBeenCalledWith(50, 0);
-  });
-});
-
-describe("GET /api/articles — error masking", () => {
-  it("does NOT leak spreadconnect URL paths or reference UUIDs on 502", async () => {
-    h.listArticles.mockRejectedValue(
-      new Error(
-        'spreadconnect GET /articles?limit=50&offset=0: 500 {"path":"/fulfillment/rest/api/articles","reference":"8db3fa2c-5499-4d55-bc31-a3403f4cb480"}',
-      ),
-    );
+  it("maps preview image + priceFrom", async () => {
+    h.listProducts.mockReturnValue([product(1)]);
     const { GET } = await loadRoute();
     const res = await GET(get());
-    expect(res.status).toBe(502);
-    const body = await res.text();
-    expect(body).not.toContain("spreadconnect");
-    expect(body).not.toContain("/fulfillment");
-    expect(body).not.toContain("8db3fa2c");
+    const body = (await res.json()) as {
+      items: { previewImage: string; priceFrom: number }[];
+    };
+    expect(body.items[0]).toMatchObject({ previewImage: "/designs/x.png", priceFrom: 26.9 });
   });
 });

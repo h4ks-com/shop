@@ -1,0 +1,418 @@
+{
+  "currency": "USD",
+  "generatedAt": null,
+  "products": [
+    {
+      "id": 3405730,
+      "title": "hanb — Boxy Heavyweight Tee",
+      "description": "Heavyweight unisex tee.",
+      "color": "white",
+      "designFile": "4bfa1ffb-d9ba-43cb-a20e-e012fb8fa2c8.png",
+      "needsArtwork": false,
+      "variants": [
+        {
+          "sku": "g-3405730-XS",
+          "sizeName": "XS",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_xs_gco_white_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3405730-S",
+          "sizeName": "S",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_s_gco_white_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3405730-M",
+          "sizeName": "M",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_m_gco_white_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3405730-L",
+          "sizeName": "L",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_l_gco_white_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3405730-XL",
+          "sizeName": "XL",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_xl_gco_white_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3405730-2XL",
+          "sizeName": "2XL",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_2xl_gco_white_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3405730-3XL",
+          "sizeName": "3XL",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_3xl_gco_white_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        }
+      ]
+    },
+    {
+      "id": 3405731,
+      "title": "hanb — Oversized Tee (Blaster)",
+      "description": "Oversized unisex organic tee.",
+      "color": "white",
+      "designFile": "4bfa1ffb-d9ba-43cb-a20e-e012fb8fa2c8.png",
+      "needsArtwork": false,
+      "variants": [
+        {
+          "sku": "g-3405731-XS",
+          "sizeName": "XS",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_xs_gco_white_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3405731-S",
+          "sizeName": "S",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_s_gco_white_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3405731-M",
+          "sizeName": "M",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_m_gco_white_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3405731-L",
+          "sizeName": "L",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_l_gco_white_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3405731-XL",
+          "sizeName": "XL",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_xl_gco_white_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3405731-2XL",
+          "sizeName": "2XL",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_2xl_gco_white_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3405731-3XL",
+          "sizeName": "3XL",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_3xl_gco_white_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        }
+      ]
+    },
+    {
+      "id": 3405735,
+      "title": "hanb — Premium Oversized Tee",
+      "description": "Premium oversized organic tee.",
+      "color": "black",
+      "designFile": "2a4fda0b-3b5b-4b16-9473-48082da34eea.png",
+      "needsArtwork": false,
+      "variants": [
+        {
+          "sku": "g-3405735-XS",
+          "sizeName": "XS",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_xs_gco_black_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3405735-S",
+          "sizeName": "S",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_s_gco_black_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3405735-M",
+          "sizeName": "M",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_m_gco_black_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3405735-L",
+          "sizeName": "L",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_l_gco_black_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3405735-XL",
+          "sizeName": "XL",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_xl_gco_black_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3405735-2XL",
+          "sizeName": "2XL",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_2xl_gco_black_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3405735-3XL",
+          "sizeName": "3XL",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_3xl_gco_black_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        }
+      ]
+    },
+    {
+      "id": 3401680,
+      "title": "Men's h4ks.com T-Shirt",
+      "description": "Classic unisex tee.",
+      "color": "black",
+      "designFile": null,
+      "needsArtwork": true,
+      "variants": [
+        {
+          "sku": "g-3401680-S",
+          "sizeName": "S",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_s_gco_black_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3401680-M",
+          "sizeName": "M",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_m_gco_black_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3401680-L",
+          "sizeName": "L",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_l_gco_black_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3401680-XL",
+          "sizeName": "XL",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_xl_gco_black_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3401680-2XL",
+          "sizeName": "2XL",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_2xl_gco_black_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3401680-3XL",
+          "sizeName": "3XL",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_3xl_gco_black_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3401680-4XL",
+          "sizeName": "4XL",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_4xl_gco_black_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        }
+      ]
+    },
+    {
+      "id": 3405316,
+      "title": "Women's T-Shirt",
+      "description": "Women's fitted tee.",
+      "color": "black",
+      "designFile": null,
+      "needsArtwork": true,
+      "variants": [
+        {
+          "sku": "g-3405316-S",
+          "sizeName": "S",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_s_gco_black_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3405316-M",
+          "sizeName": "M",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_m_gco_black_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3405316-L",
+          "sizeName": "L",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_l_gco_black_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3405316-XL",
+          "sizeName": "XL",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_xl_gco_black_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3405316-2XL",
+          "sizeName": "2XL",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_2xl_gco_black_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        }
+      ]
+    },
+    {
+      "id": 3405726,
+      "title": "hanb — Kids' T-Shirt",
+      "description": "Kids' tee.",
+      "color": "white",
+      "designFile": "4bfa1ffb-d9ba-43cb-a20e-e012fb8fa2c8.png",
+      "needsArtwork": false,
+      "variants": [
+        {
+          "sku": "g-3405726-XS",
+          "sizeName": "XS",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_xs_gco_white_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3405726-S",
+          "sizeName": "S",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_s_gco_white_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        },
+        {
+          "sku": "g-3405726-M",
+          "sizeName": "M",
+          "productUid": "apparel_product_gca_t-shirt_gsc_crewneck_gcu_unisex_gqa_prm_gsi_m_gco_white_gpr_0-4-lg_bella-and-canvas_3001",
+          "priceCents": 2690
+        }
+      ]
+    },
+    {
+      "id": 3405725,
+      "title": "hanb — Unisex Hoodie",
+      "description": "Unisex pullover hoodie.",
+      "color": "black",
+      "designFile": "925003c5-b276-49e9-ba8a-930d512e9500.png",
+      "needsArtwork": false,
+      "variants": [
+        {
+          "sku": "g-3405725-S",
+          "sizeName": "S",
+          "productUid": "apparel_product_gca_hoodie_gsc_cropped_gcu_womens_gqa_prm_gsi_s_gco_black_gpr_0-4_bella-and-canvas_7502",
+          "priceCents": 4690
+        },
+        {
+          "sku": "g-3405725-M",
+          "sizeName": "M",
+          "productUid": "apparel_product_gca_hoodie_gsc_cropped_gcu_womens_gqa_prm_gsi_m_gco_black_gpr_0-4_bella-and-canvas_7502",
+          "priceCents": 4690
+        },
+        {
+          "sku": "g-3405725-L",
+          "sizeName": "L",
+          "productUid": "apparel_product_gca_hoodie_gsc_cropped_gcu_womens_gqa_prm_gsi_l_gco_black_gpr_0-4_bella-and-canvas_7502",
+          "priceCents": 4690
+        },
+        {
+          "sku": "g-3405725-XL",
+          "sizeName": "XL",
+          "productUid": "apparel_product_gca_hoodie_gsc_cropped_gcu_womens_gqa_prm_gsi_xl_gco_black_gpr_0-4_bella-and-canvas_7502",
+          "priceCents": 4690
+        },
+        {
+          "sku": "g-3405725-2XL",
+          "sizeName": "2XL",
+          "productUid": "apparel_product_gca_hoodie_gsc_cropped_gcu_womens_gqa_prm_gsi_2xl_gco_black_gpr_0-4_bella-and-canvas_7502",
+          "priceCents": 4690
+        }
+      ]
+    },
+    {
+      "id": 3405435,
+      "title": "hanb mug",
+      "description": "11oz ceramic mug.",
+      "color": "",
+      "designFile": "4bfa1ffb-d9ba-43cb-a20e-e012fb8fa2c8.png",
+      "needsArtwork": false,
+      "variants": [
+        {
+          "sku": "g-3405435-os",
+          "sizeName": "One Size",
+          "productUid": "mug_product_msz_11-oz_mmat_ceramic-black_cl_4-0",
+          "priceCents": 1990
+        }
+      ]
+    },
+    {
+      "id": 3405851,
+      "title": "hanb mug — inverted",
+      "description": "11oz ceramic mug.",
+      "color": "",
+      "designFile": "925003c5-b276-49e9-ba8a-930d512e9500.png",
+      "needsArtwork": false,
+      "variants": [
+        {
+          "sku": "g-3405851-os",
+          "sizeName": "One Size",
+          "productUid": "mug_product_msz_11-oz_mmat_ceramic-black_cl_4-0",
+          "priceCents": 1990
+        }
+      ]
+    },
+    {
+      "id": 3405481,
+      "title": "h4ks.com — Mug",
+      "description": "Ceramic mug.",
+      "color": "",
+      "designFile": null,
+      "needsArtwork": true,
+      "variants": [
+        {
+          "sku": "g-3405481-os",
+          "sizeName": "One Size",
+          "productUid": "mug_product_msz_11-oz_mmat_ceramic-black_cl_4-0",
+          "priceCents": 1990
+        }
+      ]
+    },
+    {
+      "id": 3405635,
+      "title": "Beans Pouch",
+      "description": "Cotton tote.",
+      "color": "",
+      "designFile": "e7dea5c6-7f9d-4c6d-96bc-feb6f381aa3a.png",
+      "needsArtwork": false,
+      "variants": [
+        {
+          "sku": "g-3405635-os",
+          "sizeName": "One Size",
+          "productUid": "bag_product_bsc_tote-bag_bqa_clc_bsi_std-t_bco_black_bpr_0-4",
+          "priceCents": 2290
+        }
+      ]
+    },
+    {
+      "id": 3405637,
+      "title": "Beans Bag",
+      "description": "Cotton gift bag.",
+      "color": "",
+      "designFile": "e7dea5c6-7f9d-4c6d-96bc-feb6f381aa3a.png",
+      "needsArtwork": false,
+      "variants": [
+        {
+          "sku": "g-3405637-os",
+          "sizeName": "One Size",
+          "productUid": "bag_product_bsc_tote-bag_bqa_clc_bsi_std-t_bco_black_bpr_0-4",
+          "priceCents": 2290
+        }
+      ]
+    },
+    {
+      "id": 3405311,
+      "title": "Beano Trucker Cap",
+      "description": "Trucker cap.",
+      "color": "",
+      "designFile": null,
+      "needsArtwork": true,
+      "variants": [
+        {
+          "sku": "g-3405311-os",
+          "sizeName": "One Size",
+          "productUid": "apparel_product_gca_hat_gsc_trucker-hat_gcu_unisex_gqa_classic_gsi_one-size_gco_biscuit-true-blue_gpr_4-0-dtf_richardson_112",
+          "priceCents": 2890
+        }
+      ]
+    }
+  ]
+}

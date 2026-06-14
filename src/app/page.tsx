@@ -1,11 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { listArticles, customerPriceAmount } from "@/lib/spreadconnect";
+import { listProducts, lowestPriceCents, productImagePath } from "@/lib/catalog";
 import { PAGE_SIZE, parsePage, pageWindow } from "@/lib/pagination";
 import { formatPrice } from "@/lib/format";
 import { SHOP_CURRENCY } from "@/lib/config";
-
-export const dynamic = "force-dynamic";
 
 export default async function Home({
   searchParams,
@@ -15,17 +13,10 @@ export default async function Home({
   const sp = await searchParams;
   const requested = parsePage(sp.p);
 
-  let articles: Awaited<ReturnType<typeof listArticles>>["items"] = [];
-  let total = 0;
-  let error: string | null = null;
-  try {
-    const data = await listArticles(PAGE_SIZE, (requested - 1) * PAGE_SIZE);
-    articles = data.items;
-    total = data.count ?? data.items.length;
-  } catch (err) {
-    error = err instanceof Error ? err.message : "unknown error";
-  }
-
+  const all = listProducts();
+  const total = all.length;
+  const start = (requested - 1) * PAGE_SIZE;
+  const products = all.slice(start, start + PAGE_SIZE);
   const win = pageWindow({ page: requested, total });
 
   return (
@@ -33,48 +24,30 @@ export default async function Home({
       <div className="section-label">[ merch ]</div>
       <h1 className="mono text-2xl mb-2 text-text">support h4ks</h1>
       <p className="text-text-dim mb-8 mono text-sm">
-        every order pays h4ks bills. printed and shipped by{" "}
-        <a
-          href="https://www.spreadshirt.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-accent hover:underline"
-        >
-          Spreadshirt
-        </a>
-        .
+        every order pays h4ks bills. printed and shipped worldwide on demand.
       </p>
 
-      {error && (
-        <div className="border border-[color:var(--accent2)] p-4 mono text-sm text-accent2">
-          shop is offline: {error}
-        </div>
-      )}
-
-      {!error && articles.length === 0 && (
+      {products.length === 0 && (
         <p className="text-text-dim mono">
           no products yet — come back soon, or yell at the admins on irc.
         </p>
       )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {articles.map((a) => {
-          const img =
-            a.images?.find((i) => i.perspective === "FRONT")?.imageUrl || a.images?.[0]?.imageUrl;
-          const priceFrom = a.variants.length
-            ? Math.min(...a.variants.map(customerPriceAmount))
-            : null;
+        {products.map((p) => {
+          const img = productImagePath(p);
+          const priceFrom = lowestPriceCents(p);
           return (
             <Link
-              key={a.id}
-              href={`/p/${a.id}`}
+              key={p.id}
+              href={`/p/${p.id}`}
               className="block bg-[color:var(--bg-panel)] border border-[color:var(--border)] p-3 hover:border-accent transition-colors no-underline"
             >
               <div className="aspect-square bg-bg flex items-center justify-center overflow-hidden mb-3">
                 {img ? (
                   <Image
                     src={img}
-                    alt={a.title}
+                    alt={p.title}
                     width={400}
                     height={400}
                     className="object-contain w-full h-full"
@@ -84,9 +57,9 @@ export default async function Home({
                   <span className="mono text-xs text-text-dim">no image</span>
                 )}
               </div>
-              <div className="mono text-sm text-text mb-1">{a.title}</div>
+              <div className="mono text-sm text-text mb-1">{p.title}</div>
               <div className="mono text-xs text-accent2">
-                {priceFrom !== null ? `from ${formatPrice(priceFrom, SHOP_CURRENCY)}` : ""}
+                {priceFrom !== null ? `from ${formatPrice(priceFrom / 100, SHOP_CURRENCY)}` : ""}
                 {priceFrom !== null && <span className="text-accent ml-2">· free shipping</span>}
               </div>
             </Link>
