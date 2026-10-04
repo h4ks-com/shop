@@ -172,3 +172,21 @@ export function orderNeedsActionEmail(opts: { externalRef: string; reason?: stri
   const text = `your h4ks order ${opts.externalRef} hit a snag at the printer. we'll follow up. ${opts.reason || ""}`;
   return { subject, html, text };
 }
+
+export function fulfillmentFailedAlertEmail(opts: {
+  sessionId: string;
+  externalRef: string;
+  customerEmail?: string;
+  error: string;
+}): { subject: string; html: string; text: string } {
+  const subject = `paid order not placed: ${opts.externalRef}`;
+  const text = [
+    "a paid checkout could not be placed at Gelato. Stripe keeps retrying the webhook; fix the cause or refund the payment.",
+    `stripe session: ${opts.sessionId}`,
+    `order ref: ${opts.externalRef}`,
+    `customer: ${opts.customerEmail ?? "unknown"}`,
+    `error: ${opts.error}`,
+  ].join("\n");
+  const html = shell("alert", `<pre style="white-space:pre-wrap;">${esc(text)}</pre>`);
+  return { subject, html, text };
+}

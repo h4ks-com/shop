@@ -251,7 +251,27 @@ export const STRIPE_SUPPORTED_ISO = [
 // local-production network ships to ~200 countries from a single account; these
 // are the ones it cannot fulfil to (sanctions/embargo) plus Stripe's non-country
 // placeholder code.
-export const BLOCKED_ISO = ["KP", "RU", "BY", "SY", "IR", "ZZ"] as const;
+export const BLOCKED_ISO = [
+  "KP",
+  "RU",
+  "BY",
+  "SY",
+  "IR",
+  "ZZ",
+  // We skip India because Gelato's cost there exceeds our prices on most products.
+  "IN",
+  // Uninhabited or postal-only territories.
+  "AQ",
+  "BV",
+  "GS",
+  "HM",
+  "IO",
+  "TF",
+  "PN",
+  "TA",
+  "AC",
+  "EH",
+] as const;
 
 // Countries to advertise in Stripe Checkout: everything Stripe supports minus
 // the blocked set. One Gelato account ships worldwide, so there is no per-region

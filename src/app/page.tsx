@@ -13,7 +13,7 @@ export default async function Home({
   const sp = await searchParams;
   const requested = parsePage(sp.p);
 
-  const all = listProducts();
+  const all = await listProducts();
   const total = all.length;
   const start = (requested - 1) * PAGE_SIZE;
   const products = all.slice(start, start + PAGE_SIZE);
@@ -59,8 +59,8 @@ export default async function Home({
               </div>
               <div className="mono text-sm text-text mb-1">{p.title}</div>
               <div className="mono text-xs text-accent2">
-                {priceFrom !== null ? `from ${formatPrice(priceFrom / 100, SHOP_CURRENCY)}` : ""}
-                {priceFrom !== null && <span className="text-accent ml-2">· free shipping</span>}
+                {`from ${formatPrice(priceFrom / 100, SHOP_CURRENCY)}`}
+                <span className="text-accent ml-2">· free shipping</span>
               </div>
             </Link>
           );

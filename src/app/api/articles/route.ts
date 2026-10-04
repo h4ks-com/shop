@@ -17,16 +17,13 @@ export async function GET(req: Request) {
     return NextResponse.json({ error: "bad limit/offset" }, { status: 400 });
   }
   const limit = Math.min(limitRaw, 100);
-  const all = listProducts();
+  const all = await listProducts();
   const items = all.slice(offset, offset + limit).map((p) => ({
     id: p.id,
     title: p.title,
     description: p.description,
     previewImage: productImagePath(p),
-    priceFrom: (() => {
-      const cents = lowestPriceCents(p);
-      return cents === null ? null : cents / 100;
-    })(),
+    priceFrom: lowestPriceCents(p) / 100,
   }));
   return NextResponse.json({ items, count: all.length });
 }

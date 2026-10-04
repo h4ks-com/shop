@@ -9,12 +9,11 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "test:e2e": "vitest run --config vitest.e2e.config.ts",
     "test:watch": "vitest",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "tunnel-url": "node scripts/tunnel-url.mjs",
-    "gelato:resolve": "node --env-file=.env scripts/gelato-resolve.mjs",
-    "gelato:build-catalog": "node --env-file=.env scripts/gelato-build-catalog.mjs"
+    "tunnel-url": "node scripts/tunnel-url.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

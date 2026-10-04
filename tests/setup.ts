@@ -3,6 +3,8 @@
 process.env.STRIPE_SECRET_KEY ||= "sk_test_x";
 process.env.STRIPE_WEBHOOK_SECRET ||= "whsec_test_x";
 process.env.GELATO_TOKEN ||= "gelato_test_x";
+process.env.GELATO_STORE_ID ||= "store_test_x";
+process.env.GELATO_WEBHOOK_SECRET ||= "gelato_webhook_test_x";
 process.env.SHOP_PUBLIC_URL ||= "http://localhost:3000";
 process.env.SHOP_CONTACT_EMAIL ||= "test@h4ks.test";
 process.env.SMTP_HOST ||= "smtp.test";

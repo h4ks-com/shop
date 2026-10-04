@@ -3,11 +3,7 @@ const nextConfig = {
   output: "standalone",
   poweredByHeader: false,
   images: {
-    remotePatterns: [
-      { protocol: "https", hostname: "image.spreadshirtmedia.com" },
-      { protocol: "https", hostname: "image.spreadshirtmedia.net" },
-      { protocol: "https", hostname: "*.spreadconnect.app" },
-    ],
+    remotePatterns: [{ protocol: "https", hostname: "gelato-api-live.s3.eu-west-1.amazonaws.com" }],
   },
 };
 export default nextConfig;

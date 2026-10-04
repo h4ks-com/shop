@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getProduct, productImagePath, storefrontVariants } from "@/lib/catalog";
+import { getProduct, storefrontVariants } from "@/lib/catalog";
 import { SHOP_CURRENCY } from "@/lib/config";
 import { getCameo } from "@/lib/cameos";
 import ProductView from "./ProductView";
@@ -12,16 +12,16 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
   const productId = Number(id);
   if (!Number.isFinite(productId)) notFound();
 
-  const product = getProduct(productId);
-  // Hide products that have no artwork yet or no buyable variants.
-  if (!product || product.needsArtwork || product.variants.length === 0) notFound();
+  const product = await getProduct(productId);
+  if (!product) notFound();
 
   const variants = storefrontVariants(product);
 
-  const imgPath = productImagePath(product);
-  const images: GalleryImage[] = imgPath
-    ? [{ url: imgPath, alt: product.title, appearanceName: product.color }]
-    : [];
+  const images: GalleryImage[] = product.images.map((i) => ({
+    url: i.url,
+    appearanceName: i.color,
+    alt: `${product.title} ${i.color}`,
+  }));
 
   const cameo = getCameo(product.id);
 

@@ -15,8 +15,10 @@ function parseItem(
   const rawId = raw.articleId;
   const articleId = typeof rawId === "number" || typeof rawId === "string" ? Number(rawId) : NaN;
   const sku = typeof raw.sku === "string" ? raw.sku : "";
+  const rawQuantity = Number(raw.quantity ?? 1);
   if (!Number.isSafeInteger(articleId) || articleId <= 0 || !sku) return null;
-  const quantity = Math.min(Math.max(Number(raw.quantity ?? 1) || 1, 1), CART_MAX_ITEMS);
+  if (!Number.isInteger(rawQuantity)) return null;
+  const quantity = Math.min(Math.max(rawQuantity, 1), CART_MAX_ITEMS);
   return { articleId, sku, quantity };
 }
 
@@ -49,7 +51,10 @@ export async function POST(req: Request) {
   for (const raw of rawItems) {
     const parsed = parseItem(raw);
     if (!parsed) {
-      return NextResponse.json({ error: "articleId and sku required" }, { status: 400 });
+      return NextResponse.json(
+        { error: "articleId and sku required, quantity must be an integer" },
+        { status: 400 },
+      );
     }
     items.push(parsed);
   }
@@ -66,8 +71,8 @@ export async function POST(req: Request) {
   // make-to-order, so there is no stock to check.
   const lines: Line[] = [];
   for (const it of items) {
-    const product = getProduct(it.articleId);
-    if (!product || product.needsArtwork) {
+    const product = await getProduct(it.articleId);
+    if (!product) {
       return NextResponse.json({ error: "unknown product" }, { status: 400 });
     }
     const variant = findVariant(product, it.sku);
@@ -79,6 +84,8 @@ export async function POST(req: Request) {
       productName: product.title,
       unitAmountCents: variant.priceCents,
       quantity: it.quantity,
+      productUid: variant.productUid,
+      designId: variant.designId,
     });
   }
 

@@ -1,3 +1,5 @@
+import { numericId } from "@/lib/catalog";
+
 // Per-article 3D mascot overlay. Add an entry to give a product page a small
 // animated character pinned to the bottom-right corner. Entries are optional —
 // articles without one render no 3D content and pay no bundle cost.
@@ -17,7 +19,7 @@ export type Cameo = {
 };
 
 export const CAMEOS: Record<number, Cameo> = {
-  3405725: {
+  [numericId("b8df1de9-1f3f-497d-a63a-097c8a55634a")]: {
     glbUrl: "/cameo/3405725.glb",
   },
 };

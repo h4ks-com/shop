@@ -8,21 +8,19 @@ import { GELATO_WEBHOOK_SECRET } from "@/lib/config";
 
 export const runtime = "nodejs";
 
-// Gelato webhook events. The order-level event carries an orderReferenceId (our
-// externalOrderReference) and a fulfillmentStatus; tracking + the customer email
-// live on the full order, which we fetch by id. Status values of interest:
-// "shipped" → tracking email, "canceled" → cancellation email.
+// We act on the order we fetch by id, so the status, tracking and customer email
+// all come from Gelato itself. "shipped" sends tracking, "canceled" a cancellation.
 type GelatoEvent = {
   event?: string;
   orderId?: string;
   orderReferenceId?: string;
-  fulfillmentStatus?: string;
 };
 
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
 // Gelato doesn't sign webhooks, so the endpoint is protected by a shared secret
-// embedded as ?token= in the registered URL (when GELATO_WEBHOOK_SECRET is set).
+// embedded as ?token= in the registered URL.
 function authorized(req: Request): boolean {
-  if (!GELATO_WEBHOOK_SECRET) return true;
   const token = new URL(req.url).searchParams.get("token") || "";
   const a = Buffer.from(token);
   const b = Buffer.from(GELATO_WEBHOOK_SECRET);
@@ -37,7 +35,8 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
   const raw = await req.text();
-  if (!seenDelivery.claim(createHash("sha256").update(raw).digest("hex"))) {
+  const deliveryKey = createHash("sha256").update(raw).digest("hex");
+  if (!seenDelivery.claim(deliveryKey)) {
     return new NextResponse("[accepted]", { status: 202 });
   }
 
@@ -48,20 +47,23 @@ export async function POST(req: Request) {
     return new NextResponse("[accepted]", { status: 202 });
   }
 
-  // Best-effort email side effects — Gelato doesn't need us to block on them.
+  // We release the dedup key on failure so a Gelato redelivery can retry the email.
   handleEvent(event).catch((err) => {
     console.error("gelato webhook handler failed:", err);
+    seenDelivery.forget(deliveryKey);
   });
 
   return new NextResponse("[accepted]", { status: 202 });
 }
 
 async function handleEvent(event: GelatoEvent): Promise<void> {
-  if (event.event !== "order_status_updated" || !event.orderId) return;
-  const status = (event.fulfillmentStatus || "").toLowerCase();
-  if (status !== "shipped" && status !== "canceled" && status !== "cancelled") return;
+  if (event.event !== "order_status_updated" || !event.orderId || !UUID.test(event.orderId)) {
+    return;
+  }
 
   const order = await getOrder(event.orderId);
+  const status = (order.fulfillmentStatus || "").toLowerCase();
+  if (status !== "shipped" && status !== "canceled" && status !== "cancelled") return;
   const email = order.shippingAddress?.email;
   if (!email) return;
   const externalRef = order.orderReferenceId || event.orderReferenceId || `order ${event.orderId}`;

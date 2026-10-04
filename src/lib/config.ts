@@ -1,7 +1,9 @@
 function required(name: string): string {
   const v = process.env[name];
-  if (!v) throw new Error(`required env var ${name} is not set`);
-  return v;
+  if (v) return v;
+  // Next imports every route while building the image, which has no env, so we defer the check to runtime.
+  if (process.env.NEXT_PHASE === "phase-production-build") return "";
+  throw new Error(`required env var ${name} is not set`);
 }
 
 function optional(name: string, fallback: string): string {
@@ -15,18 +17,21 @@ export const STRIPE_WEBHOOK_SECRET = required("STRIPE_WEBHOOK_SECRET");
 // Gelato fulfilment — single global account that auto-routes to the nearest
 // facility and ships worldwide.
 export const GELATO_TOKEN = required("GELATO_TOKEN");
-export const GELATO_PRODUCT_BASE_URL = optional(
-  "GELATO_PRODUCT_BASE_URL",
-  "https://product.gelatoapis.com",
-);
+// The Gelato store whose products the shop sells.
+export const GELATO_STORE_ID = required("GELATO_STORE_ID");
 export const GELATO_ORDER_BASE_URL = optional(
   "GELATO_ORDER_BASE_URL",
   "https://order.gelatoapis.com",
 );
-// Optional shared secret. Gelato webhooks aren't HMAC-signed, so we secure the
-// endpoint by embedding this as a ?token= query param in the URL registered in
-// the Gelato dashboard. When unset, the webhook accepts any caller (dev).
-export const GELATO_WEBHOOK_SECRET = optional("GELATO_WEBHOOK_SECRET", "");
+export const GELATO_ECOMMERCE_BASE_URL = optional(
+  "GELATO_ECOMMERCE_BASE_URL",
+  "https://ecommerce.gelatoapis.com",
+);
+// Gelato webhooks are unsigned, so we authenticate them with this secret, sent as
+// ?token= in the webhook URL registered in the Gelato dashboard.
+export const GELATO_WEBHOOK_SECRET = required("GELATO_WEBHOOK_SECRET");
+// We place uncharged Gelato draft orders unless GELATO_LIVE_ORDERS=true, since real orders cost money.
+export const GELATO_LIVE_ORDERS = optional("GELATO_LIVE_ORDERS", "false") === "true";
 
 export const SHOP_PUBLIC_URL = required("SHOP_PUBLIC_URL");
 export const SHOP_CONTACT_EMAIL = required("SHOP_CONTACT_EMAIL");
@@ -40,9 +45,5 @@ export const SMTP_SECURE = optional("SMTP_SECURE", "false") === "true";
 
 // --- optional knobs ---
 export const SHOP_NAME = optional("SHOP_NAME", "h4ks shop");
-export const SHOP_CURRENCY = optional("SHOP_CURRENCY", "USD");
-
-// Per-item markup folded into every displayed/charged price to cover shipping.
-// Stripe checkout shows "free shipping" — the cost is hidden in product price.
-// Default 490 = €4.90, calibrated for EU standard shipping.
-export const SHIPPING_MARKUP_CENTS = Number(optional("SHIPPING_MARKUP_CENTS", "490"));
+// Must match the currency of the Gelato store, since the shop charges its prices.
+export const SHOP_CURRENCY = optional("SHOP_CURRENCY", "EUR");

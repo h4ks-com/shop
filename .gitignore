@@ -10,21 +10,3 @@ out/
 next-env.d.ts
 tsconfig.tsbuildinfo
 coverage/
-# Local sync state — EU↔US article/design id mappings, no secrets, but
-# specific to your account pair so kept out of git.
-data/sc-sync-state.json
-# Local SC account backups (full article dumps including image urls).
-data/sc-backup/
-# Discovered EU catalog (full dashboard dump per article) — contains
-# private design references. Local-only.
-data/sc-eu-catalog.json
-data/sc-designs/
-# Playwright session capture from `npm run sc:login`. Contains your dashboard
-# cookies & localStorage — equivalent to a logged-in browser. Treat as secret.
-data/sc-dashboard-session.json
-# EU→US product type mapping + raw dumps. Account-pair-specific, not secret, but
-# you fill these in by hand once per pair so they don't belong in the shared repo.
-data/sc-product-type-map.json
-data/sc-product-types-eu.json
-data/sc-product-types-us.json
-data/sc-product-types-side-by-side.csv

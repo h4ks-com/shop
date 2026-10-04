@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import type { CatalogProduct, CatalogVariant } from "@/lib/catalog";
 
 const h = vi.hoisted(() => ({
-  getProduct: vi.fn<(id: number) => CatalogProduct | undefined>(),
+  getProduct: vi.fn<(id: number) => Promise<CatalogProduct | undefined>>(),
   findVariant: vi.fn<(p: CatalogProduct, sku: string) => CatalogVariant | undefined>(),
   createCheckoutSession: vi.fn<(args: unknown) => Promise<{ id: string; url: string }>>(),
 }));
@@ -32,10 +32,17 @@ const product = (id: number): CatalogProduct => ({
   id,
   title: `art-${id}`,
   description: "",
-  color: "",
-  designFile: "x.png",
-  needsArtwork: false,
-  variants: [{ sku: "SKU-1", sizeName: "M", productUid: "uid", priceCents: 1999 }],
+  images: [],
+  variants: [
+    {
+      sku: "SKU-1",
+      sizeName: "M",
+      color: "black",
+      productUid: "uid",
+      designId: "design-1",
+      priceCents: 1999,
+    },
+  ],
 });
 
 beforeEach(() => {
@@ -62,7 +69,7 @@ describe("POST /api/checkout — articleId validation", () => {
 
   it("accepts a stringified positive integer (common from form encoders)", async () => {
     const p = product(12404);
-    h.getProduct.mockReturnValue(p);
+    h.getProduct.mockResolvedValue(p);
     h.findVariant.mockReturnValue(p.variants[0]);
     const { POST } = await loadRoute();
     const res = await POST(post({ articleId: "12404", sku: "SKU-1" }));
@@ -71,7 +78,7 @@ describe("POST /api/checkout — articleId validation", () => {
   });
 
   it("400s for an unknown product", async () => {
-    h.getProduct.mockReturnValue(undefined);
+    h.getProduct.mockResolvedValue(undefined);
     const { POST } = await loadRoute();
     const res = await POST(post({ articleId: 999, sku: "SKU-1" }));
     expect(res.status).toBe(400);
@@ -79,7 +86,7 @@ describe("POST /api/checkout — articleId validation", () => {
   });
 
   it("400s when the sku is not in the product", async () => {
-    h.getProduct.mockReturnValue(product(1));
+    h.getProduct.mockResolvedValue(product(1));
     h.findVariant.mockReturnValue(undefined);
     const { POST } = await loadRoute();
     const res = await POST(post({ articleId: 1, sku: "NOPE" }));

@@ -16,12 +16,16 @@ export function stripe(): Stripe {
 }
 
 const CURRENCY = SHOP_CURRENCY.toLowerCase();
+// Stripe requires at least 30 minutes.
+const SESSION_TTL_SECONDS = 31 * 60;
 
 export type Line = {
   sku: string;
   productName: string;
   unitAmountCents: number;
   quantity: number;
+  productUid: string;
+  designId: string;
 };
 
 export type CheckoutInput = {
@@ -62,13 +66,21 @@ export async function createCheckoutSession(args: CheckoutInput): Promise<Stripe
           : never,
     },
     phone_number_collection: { enabled: true },
-    // Encode the full line set so the webhook can reconstruct the Gelato order
-    // items with the right SKUs, quantities, and unit prices. Stripe's
-    // line_items expand returns description text only (no SKU), so we
-    // round-trip our own truth via metadata.
+    // We keep sessions short because the webhook orders the design stored below,
+    // and Gelato store products can change after checkout.
+    expires_at: Math.floor(Date.now() / 1000) + SESSION_TTL_SECONDS,
     metadata: {
-      items: JSON.stringify(
-        args.lines.map((l) => ({ sku: l.sku, qty: l.quantity, unitCents: l.unitAmountCents })),
+      ...Object.fromEntries(
+        args.lines.map((l, i) => [
+          `item_${i}`,
+          JSON.stringify({
+            sku: l.sku,
+            qty: l.quantity,
+            unitCents: l.unitAmountCents,
+            productUid: l.productUid,
+            designId: l.designId,
+          }),
+        ]),
       ),
       external_order_reference: args.externalOrderReference,
     },

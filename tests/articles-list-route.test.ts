@@ -2,14 +2,13 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import type { CatalogProduct } from "@/lib/catalog";
 
 const h = vi.hoisted(() => ({
-  listProducts: vi.fn<() => CatalogProduct[]>(),
+  listProducts: vi.fn<() => Promise<CatalogProduct[]>>(),
 }));
 
 vi.mock("@/lib/catalog", () => ({
   listProducts: h.listProducts,
-  lowestPriceCents: (p: CatalogProduct) =>
-    p.variants.length ? Math.min(...p.variants.map((v) => v.priceCents)) : null,
-  productImagePath: (p: CatalogProduct) => (p.designFile ? `/designs/${p.designFile}` : null),
+  lowestPriceCents: (p: CatalogProduct) => Math.min(...p.variants.map((v) => v.priceCents)),
+  productImagePath: (p: CatalogProduct) => p.images[0]?.url ?? null,
 }));
 
 async function loadRoute() {
@@ -23,15 +22,22 @@ const product = (id: number): CatalogProduct => ({
   id,
   title: `p${id}`,
   description: "",
-  color: "",
-  designFile: "x.png",
-  needsArtwork: false,
-  variants: [{ sku: `g-${id}-os`, sizeName: "One Size", productUid: "uid", priceCents: 2690 }],
+  images: [{ url: `https://gelato.test/${id}.jpg`, color: "White" }],
+  variants: [
+    {
+      sku: `variant-${id}`,
+      sizeName: "one size",
+      color: "White",
+      productUid: "uid",
+      designId: "design-1",
+      priceCents: 2690,
+    },
+  ],
 });
 
 beforeEach(() => {
   h.listProducts.mockReset();
-  h.listProducts.mockReturnValue([]);
+  h.listProducts.mockResolvedValue([]);
 });
 
 describe("GET /api/articles — query validation", () => {
@@ -50,7 +56,7 @@ describe("GET /api/articles — query validation", () => {
   });
 
   it("accepts valid limit + offset and returns count", async () => {
-    h.listProducts.mockReturnValue([product(1), product(2), product(3)]);
+    h.listProducts.mockResolvedValue([product(1), product(2), product(3)]);
     const { GET } = await loadRoute();
     const res = await GET(get("?limit=2&offset=0"));
     expect(res.status).toBe(200);
@@ -60,7 +66,7 @@ describe("GET /api/articles — query validation", () => {
   });
 
   it("slices by offset", async () => {
-    h.listProducts.mockReturnValue([product(1), product(2), product(3)]);
+    h.listProducts.mockResolvedValue([product(1), product(2), product(3)]);
     const { GET } = await loadRoute();
     const res = await GET(get("?limit=10&offset=2"));
     const body = (await res.json()) as { items: { id: number }[] };
@@ -69,12 +75,15 @@ describe("GET /api/articles — query validation", () => {
   });
 
   it("maps preview image + priceFrom", async () => {
-    h.listProducts.mockReturnValue([product(1)]);
+    h.listProducts.mockResolvedValue([product(1)]);
     const { GET } = await loadRoute();
     const res = await GET(get());
     const body = (await res.json()) as {
       items: { previewImage: string; priceFrom: number }[];
     };
-    expect(body.items[0]).toMatchObject({ previewImage: "/designs/x.png", priceFrom: 26.9 });
+    expect(body.items[0]).toMatchObject({
+      previewImage: "https://gelato.test/1.jpg",
+      priceFrom: 26.9,
+    });
   });
 });

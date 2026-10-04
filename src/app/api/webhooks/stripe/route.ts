@@ -1,12 +1,16 @@
 import { NextResponse } from "next/server";
 import type Stripe from "stripe";
 import { stripe } from "@/lib/stripe";
-import { createOrder, type GelatoOrderItem } from "@/lib/gelato";
-import { findBySku, designUrlFor } from "@/lib/catalog";
+import { createOrder, findOrderByReference, type CreateGelatoOrderRequest } from "@/lib/gelato";
 import { sendEmail } from "@/lib/mailer";
-import { orderConfirmedEmail } from "@/lib/emails";
+import { fulfillmentFailedAlertEmail, orderConfirmedEmail } from "@/lib/emails";
 import { makeDedup } from "@/lib/dedup";
-import { SHOP_CURRENCY, STRIPE_WEBHOOK_SECRET } from "@/lib/config";
+import {
+  GELATO_LIVE_ORDERS,
+  SHOP_CONTACT_EMAIL,
+  SHOP_CURRENCY,
+  STRIPE_WEBHOOK_SECRET,
+} from "@/lib/config";
 
 export const runtime = "nodejs";
 
@@ -15,6 +19,7 @@ export const runtime = "nodejs";
 const DAY_MS = 24 * 60 * 60 * 1000;
 const seenStripeEvent = makeDedup(DAY_MS);
 const seenStripeSession = makeDedup(DAY_MS);
+const alertedSession = makeDedup(DAY_MS);
 
 // We place the Gelato order only after Stripe collects the address; shipping is
 // folded into the product price (free shipping at checkout) so no upfront quote
@@ -46,9 +51,8 @@ export async function POST(req: Request) {
   }
 
   const sessionRef = event.data.object as Stripe.Checkout.Session;
-  // Track whether the Gelato order has actually been placed. If it has, we must
-  // NOT let a Stripe retry place a second order — that would double-print.
-  let orderCreated = false;
+  let paidSession: Stripe.Checkout.Session | undefined;
+  let orderId: string | undefined;
   try {
     // Belt-and-suspenders: also gate on session.id so two events for the same
     // session (a forged retry with a fresh event.id) can't double-fulfill.
@@ -56,7 +60,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: true, deduped: true });
     }
 
-    // Re-fetch with expansions — some events arrive with line_items unpopulated.
+    // We re-fetch with expansions because some events arrive with line_items unpopulated.
     const session = await stripe().checkout.sessions.retrieve(sessionRef.id, {
       expand: ["customer_details", "line_items"],
     });
@@ -69,114 +73,125 @@ export async function POST(req: Request) {
       seenStripeSession.forget(sessionRef.id);
       return NextResponse.json({ ok: true, awaitingPayment: true });
     }
+    paidSession = session;
 
-    const result = await fulfill(session, () => {
-      orderCreated = true;
-    });
-    if (!result.ok) {
-      seenStripeSession.forget(sessionRef.id);
-      return NextResponse.json({ error: result.error }, { status: result.status });
-    }
-    return NextResponse.json({ ok: true, orderId: result.orderId });
-  } catch (err) {
-    // Always allow Stripe to retry by clearing the event gate. The session
-    // gate stays claimed iff we got past createOrder — that way a retry hits
-    // the session gate and bails without re-issuing createOrder.
-    seenStripeEvent.forget(event.id);
-    if (!orderCreated) {
-      seenStripeSession.forget(sessionRef.id);
-    } else {
-      console.error(
-        `webhook: ORDER STUCK — Gelato order was placed but a later step failed for stripe session ${sessionRef.id}; check the Gelato dashboard`,
+    // We look the reference up at Gelato so a restart, which empties the dedup
+    // gates, never places a second order for the same checkout.
+    const orderReferenceId = externalReference(session);
+    const existing = await findOrderByReference(orderReferenceId);
+    if (existing) {
+      console.log(
+        `webhook: Gelato order ${existing.id} already exists for ${orderReferenceId}, skipping`,
       );
+      return NextResponse.json({ ok: true, orderId: existing.id });
     }
-    console.error("webhook: fulfillment failed:", err);
-    return NextResponse.json(
-      { error: err instanceof Error ? err.message : "unknown" },
-      { status: 500 },
+
+    const order = orderRequest(session, orderReferenceId);
+    orderId = (await createOrder(order)).id;
+    console.log(
+      `webhook: placed Gelato ${GELATO_LIVE_ORDERS ? "order" : "DRAFT order"} ${orderId} ` +
+        `(${order.items.length} item(s)) for stripe session ${session.id}`,
     );
-  }
-}
-
-type FulfillResult = { ok: true; orderId: string } | { ok: false; status: number; error: string };
-
-type MetadataItem = { sku: string; qty: number; unitCents: number };
-
-function parseItemsMetadata(raw: string | undefined | null): MetadataItem[] | null {
-  if (!raw) return null;
-  try {
-    const parsed = JSON.parse(raw);
-    if (!Array.isArray(parsed)) return null;
-    const out: MetadataItem[] = [];
-    for (const it of parsed) {
-      if (
-        !it ||
-        typeof it.sku !== "string" ||
-        typeof it.qty !== "number" ||
-        typeof it.unitCents !== "number"
-      )
-        return null;
-      out.push({ sku: it.sku, qty: it.qty, unitCents: it.unitCents });
+    sendConfirmation(session, order);
+    return NextResponse.json({ ok: true, orderId });
+  } catch (err) {
+    if (orderId) {
+      console.error(
+        `webhook: Gelato order ${orderId} was placed but a later step failed for stripe session ${sessionRef.id}:`,
+        err,
+      );
+      return NextResponse.json({ ok: true, orderId });
     }
-    return out;
-  } catch {
-    return null;
+    seenStripeEvent.forget(event.id);
+    seenStripeSession.forget(sessionRef.id);
+    console.error("webhook: fulfillment failed:", err);
+    const error = err instanceof Error ? err.message : String(err);
+    if (paidSession && alertedSession.claim(sessionRef.id)) {
+      alertOwner(paidSession, error);
+    }
+    return NextResponse.json({ error }, { status: 500 });
   }
 }
 
-async function fulfill(
-  session: Stripe.Checkout.Session,
-  onOrderCreated: () => void,
-): Promise<FulfillResult> {
-  const externalOrderReference =
+function externalReference(session: Stripe.Checkout.Session): string {
+  return (
     session.client_reference_id ||
     session.metadata?.external_order_reference ||
-    `stripe-${session.id}`;
+    `stripe-${session.id}`
+  );
+}
 
-  const items = parseItemsMetadata(session.metadata?.items);
-  if (!items || items.length === 0) {
-    console.error("webhook: session has no items metadata", session.id);
-    return { ok: false, status: 400, error: "missing items" };
+type MetadataItem = {
+  sku: string;
+  qty: number;
+  unitCents: number;
+  productUid: string;
+  designId: string;
+};
+
+function isFilled(v: unknown): v is string {
+  return typeof v === "string" && v.length > 0;
+}
+
+function parseItem(raw: string): MetadataItem {
+  const it: unknown = JSON.parse(raw);
+  if (typeof it === "object" && it !== null) {
+    const { sku, qty, unitCents, productUid, designId } = it as Record<string, unknown>;
+    if (
+      isFilled(sku) &&
+      isFilled(productUid) &&
+      isFilled(designId) &&
+      typeof qty === "number" &&
+      Number.isInteger(qty) &&
+      qty > 0 &&
+      typeof unitCents === "number" &&
+      Number.isInteger(unitCents) &&
+      unitCents >= 0
+    ) {
+      return { sku, qty, unitCents, productUid, designId };
+    }
   }
+  throw new Error(`invalid item metadata: ${raw}`);
+}
+
+function parseItemsMetadata(metadata: Stripe.Metadata | null): MetadataItem[] {
+  const meta = metadata ?? {};
+  const items: MetadataItem[] = [];
+  for (let i = 0; `item_${i}` in meta; i++) {
+    items.push(parseItem(meta[`item_${i}`]));
+  }
+  if (items.length === 0) throw new Error("session has no item metadata");
+  return items;
+}
+
+function orderRequest(
+  session: Stripe.Checkout.Session,
+  orderReferenceId: string,
+): CreateGelatoOrderRequest {
+  const items = parseItemsMetadata(session.metadata);
 
   // From API 2025-09-30 onward shipping moved under collected_information.
   const ship = session.collected_information?.shipping_details;
   const cust = session.customer_details;
   if (!ship?.address || !cust?.email) {
-    console.error("webhook: missing shipping_details/customer_details", session.id);
-    return { ok: false, status: 400, error: "missing address" };
+    throw new Error("session has no shipping address or customer email");
   }
 
   const [firstName, ...lastParts] = (ship.name || cust.name || "Customer").split(" ");
-  const lastName = lastParts.join(" ") || "—";
-
-  // Map each purchased SKU back to its Gelato productUid + print file via the
-  // local catalog. A missing mapping is a data bug, not a transient failure —
-  // fail loudly rather than place a malformed order.
-  const orderItems: GelatoOrderItem[] = [];
-  for (const it of items) {
-    const found = findBySku(it.sku);
-    if (!found) {
-      console.error(`webhook: sku ${it.sku} not in catalog`, session.id);
-      return { ok: false, status: 400, error: "unknown sku" };
-    }
-    orderItems.push({
-      itemReferenceId: it.sku,
-      productUid: found.variant.productUid,
-      fileUrl: designUrlFor(found.product),
-      quantity: it.qty,
-    });
-  }
-
-  const order = await createOrder({
-    orderType: "order",
-    orderReferenceId: externalOrderReference,
+  return {
+    orderType: GELATO_LIVE_ORDERS ? "order" : "draft",
+    orderReferenceId,
     customerReferenceId: cust.email,
     currency: SHOP_CURRENCY,
-    items: orderItems,
+    items: items.map((it) => ({
+      itemReferenceId: it.sku,
+      productUid: it.productUid,
+      designId: it.designId,
+      quantity: it.qty,
+    })),
     shippingAddress: {
       firstName,
-      lastName,
+      lastName: lastParts.join(" ") || "-",
       addressLine1: ship.address.line1 || "",
       addressLine2: ship.address.line2 || undefined,
       state: ship.address.state || undefined,
@@ -186,30 +201,33 @@ async function fulfill(
       email: cust.email,
       phone: cust.phone || undefined,
     },
-  });
-  onOrderCreated();
-  console.log(
-    `webhook: placed Gelato order ${order.id} (${items.length} item(s)) for stripe session ${session.id}`,
-  );
+  };
+}
 
-  // Build a summary string for the email body. For multi-item carts we list
-  // each line; for a single item this matches the prior format.
-  const totalQty = items.reduce((s, i) => s + i.qty, 0);
+function sendConfirmation(session: Stripe.Checkout.Session, order: CreateGelatoOrderRequest) {
   const lineDescriptions =
     session.line_items?.data?.map((li) => li.description).filter(Boolean) ?? [];
-  const productSummary = lineDescriptions.length > 0 ? lineDescriptions.join(", ") : undefined;
-
-  // Email is best-effort — a delivery failure must not roll back fulfillment.
+  // We send the email best-effort, since the order is already placed.
   void sendEmail({
-    to: cust.email,
+    to: order.shippingAddress.email,
     ...orderConfirmedEmail({
-      externalRef: externalOrderReference,
-      productName: productSummary,
-      quantity: totalQty,
+      externalRef: order.orderReferenceId,
+      productName: lineDescriptions.length > 0 ? lineDescriptions.join(", ") : undefined,
+      quantity: order.items.reduce((s, i) => s + i.quantity, 0),
       totalAmount: session.amount_total ? session.amount_total / 100 : undefined,
       currency: (session.currency || SHOP_CURRENCY).toUpperCase(),
     }),
   }).catch((err) => console.error("order confirmation email failed:", err));
+}
 
-  return { ok: true, orderId: order.id };
+function alertOwner(session: Stripe.Checkout.Session, error: string) {
+  void sendEmail({
+    to: SHOP_CONTACT_EMAIL,
+    ...fulfillmentFailedAlertEmail({
+      sessionId: session.id,
+      externalRef: externalReference(session),
+      customerEmail: session.customer_details?.email ?? undefined,
+      error,
+    }),
+  }).catch((err) => console.error("fulfillment alert email failed:", err));
 }
