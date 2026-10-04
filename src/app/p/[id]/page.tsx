@@ -23,7 +23,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
     alt: `${product.title} ${i.color}`,
   }));
 
-  const cameo = getCameo(product.id);
+  const cameo = getCameo(product.title);
 
   return (
     <>
