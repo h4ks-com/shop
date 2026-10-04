@@ -16,11 +16,14 @@ export type Cameo = {
   // Wrapper size in px. Defaults: 300 × 400.
   widthPx?: number;
   heightPx?: number;
+  // If set, clicking the character opens this URL in a new tab.
+  href?: string;
 };
 
 export const CAMEOS: Record<number, Cameo> = {
   [numericId("b8df1de9-1f3f-497d-a63a-097c8a55634a")]: {
     glbUrl: "/cameo/3405725.glb",
+    href: "https://party.h4ks.com/",
   },
 };
 
