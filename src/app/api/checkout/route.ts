@@ -4,6 +4,8 @@ import { getProduct, findVariant } from "@/lib/catalog";
 import { createCheckoutSession, type Line } from "@/lib/stripe";
 import { CART_MAX_ITEMS } from "@/lib/cart-config";
 
+const UNAVAILABLE_ITEM = "an item in your cart is no longer available, remove it and add it again";
+
 type CartItemInput = { articleId: unknown; sku: unknown; quantity?: unknown };
 type Body =
   | { items: unknown }
@@ -72,12 +74,9 @@ export async function POST(req: Request) {
   const lines: Line[] = [];
   for (const it of items) {
     const product = await getProduct(it.articleId);
-    if (!product) {
-      return NextResponse.json({ error: "unknown product" }, { status: 400 });
-    }
-    const variant = findVariant(product, it.sku);
-    if (!variant) {
-      return NextResponse.json({ error: "sku not in product" }, { status: 400 });
+    const variant = product && findVariant(product, it.sku);
+    if (!product || !variant) {
+      return NextResponse.json({ error: UNAVAILABLE_ITEM }, { status: 400 });
     }
     lines.push({
       sku: it.sku,
