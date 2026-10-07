@@ -114,7 +114,13 @@ export type CreateGelatoOrderRequest = {
   shipmentMethodUid?: "normal" | "express" | "standard";
 };
 
-export type GelatoTracking = { code?: string; url?: string };
+export type GelatoTracking = {
+  code?: string;
+  url?: string;
+  carrier?: string;
+  minDeliveryDate?: string;
+  maxDeliveryDate?: string;
+};
 
 export type GelatoOrder = {
   id: string;
@@ -127,19 +133,25 @@ export type GelatoOrder = {
   items?: Array<{
     itemReferenceId?: string;
     fulfillmentStatus?: string;
-    fulfillments?: Array<{ trackingCode?: string; trackingUrl?: string }>;
   }>;
+  shipment?: {
+    shipmentMethodName?: string;
+    minDeliveryDate?: string;
+    maxDeliveryDate?: string;
+    packages?: Array<{ trackingCode?: string; trackingUrl?: string }>;
+  };
 };
 
 export function firstTracking(order: GelatoOrder): GelatoTracking {
-  for (const item of order.items ?? []) {
-    for (const f of item.fulfillments ?? []) {
-      if (f.trackingCode || f.trackingUrl) {
-        return { code: f.trackingCode, url: f.trackingUrl };
-      }
-    }
-  }
-  return {};
+  const shipment = order.shipment;
+  const pkg = shipment?.packages?.find((p) => p.trackingCode || p.trackingUrl);
+  return {
+    code: pkg?.trackingCode,
+    url: pkg?.trackingUrl,
+    carrier: shipment?.shipmentMethodName,
+    minDeliveryDate: shipment?.minDeliveryDate,
+    maxDeliveryDate: shipment?.maxDeliveryDate,
+  };
 }
 
 export async function createOrder(req: CreateGelatoOrderRequest): Promise<GelatoOrder> {

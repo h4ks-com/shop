@@ -39,11 +39,26 @@ describe("email templates", () => {
   it("escapes tracking code in shipment email", () => {
     const { html } = shipmentSentEmail({
       externalRef: "ref",
-      trackingCode: "<b>code</b>",
-      trackingUrl: "https://track.example/abc",
+      code: "<b>code</b>",
+      url: "https://track.example/abc",
     });
     expect(html).not.toContain("<b>code</b>");
     expect(html).toContain("&lt;b&gt;code&lt;/b&gt;");
+  });
+
+  it("shows carrier, delivery window and tracking link in shipment email", () => {
+    const { html, text } = shipmentSentEmail({
+      externalRef: "ref",
+      code: "0034",
+      url: "https://nolp.dhl.de/search?piececode=0034",
+      carrier: "DHL Parcel",
+      minDeliveryDate: "2026-10-08",
+      maxDeliveryDate: "2026-10-12",
+    });
+    expect(html).toContain("carrier: DHL Parcel");
+    expect(html).toContain("expected: 2026-10-08 to 2026-10-12");
+    expect(html).toContain('href="https://nolp.dhl.de/search?piececode=0034"');
+    expect(text).toContain("track: https://nolp.dhl.de/search?piececode=0034");
   });
 
   it("keeps plain text passthrough intact", () => {

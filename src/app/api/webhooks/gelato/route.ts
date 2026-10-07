@@ -69,12 +69,7 @@ async function handleEvent(event: GelatoEvent): Promise<void> {
   const externalRef = order.orderReferenceId || event.orderReferenceId || `order ${event.orderId}`;
 
   if (status === "shipped") {
-    const track = firstTracking(order);
-    const { subject, html, text } = shipmentSentEmail({
-      externalRef,
-      trackingUrl: track.url,
-      trackingCode: track.code,
-    });
+    const { subject, html, text } = shipmentSentEmail({ externalRef, ...firstTracking(order) });
     await sendEmail({ to: email, subject, html, text });
     return;
   }

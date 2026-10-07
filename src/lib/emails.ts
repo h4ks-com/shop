@@ -111,29 +111,45 @@ export function orderConfirmedEmail(opts: {
 
 export function shipmentSentEmail(opts: {
   externalRef: string;
-  trackingUrl?: string;
-  trackingCode?: string;
+  url?: string;
+  code?: string;
+  carrier?: string;
+  minDeliveryDate?: string;
+  maxDeliveryDate?: string;
 }): { subject: string; html: string; text: string } {
   const subject = `your order is on the way`;
-  const safeUrl = opts.trackingUrl && isSafeUrl(opts.trackingUrl) ? opts.trackingUrl : undefined;
-  const trackingBlock =
-    safeUrl || opts.trackingCode
-      ? label("tracking") +
-        (safeUrl ? code(esc(safeUrl)) : "") +
-        (opts.trackingCode
-          ? `<div style="margin-top:6px;font-size:13px;">code: <code style="color:#ff9e64;">${esc(opts.trackingCode)}</code></div>`
-          : "") +
-        (safeUrl ? button(esc(safeUrl), "track shipment →") : "")
-      : "";
+  const safeUrl = opts.url && isSafeUrl(opts.url) ? opts.url : undefined;
+  const arrival =
+    opts.minDeliveryDate && opts.maxDeliveryDate
+      ? opts.minDeliveryDate === opts.maxDeliveryDate
+        ? opts.minDeliveryDate
+        : `${opts.minDeliveryDate} to ${opts.maxDeliveryDate}`
+      : undefined;
+  const details = [
+    opts.carrier && `carrier: ${opts.carrier}`,
+    arrival && `expected: ${arrival}`,
+    opts.code && `tracking: ${opts.code}`,
+  ].filter((d): d is string => Boolean(d));
+  const detailsBlock = details.length
+    ? label("shipment") + code(details.map(esc).join("<br/>"))
+    : "";
   const html = shell(
     "shipped",
     `<div style="color:#9ece6a;font-size:15px;margin-bottom:8px;">▸ shipment dispatched</div>
-     <p>your h4ks merch left the printer. should land in a few business days.</p>
-     ${trackingBlock}
+     <p>your h4ks merch left the printer.${arrival ? "" : " should land in a few business days."}</p>
+     ${detailsBlock}
+     ${safeUrl ? button(esc(safeUrl), "track shipment →") : ""}
      ${label("order ref")}
      ${code(esc(opts.externalRef))}`,
   );
-  const text = `your h4ks order has shipped.\nref: ${opts.externalRef}${opts.trackingUrl ? "\ntrack: " + opts.trackingUrl : ""}${opts.trackingCode ? "\ncode: " + opts.trackingCode : ""}`;
+  const text = [
+    "your h4ks order has shipped.",
+    ...details,
+    safeUrl && `track: ${safeUrl}`,
+    `ref: ${opts.externalRef}`,
+  ]
+    .filter(Boolean)
+    .join("\n");
   return { subject, html, text };
 }
 
