@@ -78,7 +78,57 @@ export async function listStoreVariants(
   return res.productVariants;
 }
 
+export async function updateStoreVariant(
+  storeId: string,
+  productId: string,
+  variantId: string,
+  patch: { price: number; currency: string } | { isHidden: boolean },
+): Promise<void> {
+  await call(
+    GELATO_ECOMMERCE_BASE_URL,
+    "PATCH",
+    `/v1/stores/${storeId}/products/${productId}/variants/${variantId}`,
+    patch,
+  );
+}
+
 // ---------------- Orders ----------------
+
+export type QuoteAddress = { country: string; city: string; postCode: string; state?: string };
+
+// Returns the product cost plus the cheapest shipping to `address`, or null when
+// Gelato cannot make and ship it there.
+export async function quoteCost(
+  productUid: string,
+  address: QuoteAddress,
+  currency: string,
+): Promise<number | null> {
+  const { quotes } = await call<{
+    quotes: Array<{
+      products: Array<{ price: number }>;
+      shipmentMethods: Array<{ price: number | null }>;
+    }>;
+  }>(GELATO_ORDER_BASE_URL, "POST", "/v4/orders:quote", {
+    orderReferenceId: "price-check",
+    customerReferenceId: "price-check",
+    currency,
+    allowMultipleQuotes: true,
+    recipient: {
+      ...address,
+      firstName: "Price",
+      lastName: "Check",
+      addressLine1: "1 Main St",
+      email: "price-check@example.com",
+    },
+    products: [{ itemReferenceId: "1", productUid, quantity: 1 }],
+  });
+  const totals = quotes.flatMap((quote) => {
+    const shipping = quote.shipmentMethods.map((m) => m.price).filter((p) => p != null);
+    if (shipping.length === 0) return [];
+    return [quote.products.reduce((sum, p) => sum + p.price, 0) + Math.min(...shipping)];
+  });
+  return totals.length > 0 ? Math.min(...totals) : null;
+}
 
 export type GelatoAddress = {
   firstName: string;

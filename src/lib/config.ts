@@ -32,6 +32,8 @@ export const GELATO_ECOMMERCE_BASE_URL = optional(
 export const GELATO_WEBHOOK_SECRET = required("GELATO_WEBHOOK_SECRET");
 // We place uncharged Gelato draft orders unless GELATO_LIVE_ORDERS=true, since real orders cost money.
 export const GELATO_LIVE_ORDERS = optional("GELATO_LIVE_ORDERS", "false") === "true";
+// Share of each retail price we keep over Gelato's product and shipping cost, e.g. 0.4.
+export const PRICE_MARGIN = Number(required("PRICE_MARGIN"));
 
 export const SHOP_PUBLIC_URL = required("SHOP_PUBLIC_URL");
 export const SHOP_CONTACT_EMAIL = required("SHOP_CONTACT_EMAIL");

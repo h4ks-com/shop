@@ -43,14 +43,17 @@ function option(variant: GelatoStoreVariant, ...names: string[]): string | undef
   return variant.variantOptions.find((o) => names.includes(o.name))?.value;
 }
 
-// Only active products with orderable variants in the shop currency make it into
-// the shop, so a product half way through publishing never shows up.
+// Gelato marks API-made products "active" and dashboard-made ones "created". Only
+// variants with a design and a price in the shop currency make it into the shop,
+// so a product half way through publishing never shows up.
+const LISTED_STATUSES = ["active", "created"];
+
 export function toCatalogProduct(
   product: GelatoStoreProduct,
   storeVariants: GelatoStoreVariant[],
   currency: string,
 ): CatalogProduct | null {
-  if (product.status !== "active") return null;
+  if (!LISTED_STATUSES.includes(product.status)) return null;
   const variants = storeVariants
     .filter((v) => !v.isHidden && v.designId && v.currency === currency && v.price > 0)
     .sort((a, b) => a.position - b.position)

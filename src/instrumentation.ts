@@ -14,12 +14,20 @@ export async function register(): Promise<void> {
     "SMTP_USER",
     "SMTP_PASS",
     "SMTP_FROM",
+    "PRICE_MARGIN",
   ];
   const missing = required.filter((k) => !process.env[k]);
   if (missing.length > 0) {
     console.error("missing required env vars:", missing.join(", "));
     process.exit(1);
   }
+  const margin = Number(process.env.PRICE_MARGIN);
+  if (!(margin > 0 && margin < 1)) {
+    console.error("PRICE_MARGIN must be a fraction between 0 and 1, e.g. 0.4");
+    process.exit(1);
+  }
+  const { startRepricing } = await import("@/lib/pricing");
+  startRepricing();
   // We warn on every boot so a production deploy missing GELATO_LIVE_ORDERS=true shows up in the logs.
   if (process.env.GELATO_LIVE_ORDERS !== "true") {
     console.warn(

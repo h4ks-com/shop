@@ -113,6 +113,15 @@ describe("toCatalogProduct", () => {
     expect(toCatalogProduct(storeProduct(), [], "EUR")).toBeNull();
   });
 
+  it("lists products made in the Gelato dashboard", () => {
+    const product = toCatalogProduct(
+      storeProduct({ status: "created" }),
+      [storeVariant("v", "White", "M")],
+      "EUR",
+    );
+    expect(product).not.toBeNull();
+  });
+
   it("names variants without colour or size options", () => {
     const product = toCatalogProduct(
       storeProduct(),

@@ -11,3 +11,4 @@ process.env.SMTP_HOST ||= "smtp.test";
 process.env.SMTP_USER ||= "u";
 process.env.SMTP_PASS ||= "p";
 process.env.SMTP_FROM ||= "test <test@h4ks.test>";
+process.env.PRICE_MARGIN ||= "0.4";
