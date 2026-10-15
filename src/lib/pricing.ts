@@ -7,8 +7,8 @@ import {
   type QuoteAddress,
 } from "./gelato";
 
-// We price every variant from what Gelato charges to make it and ship it to the
-// first of these it can deliver to, and hide variants it can deliver to none.
+// Checkout charges no shipping and accepts most countries, so we only sell
+// variants Gelato can deliver to all of these, priced from the dearest of them.
 const QUOTE_ADDRESSES: QuoteAddress[] = [
   { country: "DE", city: "Berlin", postCode: "10115" },
   { country: "GB", city: "London", postCode: "SW1A 1AA" },
@@ -29,10 +29,14 @@ const costs = new Map<string, number | null>();
 
 async function costOf(productUid: string): Promise<number | null> {
   if (costs.has(productUid)) return costs.get(productUid)!;
-  let cost: number | null = null;
+  let cost: number | null = 0;
   for (const address of QUOTE_ADDRESSES) {
-    cost = await quoteCost(productUid, address, SHOP_CURRENCY);
-    if (cost != null) break;
+    const quoted = await quoteCost(productUid, address, SHOP_CURRENCY);
+    if (quoted == null) {
+      cost = null;
+      break;
+    }
+    cost = Math.max(cost, quoted);
   }
   costs.set(productUid, cost);
   return cost;
