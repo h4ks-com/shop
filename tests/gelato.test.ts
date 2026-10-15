@@ -18,7 +18,10 @@ describe("firstTracking", () => {
           shipmentMethodName: "DHL Parcel",
           minDeliveryDate: "2026-10-08",
           maxDeliveryDate: "2026-10-12",
-          packages: [{}, { trackingCode: "0034", trackingUrl: "https://nolp.dhl.de/?piececode=0034" }],
+          packages: [
+            {},
+            { trackingCode: "0034", trackingUrl: "https://nolp.dhl.de/?piececode=0034" },
+          ],
         }),
       ),
     ).toEqual({
